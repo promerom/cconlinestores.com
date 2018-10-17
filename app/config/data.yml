@@ -1,0 +1,81 @@
+#Data from each store, product or service to show in the site
+twig:
+  globals:
+    stores:
+      adidas:
+        title: "Sitio Oficial adidas | adidas Colombia"
+        description: "Ingresa a la tienda oficial de adidas Colombia! Descubre la gran variedad de productos que la tienda oficial de adidas Colombia tiene para ti. Compra zapatos, ropa y mucho más a un solo click en adidas.co."
+        link: "https://www.adidas.co"
+        logo: "img/stores/adidas.png"
+      sony:
+        title: "Audio | Sony Store Colombia"
+        description: "Sumérgete en la mejor calidad de sonido con la gama de productos de audio de Sony. Encuentra reproductores de música, parlantes, audífonos y mucho más en Sony Store Online."
+        link: "https://store.sony.com.co"
+        logo: "img/stores/sony.png"
+      falabella:
+        title: "Falabella.com - Bienvenidos a Nuestra Tienda Online"
+        description: "En nuestro Aniversario Falabella: encuentra descuentos y promociones en Celulares y Televisores, Moda y Calzado, Juguetes, ropa Infantil y muchas cosas m&aacute;s. Ingresa y realiza tu compra online."
+        link: "https://www.falabella.com.co/falabella-co"
+        logo: "img/stores/falabella.png"
+      ktronix:
+        title: "KTRONIX, compra, iPad, Tablet, Android, Apple, Mac, Bose, Samsung, Sony, LG, Panasonic, HP, Ultrabook, Asus, Lavaplatos, Whirlpool, Nevecon  Ktronix Tienda Online"
+        description: "KTRONIX Primera Tienda especializada en tecnología. Tiendas en Bogotá, Medellín y Bucaramanga, www.ktronix.com con respaldo de ALKOSTO."
+        link: "https://www.ktronix.com"
+        logo: "img/stores/ktronix.png"
+      linio:
+        title: "Linio Colombia compra Online lo que buscas al mejor precio"
+        description: "COMPRA online rápido y seguro, con envío a todo COLOMBIA: Celulares, Computadores y Electrodomésticos en tu TIENDA en línea, LINIO."
+        link: "https://www.linio.com.co"
+        logo: "img/stores/linio.png"
+      amazon:
+        title:
+        description:
+        link:
+        logo: "img/stores/amazon.jpg"
+      ebay:
+        title:
+        description:
+        link:
+        logo: "img/stores/ebay.png"
+      aliexpress:
+        title: "AliExpress.com - Online Shopping for Popular Electronics, Fashion, Home & Garden, Toys & Sports, Automobiles and More."
+        description: "Online shopping for the latest electronics, fashion, phone accessories, computer electronics, toys and more."
+        link: "https://www.aliexpress.com"
+        logo: "img/stores/aliexpress.png"
+      dafiti:
+        title: "Dafiti Colombia | Moda Online - zapatos, ropa y accesorios"
+        description: "Compra ropas, zapatos y accesorios de las mejores marcas en Dafiti Colombia, tu tienda de moda online. Pago contraentrega. ¡Entra Ahora!"
+        link: "https://www.dafiti.com.co"
+        logo: "img/stores/dafiti.png"
+      freeportstore:
+        title: "Comprar Zapatos Online Colombia | Freeport Store"
+        description: "Comprar Zapatos Online y Accesorios en Freeport Store para hombre y mujer, envíos y devoluciones gratis en Colombia, encuentra Ofertas permanentes!"
+        link: "https://freeportstore.com"
+        logo: "img/stores/freeportstore.png"
+      baogelawatches:
+        title: "Baogela Official Store I Affordable Timepieces for Men and Women"
+        description: "Baogela Official Store I Affordable Timepieces for Men and Women"
+        link: "https://baogelawatches.com"
+        logo: "img/stores/baogela.png"
+      mercadolibre:
+        title:
+        description:
+        link:
+        logo: "img/stores/mercadolibre.png"
+      olx:
+        title:
+        description:
+        link:
+        logo: "img/stores/olx.png"
+    servicios:
+      uber:
+        title:
+        description:
+        link:
+        logo: "img/stores/uber.png"
+      ubereats:
+        title:
+        description:
+        link:
+        logo: "img/stores/ubereats.png"
+    viajes:
