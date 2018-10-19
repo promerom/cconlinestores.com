@@ -1,26 +1,29 @@
 <!-- Features Section -->
 <h2 class="pb-3 mb-4 font-italic border-bottom">Películas en estreno más importantes</h2>
+{% for movie in movies %}
 <div class="row">
     <div class="col-lg-6">
-        <h2>HALLOWEEN</h2>
-        <p class="text-justify">Jamie Lee Curtis regresa a su icónico personaje Laurie Strode, quien llega a la confrontación final con  Michael Myers, la figura enmascarada que la ha perseguido desde que escapó de la matanza que él hizo la noche de Halloween hace cuatro décadas.John Carpenter, maestro del género de horror, será productor ejecutivo y asesor creativo de esta película. Inspirados en los clásicos de Carpenter, los productores David Gordon Green y Danny McBride crearon una historia que traza un nuevo camino a partir de los hechos ocurridos en la película de 1978.</p>
+        <h2>{{ movie.title }}</h2>
+        <p class="text-justify">{{ movie.sinopsis }}</p>
         <ul>
             <li>
-                <strong>Fecha de estreno:</strong> Jueves, Octubre 25, 2018
+                <strong>Fecha de estreno:</strong> {{ movie.release_date }}
             </li>
-            <li><strong>Clasificación:</strong> RECOMENDADA PARA MAYORES DE 12 AÑOS</li>
-            <li><strong>País:</strong> Estados Unidos</li>
-            <li><strong>Reparto:</strong> Jamie Lee Curtis, Judy Greer, Will Patton, Nick Castle, Andi Matichak, Omar J. Dorsey.</li>
-            <li><strong>Director:</strong> David Gordon Green</li>
-            <li><strong>Género:</strong> Suspenso</li>
-            <li><strong>Idioma:</strong> Inglés</li>
+            <li><strong>Clasificación:</strong> {{ movie.clasification }}</li>
+            <li><strong>País:</strong> {{ movie.country }}</li>
+            <li><strong>Reparto:</strong> {{ movie.reparto }}</li>
+            <li><strong>Director:</strong> {{ movie.director }}</li>
+            <li><strong>Género:</strong> {{ movie.genero }}</li>
+            <li><strong>Idioma:</strong> {{ movie.idioma }}</li>
         </ul>
         <p></p>
     </div>
     <div class="col-lg-6 shadow-lg p-3 mb-5 bg-white rounded">
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube-nocookie.com/embed/ek1ePFp-nBI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe class="embed-responsive-item" width="560" height="315" src="{{ movie.trailer }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 </div>
+<hr />
+{% endfor %}
 <!-- /.row -->

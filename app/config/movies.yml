@@ -1,0 +1,63 @@
+twig:
+  globals:
+    movies:
+      m1:
+        title: "HALLOWEEN"
+        sinopsis: "Jamie Lee Curtis regresa a su icónico personaje Laurie Strode, quien llega a la confrontación final con  Michael Myers, la figura enmascarada que la ha perseguido desde que escapó de la matanza que él hizo la noche de Halloween hace cuatro décadas.John Carpenter, maestro del género de horror, será productor ejecutivo y asesor creativo de esta película. Inspirados en los clásicos de Carpenter, los productores David Gordon Green y Danny McBride crearon una historia que traza un nuevo camino a partir de los hechos ocurridos en la película de 1978."
+        trailer: "https://www.youtube-nocookie.com/embed/ek1ePFp-nBI"
+        img:
+        director: "David Gordon Green"
+        release_date: "Jueves, Octubre 25 de 2018"
+        clasification: "RECOMENDADA PARA MAYORES DE 12 AÑOS"
+        country: "Estados Unidos"
+        reparto: "Jamie Lee Curtis, Judy Greer, Will Patton, Nick Castle, Andi Matichak, Omar J. Dorsey."
+        genero: "Suspenso"
+        idioma: "Inglés"
+      m2:
+        title: "The Grinch"
+        sinopsis: "Para su octava entrega completamente animada, Illumination y Universal Pictures presentan El Grinch, basada en el clásico navideño de Dr. Seuss. El Grinch cuenta la historia de un cínico gruñón que se embarca en la misión de robar la Navidad, solo para que sus sentimientos cambien gracias al generoso espíritu festivo de una pequeña niña, Cindy-Lou. Graciosa y visualmente asombrosa, es una historia universal acerca del espíritu navideño y el indomable poder del optimismo. El aclamado actor, Eugenio Derbez, presta su voz del infame Grinch para la versión en español."
+        trailer: "https://www.youtube-nocookie.com/embed/tNN-TaoAnTw"
+        img:
+        director: "Scott Mosier, Yarrow Cheney"
+        release_date: "Jueves, Noviembre 29, 2018"
+        clasification:
+        country: "Estados Unidos"
+        reparto:
+        genero: "Comedia Animada"
+        idioma: "Inglés"
+      m3:
+        title: "BOHEMIAN RHAPSODY, LA HISTORIA DE FREDDIE MERCURY"
+        sinopsis: "“Bohemian Rhapsody, La historia de Freddie Mercury” es una celebración trepidante de Queen, su música y su extraordinario cantante principal Freddie Mercury, quien desafió estereotipos y destruyó convenciones para convertirse en uno de los artistas más queridos del mundo. La película sigue el ascenso meteórico de la banda a través de sus canciones icónicas y su sonido revolucionario, de su inminente implosión una vez que el estilo de vida de Mercury se sale de control, y de su reunión triunfante en vísperas de Live Aid, donde Mercury, quien enfrentaba una enfermedad terminal, lidera la banda en una de las presentaciones más grandiosas en la historia de la música rock. Y, en el proceso, la consolidación del legado de una banda que siempre fue más como una familia, y que continúa inspirando a marginados, soñadores y melómanos hasta la fecha."
+        trailer: "https://www.youtube-nocookie.com/embed/01Sn153r9RY"
+        img:
+        director: "Bryan Singer"
+        release_date: "Jueves, Noviembre 1 de 2018"
+        clasification: "APTA PARA TODO EL PÚBLICO"
+        country: "Estados Unidos"
+        reparto: "Rami Malek, Aidan Gillen, Lucy Boynton, Mike Myers, Joseph Mazzello, Tom Hollander, Ben Hardy, Allen Leech, Gwilym Lee."
+        genero: "Drama, Musical"
+        idioma: "Inglés"
+    m4:
+      title:
+      sinopsis:
+      trailer:
+      img:
+      director:
+      release_date:
+      clasification:
+      country:
+      reparto:
+      genero:
+      idioma:
+    m5:
+      title:
+      sinopsis:
+      trailer:
+      img:
+      director:
+      release_date:
+      clasification:
+      country:
+      reparto:
+      genero:
+      idioma:
