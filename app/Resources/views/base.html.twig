@@ -7,11 +7,11 @@
 
         <meta charset="utf-8">
         
-        <title>{% block title %}CC Onlines Stores, las mejores tiendas virtuales en un mismo lugar - cconlinestores.com{% endblock %}</title>
+        <title>{% block title %}{{ seo.title }} - {{ seo.site }}{% endblock %}</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Centro Comercial Online Stores, encuentra todas las tiendas virtuales más importantes y con los mejores descuentos, ofertas y productos.">
-        <meta name="author" content="">
+        <meta name="description" content="{{ seo.description }}">
+        <meta name="author" content="{{ seo.author }}">
 
         {% block stylesheets %}
         <!-- Bootstrap core CSS -->
@@ -25,10 +25,10 @@
         {
             "@context": "http://www.schema.org",
             "@type": "WebSite",
-            "name": "CC Online Stores",
-            "alternateName": "CC Online Stores",
-            "url": "https://cconlinestores.com",
-            "description": "Centro Comercial Online Stores, encuentra todas las tiendas virtuales más importantes y con los mejores descuentos, ofertas y productos."
+            "name": "{{ seo.name }}",
+            "alternateName": "{{ seo.name }}",
+            "url": "{{ seo.url }}",
+            "description": "{{ seo.description }}"
         }
         </script>
     </head>

@@ -120,6 +120,15 @@ body {
   }
 }
 
+/* DEALS CSS*/
+.card-img-top {
+    height: 199px;
+    width: auto;
+    display: table-cell;
+    margin: auto;
+}
+
+/* STORES CSS */
 .store {
     position: relative;
 }

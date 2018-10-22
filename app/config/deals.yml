@@ -1,0 +1,33 @@
+twig:
+  globals:
+    deals:
+      d1:
+        title: "Uber Eats 25% de descuento"
+        description: "25% de descuento en todos tus pedidos por la aplicacióncon Uber Eats usando el código <strong>SEGUIMOSCELEBRANDO</strong>, válido hasta el 31 de Octubre."
+        img: "img/stores/uber_eats.png"
+        link: "https://www.ubereats.com"
+    d2:
+      title: ""
+      description: ""
+      img: ""
+      link: ""
+    d3:
+      title: ""
+      description: ""
+      img: ""
+      link: ""
+    d4:
+      title: ""
+      description: ""
+      img: ""
+      link: ""
+    d5:
+      title: ""
+      description: ""
+      img: ""
+      link: ""
+    d6:
+      title: ""
+      description: ""
+      img: ""
+      link: ""

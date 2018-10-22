@@ -1,6 +1,15 @@
 #Data from each store, product or service to show in the site
 twig:
   globals:
+    seo:
+      name: "CC Online Stores"
+      title: "BLACKFRIDAY Colombia - CC Onlines Stores, las mejores tiendas virtuales en un mismo lugar"
+      description: "BLACKFRIDAY Colombia - Centro Comercial Online Stores, encuentra todas las tiendas virtuales más importantes y con los mejores descuentos, ofertas y productos."
+      img:
+      site: "cconlinestores.com"
+      url: "https://cconlinestores.com"
+      author: "kbitssd"
+      og:
     stores:
       adidas:
         title: "Sitio Oficial adidas | adidas Colombia"
