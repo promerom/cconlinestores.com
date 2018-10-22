@@ -6,16 +6,16 @@ twig:
         description: "25% de descuento en todos tus pedidos por la aplicacióncon Uber Eats usando el código <strong>SEGUIMOSCELEBRANDO</strong>, válido hasta el 31 de Octubre."
         img: "img/stores/uber_eats.png"
         link: "https://www.ubereats.com"
-    d2:
-      title: ""
-      description: ""
-      img: ""
-      link: ""
-    d3:
-      title: ""
-      description: ""
-      img: ""
-      link: ""
+      d2:
+        title: "Smart TV (Android TV) 4K Ultra HD SONY"
+        description: "Televisor 65 pulgadas SONY OLED 4K HDR A8F, con Dolby Vision, Acoustic Surface e índice de alto contraste, que ofrece tonos negros puros."
+        img: "img/deals/bravia-oled.jpg"
+        link: "https://store.sony.com.co/xbr-65a8f/p"
+      d3:
+        title: "Mazda 3 Hatchback"
+        description: "Mazda 3 lleva Jinba-Ittai a un nivel superior con la introducción de una mejorada dinámica de manejo, a través del nuevo sistema de Control G-Vectoring (GVC). Y la serie integrada de tecnologías de seguridad i-ACTIVSENSE que incluye los más modernos sensores para mantenerlo informado de los peligros potenciales."
+        img: "img/deals/mazda-3.jpg"
+        link: "https://www.mazda.com.co/cars/mazda-3-hatchback/"
     d4:
       title: ""
       description: ""
