@@ -18,7 +18,8 @@ class SitemapsController extends Controller
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('homepage'),
-            'changefreq' => 'weekly',
+            'lastmod' => "2018-10-22",
+            'changefreq' => 'daily',
             'priority' => '1.0'
         );
 
