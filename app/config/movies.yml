@@ -7,7 +7,9 @@ twig:
         trailer: "https://www.youtube-nocookie.com/embed/ek1ePFp-nBI"
         img:
         director: "David Gordon Green"
-        release_date: "Jueves, Octubre 25 de 2018"
+        release_date: 
+          date: "Jueves, Octubre 25 de 2018"
+          structured_format: 25-10-2018
         clasification: "RECOMENDADA PARA MAYORES DE 12 AÑOS"
         country: "Estados Unidos"
         reparto: "Jamie Lee Curtis, Judy Greer, Will Patton, Nick Castle, Andi Matichak, Omar J. Dorsey."
@@ -19,7 +21,9 @@ twig:
         trailer: "https://www.youtube-nocookie.com/embed/tNN-TaoAnTw"
         img:
         director: "Scott Mosier, Yarrow Cheney"
-        release_date: "Jueves, Noviembre 29, 2018"
+        release_date: 
+          date: "Jueves, Noviembre 29, 2018"
+          structured_format: "29-11-2018"
         clasification:
         country: "Estados Unidos"
         reparto:
@@ -31,7 +35,9 @@ twig:
         trailer: "https://www.youtube-nocookie.com/embed/01Sn153r9RY"
         img:
         director: "Bryan Singer"
-        release_date: "Jueves, Noviembre 1 de 2018"
+        release_date: 
+          date: "Jueves, Noviembre 1 de 2018"
+          structured_format: "01-11-2018"
         clasification: "APTA PARA TODO EL PÚBLICO"
         country: "Estados Unidos"
         reparto: "Rami Malek, Aidan Gillen, Lucy Boynton, Mike Myers, Joseph Mazzello, Tom Hollander, Ben Hardy, Allen Leech, Gwilym Lee."
