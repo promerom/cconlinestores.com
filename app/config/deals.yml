@@ -16,16 +16,21 @@ twig:
         description: "Mazda 3 lleva Jinba-Ittai a un nivel superior con la introducción de una mejorada dinámica de manejo, a través del nuevo sistema de Control G-Vectoring (GVC). Y la serie integrada de tecnologías de seguridad i-ACTIVSENSE que incluye los más modernos sensores para mantenerlo informado de los peligros potenciales."
         img: "img/deals/mazda-3.jpg"
         link: "https://www.mazda.com.co/cars/mazda-3-hatchback/"
-    d4:
-      title: ""
-      description: ""
-      img: ""
-      link: ""
-    d5:
-      title: ""
-      description: ""
-      img: ""
-      link: ""
+      d4:
+        title: "Lleva tu combo Logitech G de altavoz y mouse por solo $ 699.900"
+        description: "Parlantes Gamer Logitech G560 RGB y Mouse Logitech G203. Altavoz para gaming en PC Lightsync sólo en teknopolis.co"
+        img: "img/deals/combo-parlantes-gamer-mouse-logitech.jpg"
+        link: "https://www.teknopolis.co/parlantes-gamer-logitech-g560-rgb-mouse-logitech-g203/p"
+      d5:
+        title: "Portátil HP Intel Celeron N3060 - 14 Pulgadas"
+        description: "Portátil HP - 14-AX026LA - Intel Celeron N3060 - 14 Pulgadas - Disco Duro 32GB - Gris.<br>
+          Características:<br>
+          - Procesador Intel Celeron N3060<br>
+          - Sistema Operativo Windows 10 Home<br>
+          - Memoria RAM 4GB<br>
+          - Disco Duro 32GB<br>Pantalla 14 Pulgadas"
+        img: "img/deals/portatil-HP-Intel-Celeron-N3060.jpg"
+        link: "https://www.ktronix.com/portatil-hp-14-ax026la-intel-celeron-n3060-14-pulgadas-disco-duro-32gb-gris"
     d6:
       title: ""
       description: ""
