@@ -1,26 +1,6 @@
 twig:
   globals:
     deals:
-      d1:
-        title: "Uber Eats 25% de descuento"
-        description: "25% de descuento en todos tus pedidos por la aplicacióncon Uber Eats usando el código <strong>SEGUIMOSCELEBRANDO</strong>, válido hasta el 31 de Octubre."
-        img: "img/stores/uber_eats.png"
-        link: "https://www.ubereats.com"
-      d2:
-        title: "Smart TV (Android TV) 4K Ultra HD SONY"
-        description: "Televisor 65 pulgadas SONY OLED 4K HDR A8F, con Dolby Vision, Acoustic Surface e índice de alto contraste, que ofrece tonos negros puros."
-        img: "img/deals/bravia-oled.jpg"
-        link: "https://store.sony.com.co/xbr-65a8f/p"
-      d3:
-        title: "Mazda 3 Hatchback"
-        description: "Mazda 3 lleva Jinba-Ittai a un nivel superior con la introducción de una mejorada dinámica de manejo, a través del nuevo sistema de Control G-Vectoring (GVC). Y la serie integrada de tecnologías de seguridad i-ACTIVSENSE que incluye los más modernos sensores para mantenerlo informado de los peligros potenciales."
-        img: "img/deals/mazda-3.jpg"
-        link: "https://www.mazda.com.co/cars/mazda-3-hatchback/"
-      d4:
-        title: "Lleva tu combo Logitech G de altavoz y mouse por solo $ 699.900"
-        description: "Parlantes Gamer Logitech G560 RGB y Mouse Logitech G203. Altavoz para gaming en PC Lightsync sólo en teknopolis.co"
-        img: "img/deals/combo-parlantes-gamer-mouse-logitech.jpg"
-        link: "https://www.teknopolis.co/parlantes-gamer-logitech-g560-rgb-mouse-logitech-g203/p"
       d5:
         title: "Portátil HP Intel Celeron N3060 - 14 Pulgadas"
         description: "Portátil HP - 14-AX026LA - Intel Celeron N3060 - 14 Pulgadas - Disco Duro 32GB - Gris.<br>
@@ -31,8 +11,34 @@ twig:
           - Disco Duro 32GB<br>Pantalla 14 Pulgadas"
         img: "img/deals/portatil-HP-Intel-Celeron-N3060.jpg"
         link: "https://www.ktronix.com/portatil-hp-14-ax026la-intel-celeron-n3060-14-pulgadas-disco-duro-32gb-gris"
-    d6:
-      title: ""
-      description: ""
-      img: ""
-      link: ""
+        store: "ktronix"
+      d6:
+        title: "MEGA Precios en llantas MAXXIS"
+        description: "Descuentos en llantas MAXXIS en neumarket.com<br><p class='text-right'><em><small>promoción válida hasta el 31 de octubre</small></em></p>"
+        img: "img/deals/mega-precios-en-llantas.jpg"
+        link: "https://www.neumarket.com/mega-precios-maxxis"
+        store: "neumarket"
+      d1:
+        title: "Uber Eats 25% de descuento"
+        description: "25% de descuento en todos tus pedidos por la aplicacióncon Uber Eats usando el código <strong>SEGUIMOSCELEBRANDO</strong>, válido hasta el 31 de Octubre."
+        img: "img/stores/uber_eats.png"
+        link: "https://www.ubereats.com"
+        store: "uber eats"
+      d2:
+        title: "Smart TV (Android TV) 4K Ultra HD SONY"
+        description: "Televisor 65 pulgadas SONY OLED 4K HDR A8F, con Dolby Vision, Acoustic Surface e índice de alto contraste, que ofrece tonos negros puros."
+        img: "img/deals/bravia-oled.jpg"
+        link: "https://store.sony.com.co/xbr-65a8f/p"
+        store: "sony"
+      d3:
+        title: "Mazda 3 Hatchback"
+        description: "Mazda 3 lleva Jinba-Ittai a un nivel superior con la introducción de una mejorada dinámica de manejo, a través del nuevo sistema de Control G-Vectoring (GVC). Y la serie integrada de tecnologías de seguridad i-ACTIVSENSE que incluye los más modernos sensores para mantenerlo informado de los peligros potenciales."
+        img: "img/deals/mazda-3.jpg"
+        link: "https://www.mazda.com.co/cars/mazda-3-hatchback/"
+        store: "mazda"
+      d4:
+        title: "Lleva tu combo Logitech G de altavoz y mouse por solo $ 699.900"
+        description: "Parlantes Gamer Logitech G560 RGB y Mouse Logitech G203. Altavoz para gaming en PC Lightsync sólo en teknopolis.co"
+        img: "img/deals/combo-parlantes-gamer-mouse-logitech.jpg"
+        link: "https://www.teknopolis.co/parlantes-gamer-logitech-g560-rgb-mouse-logitech-g203/p"
+        store: "teknopolis"
