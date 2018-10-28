@@ -15,20 +15,6 @@ twig:
         reparto: "Jamie Lee Curtis, Judy Greer, Will Patton, Nick Castle, Andi Matichak, Omar J. Dorsey."
         genero: "Suspenso"
         idioma: "Inglés"
-      m2:
-        title: "The Grinch"
-        sinopsis: "Para su octava entrega completamente animada, Illumination y Universal Pictures presentan El Grinch, basada en el clásico navideño de Dr. Seuss. El Grinch cuenta la historia de un cínico gruñón que se embarca en la misión de robar la Navidad, solo para que sus sentimientos cambien gracias al generoso espíritu festivo de una pequeña niña, Cindy-Lou. Graciosa y visualmente asombrosa, es una historia universal acerca del espíritu navideño y el indomable poder del optimismo. El aclamado actor, Eugenio Derbez, presta su voz del infame Grinch para la versión en español."
-        trailer: "https://www.youtube-nocookie.com/embed/tNN-TaoAnTw"
-        img:
-        director: "Scott Mosier, Yarrow Cheney"
-        release_date: 
-          date: "Jueves, Noviembre 29, 2018"
-          structured_format: "29-11-2018"
-        clasification:
-        country: "Estados Unidos"
-        reparto:
-        genero: "Comedia Animada"
-        idioma: "Inglés"
       m3:
         title: "BOHEMIAN RHAPSODY, LA HISTORIA DE FREDDIE MERCURY"
         sinopsis: "“Bohemian Rhapsody, La historia de Freddie Mercury” es una celebración trepidante de Queen, su música y su extraordinario cantante principal Freddie Mercury, quien desafió estereotipos y destruyó convenciones para convertirse en uno de los artistas más queridos del mundo. La película sigue el ascenso meteórico de la banda a través de sus canciones icónicas y su sonido revolucionario, de su inminente implosión una vez que el estilo de vida de Mercury se sale de control, y de su reunión triunfante en vísperas de Live Aid, donde Mercury, quien enfrentaba una enfermedad terminal, lidera la banda en una de las presentaciones más grandiosas en la historia de la música rock. Y, en el proceso, la consolidación del legado de una banda que siempre fue más como una familia, y que continúa inspirando a marginados, soñadores y melómanos hasta la fecha."
@@ -43,18 +29,34 @@ twig:
         reparto: "Rami Malek, Aidan Gillen, Lucy Boynton, Mike Myers, Joseph Mazzello, Tom Hollander, Ben Hardy, Allen Leech, Gwilym Lee."
         genero: "Drama, Musical"
         idioma: "Inglés"
-    m4:
-      title:
-      sinopsis:
-      trailer:
-      img:
-      director:
-      release_date:
-      clasification:
-      country:
-      reparto:
-      genero:
-      idioma:
+      m4:
+        title: "FANTASTIC BEASTS: THE CRIMES OF GRINDELWALD"
+        sinopsis: "Al final de la primera película, el poderoso mago oscuro Gellert Grindelwald (Johnny Depp) fue capturado por MACUSA (Congreso Mágico de los Estados Unidos de América), con la ayuda de Newt Scamander (Eddie Redmayne). Pero, cumpliendo con su amenaza, Grindelwald escapó de su custodia y ha comenzado a reunir seguidores, la mayoría de los cuales no sospechan sus verdaderas intenciones: alzar a los magos purasangre para reinar sobre todas las criaturas no mágicas. En un esfuerzo por frustrar los planes de Grindelwald, Albus Dumbledore (Jude Law) recluta a su antiguo estudiante Newt Scamander, quien accede a prestar su ayuda, sin conocer los peligros que aguardan. Las líneas quedan marcadas mientras el amor y la lealtad son puestos a prueba, incluso entre los amigos más cercanos y la familia, en un mundo mágico cada vez más dividido."
+        trailer: "https://www.youtube-nocookie.com/embed/dFEofWMW0KM"
+        img:
+        director: "David Yates"
+        release_date:
+          date: "Jueves, Noviembre 15, 2018"
+          structured_format: "15-11-2018"
+        clasification: "RECOMENDADA PARA MAYORES DE 7 AÑOS"
+        country: "Estados Unidos"
+        reparto: "Eddie Redmayne, Jude Law, Katherine Waterston, Johnny Depp, Zöe Kravitz, Ezra Miller, Alison Sudol, Callum Turner, Dan Fogler, Claudia Kim, Ólafur Darri Ólafsson, Kevin Guthrie, Derek Riddell, Ingvar Eggert Sigurdsson, William Nadylam, David Sakurai"
+        genero: "Aventura, Fantástico, Magia, Secuela"
+        idioma: "Inglés"
+      m2:
+        title: "The Grinch"
+        sinopsis: "Para su octava entrega completamente animada, Illumination y Universal Pictures presentan El Grinch, basada en el clásico navideño de Dr. Seuss. El Grinch cuenta la historia de un cínico gruñón que se embarca en la misión de robar la Navidad, solo para que sus sentimientos cambien gracias al generoso espíritu festivo de una pequeña niña, Cindy-Lou. Graciosa y visualmente asombrosa, es una historia universal acerca del espíritu navideño y el indomable poder del optimismo. El aclamado actor, Eugenio Derbez, presta su voz del infame Grinch para la versión en español."
+        trailer: "https://www.youtube-nocookie.com/embed/tNN-TaoAnTw"
+        img:
+        director: "Scott Mosier, Yarrow Cheney"
+        release_date: 
+          date: "Jueves, Noviembre 29, 2018"
+          structured_format: "29-11-2018"
+        clasification:
+        country: "Estados Unidos"
+        reparto:
+        genero: "Comedia Animada"
+        idioma: "Inglés"
     m5:
       title:
       sinopsis:
