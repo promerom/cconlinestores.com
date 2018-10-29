@@ -182,3 +182,7 @@ body {
 .dafiti:before {
     background-image: url('/img/stores/dafiti.png');
 }
+
+.aliexpress:before {
+    background-image: url('/img/stores/aliexpress.png');
+}
