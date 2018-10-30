@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block seo %}
+<title>{% block title %}{{ seo_sections.stores.title }} - {{ seo_sections.stores.site }}{% endblock %}</title>
+<meta name="description" content="{{ seo_sections.stores.description }}">
+<script type='application/ld+json'> 
+{
+    "@context": "http://www.schema.org",
+    "@type": "WebSite",
+    "name": "{{ seo_sections.stores.name }}",
+    "alternateName": "{{ seo_sections.stores.name }}",
+    "url": "{{ seo_sections.stores.url }}",
+    "description": "{{ seo_sections.stores.description }}"
+}
+</script>
+{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+
+    {% set store = stores|first %}
+    <!-- Heading Row -->
+    <div class="row my-4">
+        <div class="col-lg-8">
+            <img class="img-fluid rounded mx-auto d-block" src="{{ store.logo }}" alt="{{ store.title }}">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+            <h1>{{ store.name }}</h1>
+            <h2>{{ store.title }}</h2>
+            <p>{{ store.description }}</p>
+            <a class="btn btn-primary btn-lg" href="{{ store.link }}" target="_blank">Ir a {{ store.name|upper }}</a>
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+        <!-- Call to Action Well -->
+        <div class="card text-white bg-secondary my-4 text-center">
+            <div class="card-body">
+                <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
+            </div>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+        {% for store in stores[1:] %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ store.name }}</h2>
+                        <p class="card-text">{{ store.description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ store.link }}" class="btn btn-primary" target="_blank">Ir a la tienda...</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+{% endblock %}

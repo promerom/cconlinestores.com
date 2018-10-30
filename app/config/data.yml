@@ -10,6 +10,16 @@ twig:
       url: "https://cconlinestores.com"
       author: "kbitssd"
       og:
+    seo_sections:
+      stores:
+        name: "Tiendas en línea, online stores"
+        title: "BLACKFRIDAY Colombia en las mejores tiendas en línea. Las mejores online stores en un mismo lugar."
+        description: "Centro Comercial Virtual de las Tiendas en línea, acá encuentrarás todas las tiendas virtuales más importantes, outlets y online stores, todo en un solo lugar. BLACKFRIDAY Colombia."
+        img:
+        site: "cconlinestores.com"
+        url: "https://cconlinestores.com/stores"
+        author: "kbitssd"
+        og:
     stores:
       adidas:
         name: "ADIDAS"
