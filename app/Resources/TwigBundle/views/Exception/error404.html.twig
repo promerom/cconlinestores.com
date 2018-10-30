@@ -1,0 +1,13 @@
+{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h1>Página no encontrada</h1>
+
+    <p>
+        La página que estás buscando no la encontramos en nuestro sitio, es posible que la tienda en línea, oferta, promoción o producto ya no esté disponible.
+        Ve a nuestro homepage <a href="{{ path('homepage') }}">CC Online Stores</a> donde encontrarás todas las tiendas virtuales, promociones, descuentros, productos que tenemos disponibles.
+    </p>
+</div>
+{% endblock %}
