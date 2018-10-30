@@ -18,6 +18,8 @@
 {% block body %}
     <!-- Page Content -->
     <div class="container">
+    
+    {{ include('default/breadcrumb.html.twig') }}
 
     {% set store = stores|first %}
     <!-- Heading Row -->
