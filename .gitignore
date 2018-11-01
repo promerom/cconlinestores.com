@@ -17,3 +17,4 @@
 /web/bundles/
 composer.lock
 /web/error_log
+.htaccess
