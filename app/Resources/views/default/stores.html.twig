@@ -18,4 +18,11 @@
         </div>
     {% endfor %}
 </div>
+{% set vars = {
+'title': 'Tiendas en línea',
+'description': 'Ver la lista completa de <strong>Tiendas en Línea</strong> con los mejores descuentos, excelentes ofertas y productos del momento.',
+'destiny': 'Stores',
+'routename': 'stores_page'
+} %}
+{% include 'default/cta.html.twig' with { 'cta_data': vars } %}
 <!-- /.row -->

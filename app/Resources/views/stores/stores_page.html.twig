@@ -19,7 +19,7 @@
     <!-- Page Content -->
     <div class="container">
     
-    {{ include('default/breadcrumb.html.twig') }}
+    {{ wo_render_breadcrumbs() }}
 
     {% set store = stores|first %}
     <!-- Heading Row -->
@@ -56,6 +56,7 @@
                     </div>
                     <div class="card-footer">
                         <a href="{{ store.link }}" class="btn btn-primary" target="_blank">Ir a la tienda...</a>
+                        <img src="{{ store.logo }}" class="rounded float-right col-lg-4" alt="{{ store.title }}">
                     </div>
                 </div>
             </div>

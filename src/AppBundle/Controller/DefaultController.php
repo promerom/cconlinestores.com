@@ -24,6 +24,17 @@ class DefaultController extends Controller
      */
     public function storesAction(Request $request)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+
+        // Simple example
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
+
+        // Example without URL
+        $breadcrumbs->addItem("Tiendas");
+
+        // Example with parameter injected into translation "user.profile"
+//         $breadcrumbs->addItem($txt, $url, ["%user%" => $user->getName()]);
+
         return $this->render('stores/stores_page.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
         ]);
