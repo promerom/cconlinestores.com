@@ -18,14 +18,14 @@ class SitemapsController extends Controller
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('homepage'),
-            'lastmod' => "2018-10-30",
+            'lastmod' => "2018-11-01",
             'changefreq' => 'daily',
             'priority' => '1.0'
         );
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('stores_page'),
-            'lastmod' => "2018-10-30",
+            'lastmod' => "2018-11-01",
             'changefreq' => 'daily',
             'priority' => '0.8'
         );
