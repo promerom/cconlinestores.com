@@ -20,6 +20,15 @@ twig:
         url: "https://cconlinestores.com/stores"
         author: "kbitssd"
         og:
+      deals:
+        name: "Ofertas en línea, promociones, descuentos y black friday en Noviembre"
+        title: "BLACK FRIDAY Colombia con las mejores ofertas y descuentos del momento, todo en un sólo lugar."
+        description: "Encuentra todas las Ofertas y promociones más destacadas del momento en internet. En Online Stores tenemos las promociones y descuentos de las tiendas en línea más importantes del mundo, outlets y online stores. BLACK FRIDAY Colombia en Noviembre."
+        img:
+        site: "cconlinestores.com"
+        url: "https://cconlinestores.com/ofertas"
+        author: "kbitssd"
+        og:
     stores:
       adidas:
         name: "ADIDAS"

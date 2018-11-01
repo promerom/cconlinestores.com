@@ -17,4 +17,11 @@
     </div>
     {% endfor %}
 </div>
+{% set vars = {
+'title': 'Ofertas, promociones y descuentos en línea',
+'description': 'Ver la lista completa de <strong>las mejores ofertas, promociones y descuentos</strong> en línea.',
+'destiny': 'Ofertas',
+'routename': 'deals_page'
+} %}
+{% include 'default/cta.html.twig' with { 'cta_data': vars } %}
 <!-- /.row -->

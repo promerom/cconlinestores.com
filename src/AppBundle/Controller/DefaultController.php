@@ -39,4 +39,22 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
         ]);
     }
+
+    /**
+     * @Route("/ofertas", name="deals_page")
+     */
+    public function dealsAction(Request $request)
+    {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+
+        // Simple example
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
+
+        // Example without URL
+        $breadcrumbs->addItem("Ofertas");
+
+        return $this->render('deals/deals_page.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
+        ]);
+    }
 }

@@ -30,6 +30,13 @@ class SitemapsController extends Controller
             'priority' => '0.8'
         );
 
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('deals_page'),
+            'lastmod' => "2018-11-01",
+            'changefreq' => 'daily',
+            'priority' => '0.8'
+        );
+
 //         // incluye urls multiidioma
 //         foreach($languages as $lang) {
 //             $urls[] = array(

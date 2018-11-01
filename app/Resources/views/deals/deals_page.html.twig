@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block seo %}
+<title>{% block title %}{{ seo_sections.deals.title }} - {{ seo_sections.deals.site }}{% endblock %}</title>
+<meta name="description" content="{{ seo_sections.deals.description }}">
+<script type='application/ld+json'> 
+{
+    "@context": "http://www.schema.org",
+    "@type": "WebSite",
+    "name": "{{ seo_sections.deals.name }}",
+    "alternateName": "{{ seo_sections.deals.name }}",
+    "url": "{{ seo_sections.deals.url }}",
+    "description": "{{ seo_sections.deals.description }}"
+}
+</script>
+{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+    
+    {{ wo_render_breadcrumbs() }}
+
+    {% set deal = deals|first %}
+    <!-- Heading Row -->
+    <div class="row my-4">
+        <div class="col-lg-8">
+            <img class="img-fluid rounded mx-auto d-block" src="{{ deal.img }}" alt="{{ deal.title }}">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+            <h1>{{ deal.store }}</h1>
+            <h2>{{ deal.title }}</h2>
+            <p>{{ deal.description|raw }}</p>
+            <a class="btn btn-primary btn-lg" href="{{ deal.link }}" target="_blank">Ver oferta en {{ deal.store|upper }}</a>
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+        <!-- Call to Action Well -->
+        <div class="card text-white bg-secondary my-4 text-center">
+            <div class="card-body">
+                <p class="text-white m-0">Tenemos las mejores promociones del momento en internet, acá encontrarás los mejores descuentos, ofertas y productos.</p>
+            </div>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+        {% for deal in deals[1:] %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ deal.title }}</h2>
+                        <p class="card-text">{{ deal.description|raw }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ deal.link }}" class="btn btn-primary" target="_blank">Ver oferta en {{ deal.store }}</a>
+                        <img src="{{ deal.img }}" class="rounded float-right col-lg-4" alt="{{ deal.title }}">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+{% endblock %}

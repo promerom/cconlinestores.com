@@ -12,12 +12,12 @@ twig:
         img: "img/deals/portatil-HP-Intel-Celeron-N3060.jpg"
         link: "https://www.ktronix.com/portatil-hp-14-ax026la-intel-celeron-n3060-14-pulgadas-disco-duro-32gb-gris"
         store: "ktronix"
-      d6:
-        title: "MEGA Precios en llantas MAXXIS"
-        description: "Descuentos en llantas MAXXIS en neumarket.com<br><p class='text-right'><em><small>promoción válida hasta el 31 de octubre</small></em></p>"
-        img: "img/deals/mega-precios-en-llantas.jpg"
-        link: "https://www.neumarket.com/mega-precios-maxxis"
-        store: "neumarket"
+#      d6:
+#        title: "MEGA Precios en llantas MAXXIS"
+#        description: "Descuentos en llantas MAXXIS en neumarket.com<br><p class='text-right'><em><small>promoción válida hasta el 31 de octubre</small></em></p>"
+#        img: "img/deals/mega-precios-en-llantas.jpg"
+#        link: "https://www.neumarket.com/mega-precios-maxxis"
+#        store: "neumarket"
       d1:
         title: "Uber Eats 25% de descuento"
         description: "25% de descuento en todos tus pedidos por la aplicacióncon Uber Eats usando el código <strong>SEGUIMOSCELEBRANDO</strong>, válido hasta el 31 de Octubre."
