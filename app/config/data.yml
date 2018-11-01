@@ -3,8 +3,8 @@ twig:
   globals:
     seo:
       name: "CC Online Stores"
-      title: "BLACKFRIDAY Colombia - CC Online Stores, las mejores tiendas virtuales, promociones, ofertas, descuentos y productos en un mismo lugar"
-      description: "BLACKFRIDAY Colombia - Centro Comercial Online Stores, encuentra todas las tiendas virtuales más importantes y con los mejores descuentos, ofertas y productos, outlets, cupones de descuento y tiendas en línea, todo en un solo lugar."
+      title: "BLACK FRIDAY Colombia - CC Online Stores, las mejores tiendas virtuales, promociones, ofertas, descuentos y productos en un mismo lugar"
+      description: "BLACK FRIDAY Colombia - Centro Comercial Online Stores, encuentra todas las tiendas virtuales más importantes y con los mejores descuentos, ofertas y productos, outlets, cupones de descuento y tiendas en línea, todo en un solo lugar."
       img:
       site: "cconlinestores.com"
       url: "https://cconlinestores.com"
@@ -12,9 +12,9 @@ twig:
       og:
     seo_sections:
       stores:
-        name: "Tiendas en línea, online stores"
-        title: "BLACKFRIDAY Colombia en las mejores tiendas en línea. Las mejores online stores en un mismo lugar."
-        description: "Centro Comercial Virtual de las Tiendas en línea, acá encuentrarás todas las tiendas virtuales más importantes, outlets y online stores, todo en un solo lugar. BLACKFRIDAY Colombia."
+        name: "Tiendas en línea, online stores y black friday en Noviembre"
+        title: "BLACK FRIDAY Colombia en las mejores tiendas en línea. Las mejores online stores en un mismo lugar."
+        description: "Centro Comercial Virtual de las Tiendas en línea, acá encuentrarás todas las tiendas virtuales más importantes, outlets y online stores, todo en un solo lugar. BLACK FRIDAY Colombia."
         img:
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/stores"
