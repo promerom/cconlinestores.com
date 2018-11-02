@@ -1,6 +1,12 @@
 twig:
   globals:
     deals:
+      d7:
+        title: "Madrugón Falabella"
+        description: "Mañana 3 de noviembre de 2018 gran Madrugón Falabella, descuentos exclusivos pagando con tus tarjetas Banco Falabella."
+        img: "img/deals/madrugon-falabella.jpg"
+        link: "http://ma.sv/MipvGT"
+        store: "falabella"
       d5:
         title: "Portátil HP Intel Celeron N3060 - 14 Pulgadas"
         description: "Portátil HP - 14-AX026LA - Intel Celeron N3060 - 14 Pulgadas - Disco Duro 32GB - Gris.<br>
