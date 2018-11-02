@@ -15,6 +15,14 @@
 </script>
 {% endblock %}
 
+{% block opengraph %}
+{{ include('default/opengraph.html.twig', {
+    title: seo_sections.stores.title,
+    description: seo_sections.stores.description,
+    img: seo_sections.stores.img,
+    imgalt: seo_sections.stores.name}) }}
+{% endblock %}
+
 {% block body %}
     <!-- Page Content -->
     <div class="container">

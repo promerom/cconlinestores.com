@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: data.yml }
+    - { resource: stores.yml }
     - { resource: movies.yml }
     - { resource: deals.yml }
 

@@ -1,0 +1,12 @@
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:description" content="{{ description }}" />
+<meta property="og:locale" content="es_CO" />
+<meta property="og:site_name" content="{{ seo.name }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
+{% if img is empty %}
+{% set img = seo.img %}
+{% endif %}
+<meta property="og:image" content="{{ absolute_url(asset(img)) }}" />
+<meta property="og:image:alt" content="{{ imgalt }}" />
+<meta property="og:image:type" content="image/jpeg" />

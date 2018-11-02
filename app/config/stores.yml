@@ -1,0 +1,94 @@
+twig:
+  globals:
+    stores:
+      adidas:
+        name: "ADIDAS"
+        title: "Sitio Oficial adidas | adidas Colombia"
+        description: "Ingresa a la tienda oficial de adidas Colombia! Descubre la gran variedad de productos que la tienda oficial de adidas Colombia tiene para ti. Compra zapatos, ropa y mucho más a un solo click en adidas.co."
+        link: "https://www.adidas.co"
+        logo: "img/stores/adidas.png"
+        css: "adidas"
+      sony:
+        name: "SONY"
+        title: "Audio | Sony Store Colombia"
+        description: "Sumérgete en la mejor calidad de sonido con la gama de productos de audio de Sony. Encuentra reproductores de música, parlantes, audífonos y mucho más en Sony Store Online."
+        link: "https://store.sony.com.co"
+        logo: "img/stores/sony.png"
+        css: "sony"
+      falabella:
+        name: "Falabella"
+        title: "Falabella.com - Bienvenidos a Nuestra Tienda Online"
+        description: "En nuestro Aniversario Falabella: encuentra descuentos y promociones en Celulares y Televisores, Moda y Calzado, Juguetes, ropa Infantil y muchas cosas m&aacute;s. Ingresa y realiza tu compra online."
+        link: "https://www.falabella.com.co/falabella-co"
+        logo: "img/stores/falabella.png"
+        css: "falabella"
+      ktronix:
+        name: "Ktronix"
+        title: "KTRONIX, compra, iPad, Tablet, Android, Apple, Mac, Bose, Samsung, Sony, LG, Panasonic, HP, Ultrabook, Asus, Lavaplatos, Whirlpool, Nevecon  Ktronix Tienda Online"
+        description: "KTRONIX Primera Tienda especializada en tecnología. Tiendas en Bogotá, Medellín y Bucaramanga, www.ktronix.com con respaldo de ALKOSTO."
+        link: "https://www.ktronix.com"
+        logo: "img/stores/ktronix.png"
+        css: "ktronix"
+      linio:
+        name: "Linio"
+        title: "Linio Colombia compra Online lo que buscas al mejor precio"
+        description: "COMPRA online rápido y seguro, con envío a todo COLOMBIA: Celulares, Computadores y Electrodomésticos en tu TIENDA en línea, LINIO."
+        link: "https://www.linio.com.co"
+        logo: "img/stores/linio.png"
+        css: "linio"
+      dafiti:
+        name: "Dafiti"
+        title: "Dafiti Colombia | Moda Online - zapatos, ropa y accesorios"
+        description: "Compra ropas, zapatos y accesorios de las mejores marcas en Dafiti Colombia, tu tienda de moda online. Pago contraentrega. ¡Entra Ahora!"
+        link: "https://www.dafiti.com.co"
+        logo: "img/stores/dafiti.png"
+        css: "dafiti"
+      freeportstore:
+        name: "Freeport Store"
+        title: "Comprar Zapatos Online Colombia | Freeport Store"
+        description: "Comprar Zapatos Online y Accesorios en Freeport Store para hombre y mujer, envíos y devoluciones gratis en Colombia, encuentra Ofertas permanentes!"
+        link: "https://freeportstore.com"
+        logo: "img/stores/freeportstore.png"
+        css: "freeportstore"
+      baogelawatches:
+        name: "Baogela Watches"
+        title: "Baogela Official Store I Affordable Timepieces for Men and Women"
+        description: "Baogela Official Store I Affordable Timepieces for Men and Women"
+        link: "https://baogelawatches.com"
+        logo: "img/stores/baogela.png"
+        css: "baogela"
+      aliexpress:
+        name: "Aliexpress"
+        title: "AliExpress.com - Online Shopping for Popular Electronics, Fashion, Home & Garden, Toys & Sports, Automobiles and More."
+        description: "Online shopping for the latest electronics, fashion, phone accessories, computer electronics, toys and more."
+        link: "https://www.aliexpress.com"
+        logo: "img/stores/aliexpress.png"
+        css: "aliexpress"
+      amazon:
+        name: "Amazon"
+        title:
+        description:
+        link:
+        logo: "img/stores/amazon.jpg"
+        css: ""
+      ebay:
+        name: "Ebay"
+        title:
+        description:
+        link:
+        logo: "img/stores/ebay.png"
+        css: ""
+      mercadolibre:
+        name: "Mercadolibre"
+        title:
+        description:
+        link:
+        logo: "img/stores/mercadolibre.png"
+        css: ""
+      olx:
+        name: "OLX"
+        title:
+        description:
+        link:
+        logo: "img/stores/olx.png"
+        css: ""

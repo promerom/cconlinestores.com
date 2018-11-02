@@ -7,7 +7,7 @@
 
         <meta charset="utf-8">
         <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}" />
-        
+
         {% block seo %}
         <title>{% block title %}{{ seo.title }} - {{ seo.site }}{% endblock %}</title>
         <meta name="description" content="{{ seo.description }}">
@@ -22,8 +22,12 @@
         }
         </script>
         {% endblock %}
-        
+
+        <meta name="robots" content="all">
+        <meta name="googlebot" content="all">
+
         {% block opengraph %}
+        {{ include('default/opengraph.html.twig', {title: seo.title, description: seo.description, img: seo.img, imgalt: seo.name}) }}
         {% endblock %}
         
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

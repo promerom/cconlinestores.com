@@ -18,12 +18,12 @@ twig:
 #        img: "img/deals/mega-precios-en-llantas.jpg"
 #        link: "https://www.neumarket.com/mega-precios-maxxis"
 #        store: "neumarket"
-      d1:
-        title: "Uber Eats 25% de descuento"
-        description: "25% de descuento en todos tus pedidos por la aplicacióncon Uber Eats usando el código <strong>SEGUIMOSCELEBRANDO</strong>, válido hasta el 31 de Octubre."
-        img: "img/stores/uber_eats.png"
-        link: "https://www.ubereats.com"
-        store: "uber eats"
+#      d1:
+#        title: "Uber Eats 25% de descuento"
+#        description: "25% de descuento en todos tus pedidos por la aplicacióncon Uber Eats usando el código <strong>SEGUIMOSCELEBRANDO</strong>, válido hasta el 31 de Octubre."
+#        img: "img/stores/uber_eats.png"
+#        link: "https://www.ubereats.com"
+#        store: "uber eats"
       d2:
         title: "Smart TV (Android TV) 4K Ultra HD SONY"
         description: "Televisor 65 pulgadas SONY OLED 4K HDR A8F, con Dolby Vision, Acoustic Surface e índice de alto contraste, que ofrece tonos negros puros."
