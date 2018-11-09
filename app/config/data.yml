@@ -26,3 +26,11 @@ twig:
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/ofertas"
         author: "kbitssd"
+      blackfriday:
+        name: "Ofertas Black Friday 2018"
+        title: "BLACK FRIDAY Colombia 2018 con las mejores ofertas y descuentos del momento."
+        description: "Encuentra las mejores ofertas, descuentos y productos en BLACK FRIDAY Colombia 2018 en Noviembre. Todos los descuentos y ofertas del próximo blackfriday el 23 de noviembre de 2018."
+        img:
+        site: "cconlinestores.com"
+        url: "https://cconlinestores.com/blackfriday"
+        author: "kbitssd"

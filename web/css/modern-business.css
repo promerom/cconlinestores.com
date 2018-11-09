@@ -186,3 +186,7 @@ body {
 .aliexpress:before {
     background-image: url('/img/stores/aliexpress.png');
 }
+
+.homecenter:before {
+    background-image: url('/img/stores/homecenter.png');
+}

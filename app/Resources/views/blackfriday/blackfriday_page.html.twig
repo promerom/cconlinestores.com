@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block seo %}
+<title>{% block title %}{{ seo_sections.blackfriday.title }} - {{ seo_sections.blackfriday.site }}{% endblock %}</title>
+<meta name="description" content="{{ seo_sections.blackfriday.description }}">
+<script type='application/ld+json'> 
+{
+    "@context": "http://www.schema.org",
+    "@type": "WebSite",
+    "name": "{{ seo_sections.blackfriday.name }}",
+    "alternateName": "{{ seo_sections.blackfriday.name }}",
+    "url": "{{ seo_sections.blackfriday.url }}",
+    "description": "{{ seo_sections.blackfriday.description }}"
+}
+</script>
+{% endblock %}
+
+{% block opengraph %}
+{{ include('default/opengraph.html.twig', {
+    title: seo_sections.blackfriday.title,
+    description: seo_sections.blackfriday.description,
+    img: seo_sections.blackfriday.img,
+    imgalt: seo_sections.blackfriday.name}) }}
+{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+    
+    {{ wo_render_breadcrumbs() }}
+
+    {% set deal = blackfriday|first %}
+    <!-- Heading Row -->
+    <div class="row my-4">
+        <div class="col-lg-8">
+            <img class="img-fluid rounded mx-auto d-block" src="{{ deal.img }}" alt="{{ deal.title }}">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+            <h1>{{ deal.store }}</h1>
+            <h2>{{ deal.title }}</h2>
+            <p>{{ deal.description|raw }}</p>
+            <h3 class="p-3 mb-2 bg-success text-white text-center">{{ deal.price }}</h3>
+            <a class="btn btn-primary btn-lg btn-block" href="{{ deal.link }}" target="_blank">Ver oferta en {{ deal.store|upper }}</a>
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+        <!-- Call to Action Well -->
+        <div class="card text-white bg-secondary my-4 text-center">
+            <div class="card-body">
+                <p class="text-white m-0">Las mejores ofertas, promociones, descuentos y rebajas de BLACK FRIDAY en Colombia. Productos disponibles en todas las tienas en línea.</p>
+            </div>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+        {% for deal in blackfriday[1:] %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ deal.title }}</h2>
+                        <p class="card-text">{{ deal.description|raw }}</p>
+                        <h3 class="p-3 mb-2 bg-success text-white text-center">{{ deal.price }}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ deal.link }}" class="btn btn-primary" target="_blank">Ver oferta en {{ deal.store }}</a>
+                        <img src="{{ deal.img }}" class="rounded float-right col-lg-4" alt="{{ deal.title }}">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+{% endblock %}

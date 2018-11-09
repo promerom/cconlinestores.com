@@ -57,4 +57,22 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
         ]);
     }
+
+    /**
+     * @Route("/blackfriday", name="blackfriday_page")
+     */
+    public function blackfridayAction(Request $request)
+    {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+
+        // Simple example
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
+
+        // Example without URL
+        $breadcrumbs->addItem("Ofertas black friday");
+
+        return $this->render('blackfriday/blackfriday_page.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
+        ]);
+    }
 }
