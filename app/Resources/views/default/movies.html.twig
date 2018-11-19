@@ -1,7 +1,7 @@
 <!-- Features Section -->
 <h2 class="pb-3 mb-4 font-italic border-bottom">Películas en estreno que debes ver</h2>
 <div class="row" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
-{% for movie in movies[:2] %}
+{% for movie in movies[:4] %}
     <div class="col-lg-6">
         <h2 itemprop="name">{{ movie.title }}</h2>
         <p itemprop="description" class="text-justify">{{ movie.sinopsis }}</p>

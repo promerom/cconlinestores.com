@@ -1,34 +1,6 @@
 twig:
   globals:
     movies:
-      m1:
-        title: "HALLOWEEN"
-        sinopsis: "Jamie Lee Curtis regresa a su icónico personaje Laurie Strode, quien llega a la confrontación final con  Michael Myers, la figura enmascarada que la ha perseguido desde que escapó de la matanza que él hizo la noche de Halloween hace cuatro décadas.John Carpenter, maestro del género de horror, será productor ejecutivo y asesor creativo de esta película. Inspirados en los clásicos de Carpenter, los productores David Gordon Green y Danny McBride crearon una historia que traza un nuevo camino a partir de los hechos ocurridos en la película de 1978."
-        trailer: "https://www.youtube-nocookie.com/embed/ek1ePFp-nBI"
-        img:
-        director: "David Gordon Green"
-        release_date: 
-          date: "Jueves, Octubre 25 de 2018"
-          structured_format: 25-10-2018
-        clasification: "RECOMENDADA PARA MAYORES DE 12 AÑOS"
-        country: "Estados Unidos"
-        reparto: "Jamie Lee Curtis, Judy Greer, Will Patton, Nick Castle, Andi Matichak, Omar J. Dorsey."
-        genero: "Suspenso"
-        idioma: "Inglés"
-      m3:
-        title: "BOHEMIAN RHAPSODY, LA HISTORIA DE FREDDIE MERCURY"
-        sinopsis: "“Bohemian Rhapsody, La historia de Freddie Mercury” es una celebración trepidante de Queen, su música y su extraordinario cantante principal Freddie Mercury, quien desafió estereotipos y destruyó convenciones para convertirse en uno de los artistas más queridos del mundo. La película sigue el ascenso meteórico de la banda a través de sus canciones icónicas y su sonido revolucionario, de su inminente implosión una vez que el estilo de vida de Mercury se sale de control, y de su reunión triunfante en vísperas de Live Aid, donde Mercury, quien enfrentaba una enfermedad terminal, lidera la banda en una de las presentaciones más grandiosas en la historia de la música rock. Y, en el proceso, la consolidación del legado de una banda que siempre fue más como una familia, y que continúa inspirando a marginados, soñadores y melómanos hasta la fecha."
-        trailer: "https://www.youtube-nocookie.com/embed/01Sn153r9RY"
-        img:
-        director: "Bryan Singer"
-        release_date: 
-          date: "Jueves, Noviembre 1 de 2018"
-          structured_format: "01-11-2018"
-        clasification: "APTA PARA TODO EL PÚBLICO"
-        country: "Estados Unidos"
-        reparto: "Rami Malek, Aidan Gillen, Lucy Boynton, Mike Myers, Joseph Mazzello, Tom Hollander, Ben Hardy, Allen Leech, Gwilym Lee."
-        genero: "Drama, Musical"
-        idioma: "Inglés"
       m4:
         title: "FANTASTIC BEASTS: THE CRIMES OF GRINDELWALD"
         sinopsis: "Al final de la primera película, el poderoso mago oscuro Gellert Grindelwald (Johnny Depp) fue capturado por MACUSA (Congreso Mágico de los Estados Unidos de América), con la ayuda de Newt Scamander (Eddie Redmayne). Pero, cumpliendo con su amenaza, Grindelwald escapó de su custodia y ha comenzado a reunir seguidores, la mayoría de los cuales no sospechan sus verdaderas intenciones: alzar a los magos purasangre para reinar sobre todas las criaturas no mágicas. En un esfuerzo por frustrar los planes de Grindelwald, Albus Dumbledore (Jude Law) recluta a su antiguo estudiante Newt Scamander, quien accede a prestar su ayuda, sin conocer los peligros que aguardan. Las líneas quedan marcadas mientras el amor y la lealtad son puestos a prueba, incluso entre los amigos más cercanos y la familia, en un mundo mágico cada vez más dividido."
@@ -56,6 +28,34 @@ twig:
         country: "Estados Unidos"
         reparto:
         genero: "Comedia Animada"
+        idioma: "Inglés"
+      m3:
+        title: "BOHEMIAN RHAPSODY, LA HISTORIA DE FREDDIE MERCURY"
+        sinopsis: "“Bohemian Rhapsody, La historia de Freddie Mercury” es una celebración trepidante de Queen, su música y su extraordinario cantante principal Freddie Mercury, quien desafió estereotipos y destruyó convenciones para convertirse en uno de los artistas más queridos del mundo. La película sigue el ascenso meteórico de la banda a través de sus canciones icónicas y su sonido revolucionario, de su inminente implosión una vez que el estilo de vida de Mercury se sale de control, y de su reunión triunfante en vísperas de Live Aid, donde Mercury, quien enfrentaba una enfermedad terminal, lidera la banda en una de las presentaciones más grandiosas en la historia de la música rock. Y, en el proceso, la consolidación del legado de una banda que siempre fue más como una familia, y que continúa inspirando a marginados, soñadores y melómanos hasta la fecha."
+        trailer: "https://www.youtube-nocookie.com/embed/01Sn153r9RY"
+        img:
+        director: "Bryan Singer"
+        release_date: 
+          date: "Jueves, Noviembre 1 de 2018"
+          structured_format: "01-11-2018"
+        clasification: "APTA PARA TODO EL PÚBLICO"
+        country: "Estados Unidos"
+        reparto: "Rami Malek, Aidan Gillen, Lucy Boynton, Mike Myers, Joseph Mazzello, Tom Hollander, Ben Hardy, Allen Leech, Gwilym Lee."
+        genero: "Drama, Musical"
+        idioma: "Inglés"
+      m1:
+        title: "HALLOWEEN"
+        sinopsis: "Jamie Lee Curtis regresa a su icónico personaje Laurie Strode, quien llega a la confrontación final con  Michael Myers, la figura enmascarada que la ha perseguido desde que escapó de la matanza que él hizo la noche de Halloween hace cuatro décadas.John Carpenter, maestro del género de horror, será productor ejecutivo y asesor creativo de esta película. Inspirados en los clásicos de Carpenter, los productores David Gordon Green y Danny McBride crearon una historia que traza un nuevo camino a partir de los hechos ocurridos en la película de 1978."
+        trailer: "https://www.youtube-nocookie.com/embed/ek1ePFp-nBI"
+        img:
+        director: "David Gordon Green"
+        release_date: 
+          date: "Jueves, Octubre 25 de 2018"
+          structured_format: 25-10-2018
+        clasification: "RECOMENDADA PARA MAYORES DE 12 AÑOS"
+        country: "Estados Unidos"
+        reparto: "Jamie Lee Curtis, Judy Greer, Will Patton, Nick Castle, Andi Matichak, Omar J. Dorsey."
+        genero: "Suspenso"
         idioma: "Inglés"
     m5:
       title:
