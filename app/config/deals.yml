@@ -13,6 +13,12 @@ twig:
         img: "img/deals/sony-cyberlunes.png"
         link: "https://store.sony.com.co/cyberlunes"
         store: "sony"
+      d12:
+        title: "Comenzó Cyber Lunes | Hasta 60% de descuento en Reebok"
+        description: "Entre el 19 y 20 de noviembre, disfruta hasta 60% de descuento* en la sección CYBERLUNES. Aprovecha los mejores precios en artículos Reebok. ¡Haz click aquí!"
+        img: "img/deals/reebok-cyberlunes.png"
+        link: "https://www.reebok.co/cyberlunes"
+        store: "reebok"
 #      d7:
 #        title: "Madrugón Falabella"
 #        description: "Mañana 3 de noviembre de 2018 gran Madrugón Falabella, descuentos exclusivos pagando con tus tarjetas Banco Falabella."
@@ -25,6 +31,36 @@ twig:
         img: "img/deals/blackdays-homecenter.jpg"
         link: "https://www.homecenter.com.co/homecenter-co/category/cat4220001/"
         store: "homecenter"
+      d13:
+        title: "ADIDAS ¡Llegó el Cyber Lunes! Hasta 60% de descuento. ¡Aprovecha las ofertas!"
+        description: "Hasta 60% de descuento. ¡Las ofertas más increíbles del año han llegado!.<br>
+          Disfruta una gran cantidad de artículos con hasta 60&#37; de descuento."
+        img: "img/deals/adidas-cyberlunes.png"
+        link: "https://www.adidas.co/cyberlunes"
+        store: "adidas"
+      d14:
+        title: "Audífonos EXTRA BASS™ XB550AP"
+        description: "Deja que la música fluya con toda la potencia de EXTRA BASS. Escoge entre cinco colores vibrantes el que mejor se adapte a tu estilo. #CYBERLUNES 13% de descuento. Precio original $149.900 COP"
+        img: "img/deals/audifonos-extra-bass.jpg"
+        link: "https://store.sony.com.co/mdr-xb550ap/p"
+        store: "sony"
+        price: "$ 129.903 COP"
+      d15:
+        title: "BUZO CON CAPUCHA BADGE OF SPORT"
+        description: "UN BUZO CÓMODO QUE IRRADIA TU AMOR POR ADIDAS.<br>
+          Pon este buzo con capucha sobre tu ropa para entrenar y ve al gimnasio. Está confeccionado en felpa gruesa de una mezcla de algodón que es suave al tacto.<br>
+          #CYBERLUNES 60% de descuento. Precio original $189.900 COP"
+        img: "img/deals/buzo-con-capucha-badge-of-sport-adidas.jpg"
+        link: "https://www.adidas.co/buzo-con-capucha-badge-of-sport/CX4206.html"
+        store: "adidas"
+        price: "$ 75.960 COP"
+      d16:
+        title: "Audífonos inalámbricos CH500"
+        description: "Escucha música todo el día sin interrupciones. Transmite de manera inalámbrica mediante conexión BLUETOOTH® con un emparejamiento sencillo gracias a la tecnología NFC™ One-Touch y una batería duradera de hasta 20 horas de autonomía. #CYBERLUNES 26% descuento. Precio original $229.900 COP"
+        img: "img/deals/audifonos-inhalambricos-ch500.jpg"
+        link: "https://store.sony.com.co/wh-ch500/p"
+        store: "sony"
+        price: "$ 169.873 COP"
 #      d8:
 #        title: "Hoy Gran Trasnochon Falabella"
 #        description: "Hoy 8 de noviembre de 2018 Banco Falabella tiene para ti el gran Trasnochon Falabella de 6pm a 11pm, descuentos exclusivos pagando con tus tarjetas Banco Falabella."

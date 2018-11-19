@@ -25,7 +25,7 @@ class SitemapsController extends Controller
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('stores_page'),
-            'lastmod' => "2018-11-02",
+            'lastmod' => "2018-11-19",
             'changefreq' => 'daily',
             'priority' => '0.8'
         );
@@ -40,6 +40,13 @@ class SitemapsController extends Controller
         $urls[] = array(
             'loc' => $this->get('router')->generate('blackfriday_page'),
             'lastmod' => "2018-11-08",
+            'changefreq' => 'daily',
+            'priority' => '0.8'
+        );
+
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('cyberlunes_page'),
+            'lastmod' => "2018-11-19",
             'changefreq' => 'daily',
             'priority' => '0.8'
         );

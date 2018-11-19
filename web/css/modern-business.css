@@ -155,6 +155,10 @@ body {
     background-image: url('/img/stores/adidas.png');
 }
 
+.reebok:before {
+    background-image: url('/img/stores/reebok.png');
+}
+
 .sony:before {
     background-image: url('/img/stores/sony.png');
 }

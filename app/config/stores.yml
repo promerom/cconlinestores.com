@@ -1,6 +1,13 @@
 twig:
   globals:
     stores:
+      reebok:
+        name: "REEBOK"
+        title: "Reebok Colombia | Tienda oficial online"
+        description: "Encuentra las colecciones de ropa y zapatos de CrossFit, Running,  Classic, Training, accesorios y más. Envío gratuito. ¡Compra ahora!"
+        link: "https://www.reebok.co/"
+        logo: "img/stores/reebok.png"
+        css: "reebok"
       adidas:
         name: "ADIDAS"
         title: "Sitio Oficial adidas | adidas Colombia"
