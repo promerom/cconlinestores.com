@@ -38,7 +38,7 @@ twig:
         name: "Ofertas Cyberlunes 2018"
         title: "CYBERLUNES Colombia 2018 con las mejores ofertas y descuentos del momento."
         description: "Encuentra las mejores ofertas, descuentos y productos en CYBERLUNES Colombia 2018 en Noviembre. Todos los descuentos y ofertas del próximo cyberlunes hoy 19 de noviembre de 2018."
-        img:
+        img: "img/stores/logo-cyberlunes.png"
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/cyberlunes"
         author: "kbitssd"
