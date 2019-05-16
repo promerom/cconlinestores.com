@@ -1,6 +1,13 @@
 twig:
   globals:
     blackfriday:
+      d6:
+        title: "Smart TV (Android TV) 4K Ultra HD SONY"
+        description: "Televisor 65 pulgadas SONY OLED 4K HDR A8F, con Dolby Vision, Acoustic Surface e índice de alto contraste, que ofrece tonos negros puros. 33% descuento. Valor original $ 12.999.000"
+        img: "img/deals/bravia-oled.jpg"
+        link: "https://store.sony.com.co/xbr-65a8f/p"
+        store: "sony"
+        price: "$ 8.698.930 COP"
       d1:
         title: "Radio mp3/usbx2/sd/bluetooth dl-1200bt Proserie"
         description: "La Radio Bluetooth USB DL1200BT Proserie es un artefacto de accesorios automóviles. Si buscabas una manera de hacer más amenos tus viajes, este producto es el indicado para tus requerimientos de entretención al volante gracias a sus variedades de uso.Despacho Express=Entrega 3 horas en Bogotá"
@@ -36,13 +43,6 @@ twig:
 #        link: "https://www.mazda.com.co/cars/mazda-3-hatchback/"
 #        store: "mazda"
 #        price: ""
-#      d6:
-#        title: "Smart TV (Android TV) 4K Ultra HD SONY"
-#        description: "Televisor 65 pulgadas SONY OLED 4K HDR A8F, con Dolby Vision, Acoustic Surface e índice de alto contraste, que ofrece tonos negros puros."
-#        img: "img/deals/bravia-oled.jpg"
-#        link: "https://store.sony.com.co/xbr-65a8f/p"
-#        store: "sony"
-#        price: ""
 #      d7:
 #        title: "Lleva tu combo Logitech G de altavoz y mouse por solo $ 699.900"
 #        description: "Parlantes Gamer Logitech G560 RGB y Mouse Logitech G203. Altavoz para gaming en PC Lightsync sólo en teknopolis.co"
@@ -50,15 +50,15 @@ twig:
 #        link: "https://www.teknopolis.co/parlantes-gamer-logitech-g560-rgb-mouse-logitech-g203/p"
 #        store: "teknopolis"
 #        price: ""
-#      d8:
-#        title: "Portátil HP Intel Celeron N3060 - 14 Pulgadas"
-#        description: "Portátil HP - 14-AX026LA - Intel Celeron N3060 - 14 Pulgadas - Disco Duro 32GB - Gris.<br>
-#          Características:<br>
-#          - Procesador Intel Celeron N3060<br>
-#          - Sistema Operativo Windows 10 Home<br>
-#          - Memoria RAM 4GB<br>
-#          - Disco Duro 32GB<br>Pantalla 14 Pulgadas"
-#        img: "img/deals/portatil-HP-Intel-Celeron-N3060.jpg"
-#        link: "https://www.ktronix.com/portatil-hp-14-ax026la-intel-celeron-n3060-14-pulgadas-disco-duro-32gb-gris"
-#        store: "ktronix"
-#        price: ""
+      d8:
+        title: "Portátil HP Intel Celeron N3060 - 14 Pulgadas"
+        description: "Portátil HP - 14-AX026LA - Intel Celeron N3060 - 14 Pulgadas - Disco Duro 32GB - Gris.<br>
+          Características:<br>
+          - Procesador Intel Celeron N3060<br>
+          - Sistema Operativo Windows 10 Home<br>
+          - Memoria RAM 4GB<br>
+          - Disco Duro 32GB<br>Pantalla 14 Pulgadas"
+        img: "img/deals/portatil-HP-Intel-Celeron-N3060.jpg"
+        link: "https://www.ktronix.com/portatil-hp-14-ax026la-intel-celeron-n3060-14-pulgadas-disco-duro-32gb-gris"
+        store: "ktronix"
+        price: "$ 749.000 COP"
