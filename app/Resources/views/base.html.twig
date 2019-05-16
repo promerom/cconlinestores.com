@@ -4,6 +4,7 @@
     <head>
 
         {{ app.environment == 'prod' ? include('default/gtm-head.html.twig') }}
+        {{ app.environment == 'prod' ? include('ads/auto-ads.html.twig') }}
 
         <meta charset="utf-8">
         <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}" />
