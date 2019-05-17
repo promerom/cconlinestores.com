@@ -19,7 +19,7 @@ twig:
         url: "https://cconlinestores.com/stores"
         author: "kbitssd"
       deals:
-        name: "Ofertas en línea, promociones, descuentos y black friday en Noviembre"
+        name: "Ofertas en línea, promociones, descuentos y black friday en Colombia"
         title: "BLACK FRIDAY Colombia con las mejores ofertas y descuentos del momento, todo en un sólo lugar."
         description: "Encuentra todas las Ofertas y promociones más destacadas del momento en internet. En Online Stores tenemos las promociones y descuentos de las tiendas en línea más importantes del mundo, outlets y online stores. BLACK FRIDAY Colombia en Mayo y Noviembre."
         img:
@@ -30,7 +30,7 @@ twig:
         name: "Ofertas Black Friday 2019"
         title: "BLACK FRIDAY Colombia 2019 con las mejores ofertas y descuentos del momento."
         description: "Encuentra las mejores ofertas, descuentos y productos en BLACK FRIDAY Colombia 2019. Todos los descuentos y ofertas del próximo black friday el 17 de mayo de 2019."
-        img:
+        img: "img/deals/black-friday.png"
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/blackfriday"
         author: "kbitssd"

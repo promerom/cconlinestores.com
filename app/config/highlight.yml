@@ -1,0 +1,10 @@
+twig:
+  globals:
+    highlight:
+      d1:
+        title: "BLACK FRIDAY"
+        description: "¡Black friday! Ofertas y descuentos online. Encuentra las mejores ofertas, descuentos y promociones en el Black Friday Colombia hoy viernes 17 de mayo 2019."
+        img: "img/deals/black-friday.png"
+        link: "/blackfriday"
+        store: ""
+        price: ""

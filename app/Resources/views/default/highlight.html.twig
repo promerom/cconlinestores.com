@@ -1,0 +1,30 @@
+{% set highlight = highlight['d1'] %}
+<!-- Page Content -->
+<div class="container">
+    <!-- Heading Row -->
+    <div class="row my-4">
+        <div class="col-lg-8">
+            <img class="img-fluid rounded" src="{{ highlight.img }}" alt="">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+            <h1>{{ highlight.title }}</h1>
+            <p>{{ highlight.description }}</p>
+            <a class="btn btn-primary btn-lg" href="{{ highlight.link }}">Ir a {{ highlight.title }}</a>
+            <div class="row col-lg-12 my-4">
+                {{ include('ads/amazon/gift-cards/320x50.html.twig') }}
+            </div>
+        </div>
+    <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-4 text-center">
+        <div class="card-body">
+            <p class="text-white m-0">No te pierdas todos los productos con descuento, excelentes ofertas y las mejores promociones de {{ highlight.title }} <a class="btn btn-info btn-sm" href="{{ highlight.link }}"> Ver ofertas en {{ highlight.title }}</a></p>
+        </div>
+    </div>
+</div>
+<hr>
+<!-- /.container -->
