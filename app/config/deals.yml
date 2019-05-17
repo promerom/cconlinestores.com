@@ -8,6 +8,13 @@ twig:
         link: "https://store.sony.com.co/wh-ch500/p"
         store: "sony"
         price: "$ 168.999 COP"
+      d17:
+        title: "CAMISETA OFICIAL SELECCIÓN DE COLOMBIA LOCAL 2018"
+        description: "CAMISETA ADIDAS OFICIAL SELECCIÓN DE COLOMBIA LOCAL 2018. CAMISETA DE LOCAL OFICIAL DE LA SELECCIÓN COLOMBIA. 70% de descuento. Precio sin descuento $ 189.900 COP"
+        img: "img/deals/camiseta-oficial-seleccion-colombia-2018-amarillo.jpg"
+        link: "https://www.adidas.co/camiseta-oficial-seleccion-de-colombia-local-2018/CW1526.html"
+        store: "adidas"
+        price: "$ 49.900 COP"
       d11:
         title: "Prepárate para CYBERLUNES® este 19 y 20 de noviembre de 2019."
         description: "¡Aprovecha Cyberlunes® Colombia este 19 y 20 de noviembre! Disfruta súper descuentos y precios bajos para que compres por internet tus marcas favoritas."

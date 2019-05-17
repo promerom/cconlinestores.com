@@ -8,6 +8,13 @@ twig:
         link: "https://store.sony.com.co/xbr-65a8f/p"
         store: "sony"
         price: "$ 8.698.930 COP"
+      d17:
+        title: "CAMISETA OFICIAL SELECCIÓN DE COLOMBIA LOCAL 2018"
+        description: "CAMISETA ADIDAS OFICIAL SELECCIÓN DE COLOMBIA LOCAL 2018. CAMISETA DE LOCAL OFICIAL DE LA SELECCIÓN COLOMBIA. 70% de descuento. Precio sin descuento $ 189.900 COP"
+        img: "img/deals/camiseta-oficial-seleccion-colombia-2018-amarillo.jpg"
+        link: "https://www.adidas.co/camiseta-oficial-seleccion-de-colombia-local-2018/CW1526.html"
+        store: "adidas"
+        price: "$ 49.900 COP"
       d14:
         title: "Audífonos EXTRA BASS™ XB550AP"
         description: "Deja que la música fluya con toda la potencia de EXTRA BASS. Escoge entre cinco colores vibrantes el que mejor se adapte a tu estilo. #BLACKFRIDAY 20% de descuento. Precio original $149.900 COP"
