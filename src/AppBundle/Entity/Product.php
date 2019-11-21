@@ -3,6 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \AppBundle\Entity\Currency;
+use \AppBundle\Entity\Brand;
+use \AppBundle\Entity\Store;
 
 /**
  * Product
@@ -38,23 +41,9 @@ class Product
     /**
      * @var int
      *
-     * @ORM\Column(name="brand_id", type="integer")
-     */
-    private $brandId;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="price", type="integer", nullable=true)
      */
     private $price;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="currency_id", type="integer", nullable=true)
-     */
-    private $currencyId;
 
     /**
      * @var int
@@ -76,6 +65,22 @@ class Product
      * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\Currency", inversedBy="products")
+     */
+    private $currency;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\Brand", inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $brand;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\Store", inversedBy="products")
+     */
+    private $store;
 
 
     /**
@@ -137,30 +142,6 @@ class Product
     }
 
     /**
-     * Set brandId
-     *
-     * @param integer $brandId
-     *
-     * @return Product
-     */
-    public function setBrandId($brandId)
-    {
-        $this->brandId = $brandId;
-
-        return $this;
-    }
-
-    /**
-     * Get brandId
-     *
-     * @return int
-     */
-    public function getBrandId()
-    {
-        return $this->brandId;
-    }
-
-    /**
      * Set price
      *
      * @param integer $price
@@ -182,30 +163,6 @@ class Product
     public function getPrice()
     {
         return $this->price;
-    }
-
-    /**
-     * Set currencyId
-     *
-     * @param integer $currencyId
-     *
-     * @return Product
-     */
-    public function setCurrencyId($currencyId)
-    {
-        $this->currencyId = $currencyId;
-
-        return $this;
-    }
-
-    /**
-     * Get currencyId
-     *
-     * @return int
-     */
-    public function getCurrencyId()
-    {
-        return $this->currencyId;
     }
 
     /**
@@ -278,6 +235,42 @@ class Product
     public function getImage()
     {
         return $this->image;
+    }
+
+    public function getCurrency(): ?Currency
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency(?Currency $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    public function getBrand(): ?Brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(?Brand $brand): self
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getStore(): ?Store
+    {
+        return $this->store;
+    }
+
+    public function setStore(?Store $store): self
+    {
+        $this->store = $store;
+
+        return $this;
     }
 }
 
