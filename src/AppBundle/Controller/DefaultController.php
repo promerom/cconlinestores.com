@@ -5,17 +5,20 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use AppBundle\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
 
 class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, EntityManagerInterface $em)
     {
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'products' => $this->getMainProducts($em)
         ]);
     }
 
@@ -92,5 +95,12 @@ class DefaultController extends Controller
         return $this->render('cyberlunes/cyberlunes_page.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
         ]);
+    }
+
+    private function  getMainProducts(EntityManagerInterface $em) {
+        $productRepository = $em->getRepository(Product::class);
+        $products = $productRepository->findByStore(2);
+
+        return $products;
     }
 }

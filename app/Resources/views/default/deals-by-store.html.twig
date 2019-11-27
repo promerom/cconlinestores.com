@@ -1,0 +1,42 @@
+<!-- Portfolio Section -->
+</br>
+<h2 class="pb-3 mb-4 font-italic border-bottom">Las mejores ofertas de Celulares Samsung en Ktronix</h2>
+
+<div class="row">
+
+    {% for product in products[:30] %}
+    <div class="col-lg-4 col-sm-6 portfolio-item" itemscope itemtype="http://schema.org/Product">
+        <div class="card h-100">
+            <p class="text-right font-weight-bold p-2 mb-2 bg-light text-dark text-uppercase">
+                <a href="{{ product.store.url }}" target="_blank">{{ product.store.name }}</a>
+            </p>
+            <a href="{{ product.url }}" target="_blank"><img itemprop="image" class="card-img-top" src="{{ product.image }}" alt="{{ product.name|raw }}"></a>
+            <div class="card-body">
+                <h4 itemprop="name" class="card-title">
+                    <a href="{{ product.url }}" target="_blank">{{ product.name|raw }}</a>
+                </h4>
+                <p itemprop="description" class="card-text">{{ product.description|raw }}</p>
+                <a href="{{ product.store.url }}" target="_blank">
+                    <h3 class="p-3 mb-2 bg-success text-white text-center">
+                        <span class="input-group-addon">{{ product.currency.symbol }}</span>
+                        {% if product.specialPrice is not empty%}
+                            {{ product.specialPrice }}
+                        {% else %}
+                            {{ product.price }}
+                        {% endif %}
+                    </h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% set vars = {
+'title': 'Las mejores ofertas de celulares samsung en Ktronix',
+'description': 'Ver la lista completa de <strong>las mejores ofertas, promociones y descuentos</strong> de celulares samsung en Katronix en línea.',
+'destiny': 'Ofertas',
+'routename': 'deals_page'
+} %}
+{% include 'default/cta.html.twig' with { 'cta_data': vars } %}
+<!-- /.row -->
