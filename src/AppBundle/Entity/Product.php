@@ -82,6 +82,20 @@ class Product
      */
     private $store;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="old_price", type="integer", nullable=true)
+     */
+    private $oldPrice;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="special_price", type="integer", nullable=true)
+     */
+    private $specialPrice;
+
 
     /**
      * Get id
@@ -272,5 +286,52 @@ class Product
 
         return $this;
     }
-}
 
+    /**
+     * Get oldPrice
+     *
+     * @return int
+     */
+    public function getOldPrice()
+    {
+        return $this->oldPrice;
+    }
+
+    /**
+     * Set oldPrice
+     *
+     * @param integer $oldPrice
+     *
+     * @return Product
+     */
+    public function setOldPrice($oldPrice)
+    {
+        $this->oldPrice = $oldPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get specialPrice
+     *
+     * @return int
+     */
+    public function getSpecialPrice()
+    {
+        return $this->specialPrice;
+    }
+
+    /**
+     * Set specialPrice
+     *
+     * @param integer $specialPrice
+     *
+     * @return Product
+     */
+    public function setSpecialPrice($specialPrice)
+    {
+        $this->specialPrice = $specialPrice;
+
+        return $this;
+    }
+}
