@@ -109,7 +109,6 @@ class CrawlerController extends Controller
             $product->setStore($store);
 
             if (isset($tmp)) {
-                echo "persist";
                 $em = $doctrine->getManager();
                 $em->persist($product);
                 $em->flush();
