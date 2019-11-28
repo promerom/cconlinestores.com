@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DomCrawler\Crawler;
 use AppBundle\Entity\Product;
+use Symfony\Component\HttpFoundation\Response;
 
 class CrawlerController extends Controller
 {
@@ -114,11 +115,18 @@ class CrawlerController extends Controller
                 $em->flush();
             }
 
+            return $product->getName();
+
         });
 
-        return $this->render('AppBundle:Crawler:get_data.html.twig', array(
+        $response = new Response(json_encode($nodeValues));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+
+//         return $this->render('AppBundle:Crawler:get_data.html.twig', array(
             // ...
-        ));
+//         ));
     }
 
 }
