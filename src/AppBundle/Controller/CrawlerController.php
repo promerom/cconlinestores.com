@@ -12,26 +12,41 @@ class CrawlerController extends Controller
 {
     /**
      * @Route(
-     *  "getdata/{_idStore}/{_idBrand}/{_idCurrency}",
+     *  "getdata/{_idGetData}",
      *  defaults={
-     *      "_idStore": "1",
-     *      "_idBrand": "1",
-     *      "_idCurrency": "1"
+     *      "_idGetData": "ktr_sam_cel",
      *  },
      *  requirements={
-     *      "_store": "\d+",
-     *      "idCurrency": "\d+"
      *  },
      *  name="get_data")
      */
-    public function getDataAction($_idStore, $_idBrand, $_idCurrency)
+    public function getDataAction($_idGetData)
     {
-        switch ($_idStore):
-            case "1":
-                $url = "https://www.falabella.com.co";
-                break;
-            case "2":
+        $doctrine = $this->getDoctrine();
+        switch ($_idGetData):
+            case "ktr_sam_cel":
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
+                $_idStore = $store->getId();
+                $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Samsung");
+                $_idBrand = $brand->getId();
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByName("Pesos");
+                $_idCurrency = $currency->getId();
+                $category = $doctrine->getRepository('AppBundle:Category')->findOneByName("Celulares");
+                $_idCategory = $category->getId();
+
+                break;
+            case "ktr_sony_tv":
+                $url = "https://www.ktronix.com/tv/televisores/ver/sony/";
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
+                $_idStore = $store->getId();
+                $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Sony");
+                $_idBrand = $brand->getId();
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByName("Pesos");
+                $_idCurrency = $currency->getId();
+                $category = $doctrine->getRepository('AppBundle:Category')->findOneByName("Televisores");
+                $_idCategory = $category->getId();
+
                 break;
             default:
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
@@ -42,9 +57,9 @@ class CrawlerController extends Controller
 
         $crawler = new Crawler($html);
 
-        $nodeValues = $crawler->filter('.products-grid .item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency) {
+        $nodeValues = $crawler->filter('.products-grid .item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
 
-            $product = $this->parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency);
+            $product = $this->parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory);
 
             return $product->getName();
 
@@ -60,7 +75,7 @@ class CrawlerController extends Controller
 //         ));
     }
 
-    private function parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency) {
+    private function parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory) {
         $productName = $node->filter(".product-name a");
         $productImg = $node->filter(".product-image img");
         $oldPrice = $node->filter(".price-box .old-price .price-old");
@@ -125,6 +140,11 @@ class CrawlerController extends Controller
         ->getRepository('AppBundle:Store')
         ->find($_idStore);
         $product->setStore($store);
+
+        $category = $doctrine
+        ->getRepository('AppBundle:Category')
+        ->find($_idCategory);
+        $product->setCategory($category);
 
         if (isset($tmp)) {
             $em = $doctrine->getManager();

@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use \AppBundle\Entity\Currency;
 use \AppBundle\Entity\Brand;
 use \AppBundle\Entity\Store;
+use \AppBundle\Entity\Category;
 
 /**
  * Product
@@ -95,6 +96,11 @@ class Product
      * @ORM\Column(name="special_price", type="integer", nullable=true)
      */
     private $specialPrice;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\Category", inversedBy="products")
+     */
+    private $category;
 
 
     /**
@@ -331,6 +337,18 @@ class Product
     public function setSpecialPrice($specialPrice)
     {
         $this->specialPrice = $specialPrice;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

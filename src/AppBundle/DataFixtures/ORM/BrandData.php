@@ -20,6 +20,12 @@ class BrandData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Samsung te ayuda a descubrir un universo de tecnología innovadora para el hogar incluyendo Smartphones, tablets, TVs, electrodomésticos y más.',
                 'url' => 'https://www.samsung.com/co/',
                 'image' => 'https://cdn.samsung.com/etc/designs/smg/global/imgs/logo-square-letter.png'
+            ],
+            [
+                'name' => 'Sony',
+                'description' => 'Página oficial de Sony Colombia. Descubre la gama de productos electrónicos de alta calidad y entretenimiento en Sony Entertainment Network en Español.',
+                'url' => 'https://www.sony.com.co/',
+                'image' => 'https://www.sony.com/image/sonyview1?fmt=png&wid=1200'
             ]
         );
 
