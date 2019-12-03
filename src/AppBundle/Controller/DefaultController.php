@@ -99,7 +99,11 @@ class DefaultController extends Controller
 
     private function  getMainProducts(EntityManagerInterface $em) {
         $productRepository = $em->getRepository(Product::class);
-        $products = $productRepository->findByStore(2);
+//         $products = $productRepository->findByStore(2)->orderBy("created DESC");
+        $products = $productRepository->findBy(
+            array('store' => 2),
+            array('created' => 'DESC')
+            );
 
         return $products;
     }
