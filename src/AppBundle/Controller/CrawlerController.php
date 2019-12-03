@@ -27,7 +27,7 @@ class CrawlerController extends Controller
             case "ktr_sam_cel":
 //                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
 //                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung?p=2";
-                $url = "https://www.ktronix.com/telefonos-celulares/ver/samsung/";
+                $url = "https://www.ktronix.com/telefonos-celulares/ver/samsung";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
                 $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Samsung");
@@ -59,7 +59,7 @@ class CrawlerController extends Controller
 
         $crawler = new Crawler($html);
 
-        $nodeValues = $crawler->filter('.products-grid .item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
+        $nodeValues = $crawler->filter('.col-main .products-grid .item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
 
             $product = $this->parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory);
 
