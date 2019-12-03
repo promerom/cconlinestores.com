@@ -102,6 +102,20 @@ class Product
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     */
+    private $created;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $modified;
+
+    public function __construct() {
+        $this->setCreated(new \DateTime());
+        $this->setModified();
+    }
 
     /**
      * Get id
@@ -349,6 +363,32 @@ class Product
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getCreated(): ?\DateTimeInterface
+    {
+        return $this->created;
+    }
+
+    public function setCreated(\DateTimeInterface $created): self
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    public function getModified(): ?\DateTimeInterface
+    {
+        return $this->modified;
+    }
+
+//     public function setModified(\DateTimeInterface $modified): self
+    public function setModified(): self
+    {
+//         $this->modified = $modified;
+        $this->modified = new \DateTime();
 
         return $this;
     }

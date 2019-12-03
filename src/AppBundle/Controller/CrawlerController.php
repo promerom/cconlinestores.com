@@ -25,7 +25,9 @@ class CrawlerController extends Controller
         $doctrine = $this->getDoctrine();
         switch ($_idGetData):
             case "ktr_sam_cel":
-                $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
+//                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
+//                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung?p=2";
+                $url = "https://www.ktronix.com/telefonos-celulares/ver/samsung/";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
                 $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Samsung");
