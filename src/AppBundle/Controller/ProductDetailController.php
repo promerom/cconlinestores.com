@@ -22,7 +22,7 @@ class ProductDetailController extends Controller
         $product = $doctrine->getRepository("AppBundle:Product")->find($id);
         $category = $product->getCategory()->getId();
 
-        $featured = $doctrine->getRepository("AppBundle:Product")->findAllExcludeId($id, $category, 6);
+        $featured = $doctrine->getRepository("AppBundle:Product")->findAllExcludeId($id, $category, 9);
 
         return $this->render('controller/product_detail/index.html.twig', [
             'controller_name' => 'ProductDetailController',

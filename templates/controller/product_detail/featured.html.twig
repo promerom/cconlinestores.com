@@ -3,13 +3,17 @@
     {% for item in featured %}
     <!-- /.col-md-4 -->
     <div class="col-md-4 mb-4">
-        <div class="card h-100">
+        <div class="card h-100 text-center">
             <div class="card-body">
-                <h2 class="card-title">{{ item.name }}</h2>
+                <h3 class="card-title">{{ item.name }}</h3>
 {#                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>#}
             </div>
+            <img src="{{ asset(item.image) }}" class="card-img-top" alt="{{ item.name }}">
             <div class="card-footer">
-                <a href="{{ path('product_detail', { '_category': item.category.urlName, '_url_name': item.urlName, '_id': item.id }) }}" class="btn btn-primary">More Info</a>
+                <a href="{{ path('product_detail', { '_category': item.category.urlName, '_url_name': item.urlName, '_id': item.id }) }}" class="btn btn-primary">Ver más</a>
+                <small class="text-muted">
+                    {{ product.modified|date("d/m/Y") }}
+                </small>
             </div>
         </div>
     </div>
