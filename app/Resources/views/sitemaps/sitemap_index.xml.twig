@@ -9,7 +9,7 @@
                 {{ url.loc }}
             {% endif %}
             </loc>
-            <lastmod>{{ url.lastmod|date("d/m/Y g:ia") }}</lastmod>
+            <lastmod>{{ url.lastmod|date("c") }}</lastmod>
         </sitemap>
     {% endfor %}
 </sitemapindex>

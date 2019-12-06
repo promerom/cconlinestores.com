@@ -20,7 +20,7 @@
             {% endif %}
         </loc>
         {% if url.lastmod is defined %}
-            <lastmod>{{ url.lastmod|date("d/m/Y g:ia") }}</lastmod>
+            <lastmod>{{ url.lastmod|date("c") }}</lastmod>
         {% endif %}
         {% if url.changefreq is defined %}
             <changefreq>{{ url.changefreq }}</changefreq>
