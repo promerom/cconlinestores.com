@@ -18,6 +18,7 @@ class CrawlerController extends Controller
      *  },
      *  requirements={
      *  },
+     *  methods={"GET","HEAD"},
      *  name="get_data")
      */
     public function getDataAction($_idGetData)

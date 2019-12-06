@@ -56,6 +56,11 @@ class Category
      */
     private $products;
 
+    /**
+     * @ORM\Column(name="url_name", type="string", length=255)
+     */
+    private $urlName;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -82,6 +87,12 @@ class Category
     public function setName($name)
     {
         $this->name = $name;
+
+        $search = array(" ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!");
+        $replace = array("-", "");
+        $urlName = strtolower(str_replace($search, $replace, $name));
+
+        $this->setUrlName($urlName);
 
         return $this;
     }
@@ -195,6 +206,18 @@ class Category
                 $product->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUrlName(): ?string
+    {
+        return $this->urlName;
+    }
+
+    public function setUrlName(string $urlName): self
+    {
+        $this->urlName = $urlName;
 
         return $this;
     }

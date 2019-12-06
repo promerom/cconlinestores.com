@@ -103,14 +103,24 @@ class Product
     private $category;
 
     /**
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="created", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
     private $created;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(name="modified", type="datetime", nullable=true)
      */
     private $modified;
+
+    /**
+     * @ORM\Column(name="long_description", type="text", nullable=true)
+     */
+    private $longDescription;
+
+    /**
+     * @ORM\Column(name="url_name", type="string", length=255)
+     */
+    private $urlName;
 
     public function __construct() {
         $this->setCreated(new \DateTime());
@@ -137,6 +147,12 @@ class Product
     public function setName($name)
     {
         $this->name = $name;
+
+        $search = array(" ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!");
+        $replace = array("-", "");
+        $urlName = strtolower(str_replace($search, $replace, $name));
+
+        $this->setUrlName($urlName);
 
         return $this;
     }
@@ -389,6 +405,30 @@ class Product
     {
 //         $this->modified = $modified;
         $this->modified = new \DateTime();
+
+        return $this;
+    }
+
+    public function getLongDescription(): ?string
+    {
+        return $this->longDescription;
+    }
+
+    public function setLongDescription(?string $longDescription): self
+    {
+        $this->longDescription = $longDescription;
+
+        return $this;
+    }
+
+    public function getUrlName(): ?string
+    {
+        return $this->urlName;
+    }
+
+    public function setUrlName(string $urlName): self
+    {
+        $this->urlName = $urlName;
 
         return $this;
     }

@@ -13,17 +13,19 @@ class CurrencyData extends Fixture implements OrderedFixtureInterface
     {
         // $product = new Product();
         // $manager->persist($product);
+//         https://www.currency-iso.org/dam/downloads/lists/list_one.xml
+//         https://www.xe.com/symbols.php
 
         $currencies = array(
             [
                 'name' => 'Pesos',
                 'description' => 'COP - Pesos Colombianos',
-                'symbol' => 'COP $',
+                'symbol' => '$',
             ],
             [
                 'name' => 'Dolar',
                 'description' => 'UDS - Dolar Americano',
-                'symbol' => 'USD $',
+                'symbol' => '$',
             ]
         );
 

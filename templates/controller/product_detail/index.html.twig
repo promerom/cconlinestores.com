@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.4/examples/product/product.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal">{{ product.name }}</h1>
+    <p class="lead font-weight-normal alert alert-success font-weight-bold border border-success" role="alert">{{ product.currency.symbol}} {{ product.specialPrice|localizedcurrency('COP') }}</p>
+{#     <a class="btn btn-outline-secondary" href="#">Coming soon</a>#}
+  </div>
+  <div class="product-device shadow-sm d-none d-md-block"></div>
+  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+<!-- Page Content -->
+<div class="container">
+    <!-- Heading Row -->
+    <div class="row my-4">
+        <div class="col-lg-8">
+            <img class="img-fluid rounded mx-auto d-block" src="{{ asset(product.image) }}" alt="{{ product.name }}">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+{#             <h1>Business Name or Tagline</h1>#}
+            <p>{{ product.description }}</p>
+            <a class="btn btn-primary btn-lg btn-block" href="{{ product.url }}" target="_blank">Comprar en {{ product.store.name }}</a>
+        </div>
+    <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-4 text-center">
+        <div class="card-body">
+            <p class="text-white m-0">Ver más {{ product.category.name }} en <a href="{{ product.brand.url }}" target="_blank" class="badge badge-pill badge-light">{{ product.brand.name }}</a></p>
+        </div>
+    </div>
+
+    {{ include("controller/product_detail/featured.html.twig") }}
+    
+</div>
+<!-- /.container -->
+{% endblock %}

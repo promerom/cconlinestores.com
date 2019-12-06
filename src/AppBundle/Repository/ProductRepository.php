@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\Common\Collections\Criteria;
+
 /**
  * ProductRepository
  *
@@ -10,4 +12,16 @@ namespace AppBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllExcludeId($id, $category, $limit) {
+
+        $query = $this->createQueryBuilder('p')
+        ->where('p.id <> :id AND p.category = :category')
+        ->setParameters(array("id" => $id, "category" => $category))
+        ->orderBy('p.modified', 'DESC')
+        ->setMaxResults($limit)
+        ->getQuery();
+
+        return $query->getResult();
+
+    }
 }

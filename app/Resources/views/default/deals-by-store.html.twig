@@ -1,6 +1,6 @@
 <!-- Portfolio Section -->
 </br>
-<h2 class="pb-3 mb-4 font-italic border-bottom">Las mejores ofertas de Celulares Samsung en Ktronix</h2>
+<h2 class="pb-3 mb-4 font-italic border-bottom">Las mejores ofertas de tecnología en Ktronix</h2>
 
 <div class="row">
 
@@ -10,19 +10,19 @@
             <p class="text-right font-weight-bold p-2 mb-2 bg-light text-dark text-uppercase">
                 <a href="{{ product.store.url }}" target="_blank">{{ product.store.name }}</a>
             </p>
-            <a href="{{ product.url }}" target="_blank"><img itemprop="image" class="card-img-top" src="{{ product.image }}" alt="{{ product.name|raw }}"></a>
+            <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}"><img itemprop="image" class="card-img-top" src="{{ asset(product.image) }}" alt="{{ product.name|raw }}" /></a>
             <div class="card-body">
                 <h4 itemprop="name" class="card-title">
-                    <a href="{{ product.url }}" target="_blank">{{ product.name|raw }}</a>
+                    <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}">{{ product.name|raw }}</a>
                 </h4>
                 <p itemprop="description" class="card-text">{{ product.description|raw }}</p>
-                <a href="{{ product.store.url }}" target="_blank">
+                <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}">
                     <h3 class="p-3 mb-2 bg-success text-white text-center">
                         <span class="input-group-addon">{{ product.currency.symbol }}</span>
                         {% if product.specialPrice is not empty%}
-                            {{ product.specialPrice }}
+                            {{ product.specialPrice|localizedcurrency('COP') }}
                         {% else %}
-                            {{ product.price }}
+                            {{ product.price|localizedcurrency('COP') }}
                         {% endif %}
                     </h3>
                 </a>
@@ -33,8 +33,8 @@
 
 </div>
 {% set vars = {
-'title': 'Las mejores ofertas de celulares samsung en Ktronix',
-'description': 'Ver la lista completa de <strong>las mejores ofertas, promociones y descuentos</strong> de celulares samsung en Katronix en línea.',
+'title': 'Las mejores ofertas de tecnología en Ktronix',
+'description': 'Ver la lista completa de <strong>las mejores ofertas, promociones y descuentos</strong> de tecnología en Katronix en línea.',
 'destiny': 'Ofertas',
 'routename': 'deals_page'
 } %}

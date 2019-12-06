@@ -101,7 +101,7 @@ class DefaultController extends Controller
         $productRepository = $em->getRepository(Product::class);
 //         $products = $productRepository->findByStore(2)->orderBy("created DESC");
         $products = $productRepository->findBy(
-            array('store' => 2),
+            array(),
             array('created' => 'DESC')
             );
 
