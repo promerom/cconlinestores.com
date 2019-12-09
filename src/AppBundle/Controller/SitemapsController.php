@@ -162,7 +162,7 @@ class SitemapsController extends Controller
         foreach ($products as $item) {
             $urls[] = array(
                 'loc' => $this->get('router')->generate('product_detail', array(
-                    '_category' => $item->getCategory()->getId(),
+                    '_category' => $item->getCategory()->getUrlName(),
                     '_url_name' => $item->getUrlName(),
                     '_id' => $item->getId()
                 )),
