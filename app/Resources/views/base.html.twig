@@ -26,6 +26,7 @@
 
         <meta name="robots" content="all">
         <meta name="googlebot" content="all">
+        <link rel="alternate" href="{{ url('homepage') }}" hreflang="es_CO" />
 
         {% block opengraph %}
         {{ include('default/opengraph.html.twig', {title: seo.title, description: seo.description, img: seo.img, imgalt: seo.name}) }}
