@@ -3,7 +3,11 @@
 <meta property="og:locale" content="es_CO" />
 <meta property="og:site_name" content="{{ seo.name }}" />
 <meta property="og:type" content="website" />
+{% if productUrl is defined %}
+<meta property="og:url" content="{{ productUrl }}" />
+{% else %}
 <meta property="og:url" content="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
+{% endif %}
 {% if img is empty %}
 {% set img = seo.img %}
 {% endif %}

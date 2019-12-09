@@ -1,9 +1,33 @@
 {% extends 'base.html.twig' %}
 
+{% set productUrl = url('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }, false) %}
+{# {{ url('product_detail', route_parameters = [{ '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }], schemeRelative = false) }}#}
+
+{% block seo %}
+<title>{% block title %}{{ product.name }} - {{ product.category.name }}{% endblock %}</title>
+<meta name="description" content="{{ product.description }}">
+<script type='application/ld+json'> 
+{
+    "@context": "http://www.schema.org",
+    "@type": "WebSite",
+    "name": "{{ product.name }}",
+    "alternateName": "{{ product.name }}",
+    "url": "{{ productUrl }}",
+    "description": "{{ product.description }}"
+}
+</script>
+<link rel="canonical" href="{{ productUrl }}"/>
+{% endblock %}
+
+{% block opengraph %}
+{{ include('default/opengraph.html.twig', {title: product.name, description: product.description, img: product.image, imgalt: product.name, url: productUrl}) }}
+{% endblock %}
+
 {% block stylesheets %}
 {{ parent() }}
 <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.4/examples/product/product.css" rel="stylesheet">
+{#     <link href="https://getbootstrap.com/docs/4.4/examples/product/product.css" rel="stylesheet">#}
+    <link href="{{ asset('css/product.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
