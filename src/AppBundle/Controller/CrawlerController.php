@@ -92,9 +92,11 @@ class CrawlerController extends Controller
             $name = $productName->attr("title");
             $url = $productName->attr("href");
 
-            $items = $doctrine->getRepository("AppBundle:Product")->findByUrl($url);
-            if (empty($items)) {
-                $tmp = true;
+            $item = $doctrine->getRepository("AppBundle:Product")->findOneByUrl($url);
+            if (!empty($item)) {
+                $update = true;
+                $product = $item;
+                $product->setModified(new \DateTime());
             }
 
             $product->setName($name);
@@ -129,6 +131,17 @@ class CrawlerController extends Controller
             $product->setPrice($price);
         }
 
+        $description = $this->getProductDescription($product);
+        if (isset($description)) {
+            if (is_array($description)) {
+                $longDesc = trim($description[0]);
+                $product->setLongDescription($longDesc);
+                $desc = mb_substr($longDesc, 0, 250);
+                $product->setDescription($desc . "...");
+            }
+        }
+
+
         $currency = $doctrine
         ->getRepository('AppBundle:Currency')
         ->find($_idCurrency);
@@ -149,13 +162,27 @@ class CrawlerController extends Controller
         ->find($_idCategory);
         $product->setCategory($category);
 
-        if (isset($tmp)) {
+//         if (!isset($update)) {
             $em = $doctrine->getManager();
             $em->persist($product);
             $em->flush();
-        }
+//         }
 
         return $product;
+    }
+
+    private function getProductDescription(Product $product) {
+        $url = $product->getUrl();
+
+        $html = file_get_contents($url);
+
+        $crawler = new Crawler($html);
+
+        $nodeValues = $crawler->filter('.product-view .product-essential .short-description div.content')->each(function (Crawler $node, $i) {
+            return $node->text();
+        });
+
+        return $nodeValues;
     }
 
 }
