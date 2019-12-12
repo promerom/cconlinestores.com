@@ -88,3 +88,27 @@ white_october_breadcrumbs:
     locale:             ~ # defaults to null, so the default locale is used
     translation_domain: ~ # defaults to null, so the default domain is used
     viewTemplate:       'WhiteOctoberBreadcrumbsBundle::microdata.html.twig'
+    
+social_post:
+    publish_on: [facebook]         # List which Social networks you will be publishing to and configure your access to them as shown below
+    providers:
+        facebook:
+            app_id: "525024014892347"
+            app_secret: "33b749626fb7d4dff86f83863c9b3dd4"
+            default_access_token: "EAAHdga3nZCTsBAKMM6ak4bJNMcAIEsRiscYdUhCboIrKTcF8PDqZCQ7JOZBrsQ2cWkPlp39EsErZCCQz4FpfiIm826M1l44wKj1xW7Laz3OrINzSGgtBqRIlMKcIiLs89uQUWOi8NJ4UsSvZAqV7Cb3XHZBp0OOXhOD3FkmlmUZB5yOHQIHTAaReteENKS82K0ZD"
+            page_id: "182679275999767"
+            enable_beta_mode: true
+            default_graph_version: "v2.8"             # Optional, also supports "mcrypt" and "urandom". Default uses the latest graph version.
+            persistent_data_handler: "memory"         # Optional, also supports "session". Default is "memory".
+            pseudo_random_string_generator: "openssl" # Optional, also supports "mcrypt" and "urandom". Default is "openssl".
+            http_client_handler: "curl"               # Optional, also supports "stream" and "guzzle". Default is "curl".
+        linkedin:
+            client_id: "YOUR-LINKEDIN-APP-CLIENT-ID"
+            client_secret: "YOUR-LINKEDIN-APP-CLIENT-SECRET"
+            access_token: "YOUR-LINKEDIN-60-DAYS-LONG-USER-ACCESS-TOKEN"
+            company_page_id: "YOUR-LINKEDIN-COMPANY-PAGE-ID"
+        twitter:
+            consumer_key: "YOUR-TWITTER-APP-CONSUMER-KEY"
+            consumer_secret: "YOUR-TWITTER-APP-CONSUMER-SECRET"
+            access_token: "YOUR-TWITTER-ACCESS-TOKEN"
+            access_token_secret: "YOUR-TWITTER-ACCESS-TOKEN-SECRET"

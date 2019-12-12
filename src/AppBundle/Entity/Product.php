@@ -122,6 +122,11 @@ class Product
      */
     private $urlName;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $PostOnFacebook;
+
     public function __construct() {
         $this->setCreated(new \DateTime());
         $this->setModified();
@@ -429,6 +434,18 @@ class Product
     public function setUrlName(string $urlName): self
     {
         $this->urlName = $urlName;
+
+        return $this;
+    }
+
+    public function getPostOnFacebook(): ?bool
+    {
+        return $this->PostOnFacebook;
+    }
+
+    public function setPostOnFacebook(?bool $PostOnFacebook): self
+    {
+        $this->PostOnFacebook = $PostOnFacebook;
 
         return $this;
     }
