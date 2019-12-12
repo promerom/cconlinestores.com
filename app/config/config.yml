@@ -90,13 +90,13 @@ white_october_breadcrumbs:
     viewTemplate:       'WhiteOctoberBreadcrumbsBundle::microdata.html.twig'
     
 social_post:
-    publish_on: [facebook]         # List which Social networks you will be publishing to and configure your access to them as shown below
+    publish_on: %publish_on%         # List which Social networks you will be publishing to and configure your access to them as shown below
     providers:
         facebook:
-            app_id: "##"
-            app_secret: "##"
-            default_access_token: "##"
-            page_id: "##"
+            app_id: "%providers_facebook_app_id%"
+            app_secret: "%providers_facebook_app_secret%"
+            default_access_token: "%providers_facebook_defaul_access_token%"
+            page_id: "%providers_facebook_page_id%"
             enable_beta_mode: true
             default_graph_version: "v2.8"             # Optional, also supports "mcrypt" and "urandom". Default uses the latest graph version.
             persistent_data_handler: "memory"         # Optional, also supports "session". Default is "memory".
