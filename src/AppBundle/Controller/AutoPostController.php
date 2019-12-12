@@ -58,25 +58,30 @@ class AutoPostController extends Controller
 
         $contentMessage = $item->getName() . " " . $formatPrice . " " . $hashtags;
 
-        $msg = new Message($contentMessage, $url);
-        $msg->setNetworksToPublishOn([Enum::FACEBOOK]);
+        if (!$item->getPostOnFacebook()) {
+            $msg = new Message($contentMessage, $url);
+            $msg->setNetworksToPublishOn([Enum::FACEBOOK]);
 
-        try {
-            $responseMsg = $this->get('social_post')->publish($msg);
-        } catch (FailureWhenPublishingMessage $e) {
-            $response = new Response(json_encode($contentMessage . " ERROR: " . $e->getMessage()));
+            try {
+                $responseMsg = $this->get('social_post')->publish($msg);
+            } catch (FailureWhenPublishingMessage $e) {
+                $response = new Response(json_encode($contentMessage . " ERROR: " . $e->getMessage()));
+                $response->headers->set('Content-Type', 'application/json');
+
+                return $response;
+            }
+
+            $item->setPostOnFacebook(true);
+            $em = $doctrine->getManager();
+            $em->persist($item);
+            $em->flush();
+
+            $response = new Response(json_encode($contentMessage . " RESPONSE: " . $responseMsg));
             $response->headers->set('Content-Type', 'application/json');
-
-            return $response;
+        } else {
+            $response = new Response(json_encode($item->getName() . " ya fue publicado en FB"));
+            $response->headers->set('Content-Type', 'application/json');
         }
-
-        $item->setPostOnFacebook(true);
-        $em = $doctrine->getManager();
-        $em->persist($item);
-        $em->flush();
-
-        $response = new Response(json_encode($contentMessage . " RESPONSE: " . $responseMsg));
-        $response->headers->set('Content-Type', 'application/json');
 
         return $response;
     }
