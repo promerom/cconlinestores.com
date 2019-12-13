@@ -97,6 +97,24 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/politica-de-privacidad", name="politica_privacidad")
+     */
+    public function politicaPrivacidadAction(Request $request)
+    {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+
+        // Simple example
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
+
+        // Example without URL
+        $breadcrumbs->addItem("Política de privacidad");
+
+        return $this->render('default/politica-privacidad.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR
+        ]);
+    }
+
     private function  getMainProducts(EntityManagerInterface $em) {
         $productRepository = $em->getRepository(Product::class);
 //         $products = $productRepository->findByStore(2)->orderBy("created DESC");
