@@ -26,6 +26,12 @@ class BrandData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Página oficial de Sony Colombia. Descubre la gama de productos electrónicos de alta calidad y entretenimiento en Sony Entertainment Network en Español.',
                 'url' => 'https://www.sony.com.co/',
                 'image' => 'https://www.sony.com/image/sonyview1?fmt=png&wid=1200'
+            ],
+            [
+                'name' => 'Apple',
+                'description' => 'Descubre el innovador mundo de Apple: iPhone, iPad, Apple Watch, Mac, Apple TV, accesorios, entretenimiento y soporte técnico.',
+                'url' => 'https://www.apple.com/co/',
+                'image' => 'https://www.apple.com/ac/structured-data/images/open_graph_logo.png?201809211351'
             ]
         );
 
