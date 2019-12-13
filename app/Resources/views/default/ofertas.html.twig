@@ -3,7 +3,7 @@
 
 <div class="row">
     {% for deal in deals[:6] %}
-    <div class="col-lg-4 col-sm-6 portfolio-item" itemscope itemtype="http://schema.org/Product">
+    <div class="col-lg-4 col-sm-6 portfolio-item" itemscope itemtype="https://schema.org/Product">
         <div class="card h-100">
             <a href="{{ deal.link }}" target="_blank"><img itemprop="image" class="card-img-top" src="{{ deal.img }}" alt="{{ deal.title|raw }}"></a>
             <div class="card-body">
