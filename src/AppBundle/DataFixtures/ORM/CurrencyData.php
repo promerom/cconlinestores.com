@@ -19,12 +19,12 @@ class CurrencyData extends Fixture implements OrderedFixtureInterface
         $currencies = array(
             [
                 'name' => 'Pesos',
-                'description' => 'COP - Pesos Colombianos',
+                'description' => 'COP',
                 'symbol' => '$',
             ],
             [
                 'name' => 'Dolar',
-                'description' => 'UDS - Dolar Americano',
+                'description' => 'UDS',
                 'symbol' => '$',
             ]
         );

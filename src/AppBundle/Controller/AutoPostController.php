@@ -24,7 +24,7 @@ class AutoPostController extends Controller
         /**
          * @var Product $item
          */
-        $item = $doctrine->getRepository("AppBundle:Product")->findOneBy(array(), array("modified" => "DESC"));
+        $item = $doctrine->getRepository("AppBundle:Product")->findOneBy(array("postOnFacebook" => null), array("modified" => "DESC"));
 
         $url = $this->get('router')->generate('product_detail',
             array(

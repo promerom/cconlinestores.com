@@ -123,9 +123,9 @@ class Product
     private $urlName;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(name="post_on_facebook", type="boolean", nullable=true)
      */
-    private $PostOnFacebook;
+    private $postOnFacebook;
 
     public function __construct() {
         $this->setCreated(new \DateTime());
@@ -440,12 +440,12 @@ class Product
 
     public function getPostOnFacebook(): ?bool
     {
-        return $this->PostOnFacebook;
+        return $this->postOnFacebook;
     }
 
-    public function setPostOnFacebook(?bool $PostOnFacebook): self
+    public function setPostOnFacebook(?bool $postOnFacebook): self
     {
-        $this->PostOnFacebook = $PostOnFacebook;
+        $this->postOnFacebook = $postOnFacebook;
 
         return $this;
     }
