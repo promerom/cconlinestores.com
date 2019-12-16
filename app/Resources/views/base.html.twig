@@ -55,6 +55,8 @@
 
     <body>
         {{ app.environment == 'prod' ? include('default/gtm-body.html.twig') }}
+        
+        {{ include('default/facebook-sdk.html.twig') }}
 
         {% block nav %}
         {{ include('default/nav.html.twig') }}

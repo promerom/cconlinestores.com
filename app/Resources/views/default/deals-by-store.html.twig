@@ -19,16 +19,17 @@
                 <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                     {% if product.specialPrice is not empty%}
                         {% set formatPrice = product.specialPrice %}
-{#                         {{ product.specialPrice|localizedcurrency('COP') }}#}
                     {% else %}
                         {% set formatPrice = product.price %}
-{#                         {{ product.price|localizedcurrency('COP') }}#}
                     {% endif %}
                     <h3 class="p-3 mb-2 bg-success text-white text-center" itemprop="price" content="{{ formatPrice }}">
                         <span class="input-group-addon" itemprop="priceCurrency" content="{{ product.currency.description }}">{{ product.currency.symbol }}</span>
                         {{ formatPrice|localizedcurrency('COP') }}
                     </h3>
                 </a>
+                <div class="row justify-content-center">
+                    {{ include('default/fb-share.html.twig', {url: path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id}) } ) }}
+                </div>
             </div>
         </div>
     </div>
