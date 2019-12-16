@@ -4,5 +4,5 @@
     data-size="large">
     <a target="_blank" 
         href="https://www.facebook.com/sharer/sharer.php?u={{ url }}%2F&amp;src=sdkpreparse" 
-        class="fb-xfbml-parse-ignore">Compartir</a>
+        class="fb-xfbml-parse-ignore {% if btnclass is defined %}{{ btnclass }}{% endif %}">Compartir</a>
 </div>
