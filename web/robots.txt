@@ -7,3 +7,4 @@ Allow: /
 Sitemap: https://cconlinestores.com/sitemap_index.xml
 Sitemap: https://cconlinestores.com/sitemap.xml
 Sitemap: https://cconlinestores.com/sitemap_posts.xml
+Sitemap: https://cconlinestores.com/sitemap_categories.xml
