@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use AppBundle\Entity\Category;
 
 class SitemapsController extends Controller
 {
@@ -95,12 +96,20 @@ class SitemapsController extends Controller
         );
 
         $products = $em->getRepository('AppBundle:Product')->findOneBy(array(), array("modified" => "DESC"));
+        $lastModified = $products->getModified();
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('sitemap_posts'),
-            'lastmod' => $products->getModified(),
+            'lastmod' => $lastModified,
             'changefreq' => 'daily',
             'priority' => '0.8'
+        );
+
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('sitemap_categories'),
+            'lastmod' => $lastModified,
+            'changefreq' => 'daily',
+            'priority' => '0.7'
         );
 
         return $this->render('sitemaps/sitemap_index.xml.twig', array(
@@ -178,4 +187,86 @@ class SitemapsController extends Controller
             'hostname' => $hostname
         ));
     }
+
+    /**
+     * @Route("/sitemap_categories.xml", name="sitemap_categories")
+     */
+    public function sitemapCategoriesAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $urls = array();
+        $hostname = $request->getSchemeAndHttpHost();
+
+        // incluye url página inicial
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('homepage'),
+            'changefreq' => 'weekly',
+            'priority' => '1.0'
+        );
+
+        // incluye urls multiidioma
+        //         foreach($languages as $lang) {
+        //             $urls[] = array(
+        //                 'loc' => $this->get('router')->generate('web_quienes_somos', array(
+        //                     '_locale' => $lang
+        //                 )),
+        //                 'changefreq' => 'monthly',
+        //                 'priority' => '0.3'
+        //             );
+
+        //             $urls[] = array(
+            //                 'loc' => $this->get('router')->generate('web_contacto', array(
+                //                     '_locale' => $lang
+            //                 )),
+        //                 'changefreq' => 'monthly',
+            //                 'priority' => '0.3'
+            //             );
+
+        //             // ...
+        //         }
+
+        // incluye urls desde base de datos
+        //         $categorias = $em->getRepository('AnnBundle:Category')->findAll();
+        //         foreach ($categorias as $item) {
+        //             $urls[] = array(
+        //                 'loc' => $this->get('router')->generate('web_categoria', array(
+            //                     'slug' => $item->getSlug()
+            //                 )),
+        //                 'priority' => '0.5'
+        //             );
+        //         }
+
+        /**
+         *
+         * @var Category $categories
+         */
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
+
+        foreach ($categories as $item) {
+
+            $lastProduct = $em->getRepository("AppBundle:Product")->findOneBy(array("category" => $item), array("modified" => "DESC"));
+
+            if (!empty($lastProduct)) {
+                $lastModified = $lastProduct->getModified();
+            } else {
+                $lastModified = null;
+            }
+
+            $urls[] = array(
+                'loc' => $this->get('router')->generate('category', array(
+                    '_category' => $item->getUrlName()
+                )),
+                'priority' => '0.5',
+                'lastmod' => $lastModified,
+                'image' => $item->getImage(),
+                'name' => $item->getName()
+            );
+        }
+
+        return $this->render('sitemaps/sitemap.xml.twig', array(
+            'urls'     => $urls,
+            'hostname' => $hostname
+        ));
+}
 }
