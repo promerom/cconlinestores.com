@@ -19,16 +19,16 @@
                 {{ url.loc }}
             {% endif %}
         </loc>
-        {% if url.lastmod is defined %}
+        {% if url.lastmod is defined and url.lastmod is not empty %}
             <lastmod>{{ url.lastmod|date("c") }}</lastmod>
         {% endif %}
-        {% if url.changefreq is defined %}
+        {% if url.changefreq is defined and url.changefreq is not empty %}
             <changefreq>{{ url.changefreq }}</changefreq>
         {% endif %}
-        {% if url.priority is defined %}
+        {% if url.priority is defined and url.priority is not empty %}
             <priority>{{ url.priority }}</priority>
         {% endif %}
-        {% if url.image is defined %}
+        {% if url.image is defined and url.image is not empty %}
             <image:image>
                 <image:loc>{{ url.image }}</image:loc>
                 <image:caption><![CDATA[{{ url.name }}]]></image:caption>
