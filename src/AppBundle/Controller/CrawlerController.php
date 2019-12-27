@@ -63,6 +63,18 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
+            case "ktr_lg_tv":
+                $url = "https://www.ktronix.com/tv/televisores/ver/lg/";
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
+                $_idStore = $store->getId();
+                $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("LG");
+                $_idBrand = $brand->getId();
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByName("Pesos");
+                $_idCurrency = $currency->getId();
+                $category = $doctrine->getRepository('AppBundle:Category')->findOneByName("Televisores");
+                $_idCategory = $category->getId();
+
+                break;
             default:
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
                 break;

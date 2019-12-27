@@ -32,6 +32,12 @@ class BrandData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Descubre el innovador mundo de Apple: iPhone, iPad, Apple Watch, Mac, Apple TV, accesorios, entretenimiento y soporte técnico.',
                 'url' => 'https://www.apple.com/co/',
                 'image' => 'https://www.apple.com/ac/structured-data/images/open_graph_logo.png?201809211351'
+            ],
+            [
+                'name' => 'LG',
+                'description' => 'LG electronics Colombia y su completa gama de electrodomésticos de última tecnología. Televisores OLED, One Body, Smartphone, Barras de sonido, Neveras, Nevecones, Lavadoras, Proyectores, Monitores',
+                'url' => 'https://www.lg.com/co',
+                'image' => 'https://www.lg.com/lg4-common-gp/img/global/header-large-logo.png'
             ]
         );
 
