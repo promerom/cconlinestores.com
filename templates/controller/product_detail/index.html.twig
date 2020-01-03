@@ -23,6 +23,10 @@
 {{ include('default/opengraph.html.twig', {title: product.name, description: product.description, img: product.image, imgalt: product.name, url: productUrl}) }}
 {% endblock %}
 
+{% block twittercard %}
+{{ include('default/twittercard.html.twig', {title: product.name, description: product.description, img: product.image, imgalt: product.name, url: productUrl}) }}
+{% endblock %}
+
 {% block stylesheets %}
 {{ parent() }}
 <!-- Custom styles for this template -->
