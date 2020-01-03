@@ -33,6 +33,10 @@
         {{ include('default/opengraph.html.twig', {title: seo.title, description: seo.description, img: seo.img, imgalt: seo.name}) }}
         {% endblock %}
         
+        {% block twittercard %}
+        {{ include('default/twittercard.html.twig', {title: seo.title, description: seo.description, img: seo.img, imgalt: seo.name}) }}
+        {% endblock %}
+        
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="author" content="{{ seo.author }}">
 

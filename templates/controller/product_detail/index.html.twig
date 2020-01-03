@@ -61,6 +61,7 @@
     </p>
     <div class="row justify-content-center">
         {{ include('default/fb-share.html.twig', {url: path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id}), btnclass: 'btn btn-primary' } ) }}
+        {{ include('default/tw-share.html.twig', {url: path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id}), btnclass: 'btn btn-primary' } ) }}
     </div>
 {#     <a class="btn btn-outline-secondary" href="#">Coming soon</a>#}
   </div>

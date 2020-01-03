@@ -58,6 +58,9 @@
                 <a class="list-group-item list-group-item-action list-group-item-success" href="{{ path('blackfriday_page') }}" title="black friday">Black Friday 2019</a>
             </li>
         </ul>
-        {{ include('default/fb-like.html.twig') }}
+        <div class="btn-group-vertical btn-group-sm" role="group">
+            {{ include('default/fb-like.html.twig') }}
+            {{ include('default/tw-follow.html.twig') }}
+        </div>
     </div>
 </nav>

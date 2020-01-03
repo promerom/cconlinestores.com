@@ -45,6 +45,7 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
       providers_facebook_app_id: '%providers_facebook_app_id%'
+      twitter_account: %providers_twitter_account%
 
 # Doctrine Configuration
 doctrine:
@@ -90,7 +91,7 @@ white_october_breadcrumbs:
     locale:             ~ # defaults to null, so the default locale is used
     translation_domain: ~ # defaults to null, so the default domain is used
     viewTemplate:       'WhiteOctoberBreadcrumbsBundle::microdata.html.twig'
-    
+
 social_post:
     publish_on: "%publish_on%" # List which Social networks you will be publishing to and configure your access to them as shown below
     providers:
@@ -110,7 +111,7 @@ social_post:
             access_token: "YOUR-LINKEDIN-60-DAYS-LONG-USER-ACCESS-TOKEN"
             company_page_id: "YOUR-LINKEDIN-COMPANY-PAGE-ID"
         twitter:
-            consumer_key: "YOUR-TWITTER-APP-CONSUMER-KEY"
-            consumer_secret: "YOUR-TWITTER-APP-CONSUMER-SECRET"
-            access_token: "YOUR-TWITTER-ACCESS-TOKEN"
-            access_token_secret: "YOUR-TWITTER-ACCESS-TOKEN-SECRET"
+            consumer_key: %providers_twitter_consumer_key%
+            consumer_secret: %providers_twitter_consumer_secret%
+            access_token: %providers_twitter_access_token%
+            access_token_secret: %providers_twitter_access_token_secret%
