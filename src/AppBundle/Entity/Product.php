@@ -127,6 +127,11 @@ class Product
      */
     private $postOnFacebook;
 
+    /**
+     * @ORM\Column(name="post_on_twitter", type="boolean", nullable=true)
+     */
+    private $postOnTwitter;
+
     public function __construct() {
         $this->setCreated(new \DateTime());
         $this->setModified();
@@ -492,5 +497,17 @@ class Product
             );
 
         return $string;
+    }
+
+    public function getPostOnTwitter(): ?bool
+    {
+        return $this->postOnTwitter;
+    }
+
+    public function setPostOnTwitter(?bool $postOnTwitter): self
+    {
+        $this->postOnTwitter = $postOnTwitter;
+
+        return $this;
     }
 }
