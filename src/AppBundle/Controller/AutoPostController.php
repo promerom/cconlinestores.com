@@ -84,7 +84,7 @@ class AutoPostController extends Controller
                 $response->headers->set('Content-Type', 'application/json');
             }
         } else {
-            $response = new Response("No hay items nuevos para publicar en FB"));
+            $response = new Response("No hay items nuevos para publicar en FB");
             $response->headers->set('Content-Type', 'application/json');
         }
         return $response;
