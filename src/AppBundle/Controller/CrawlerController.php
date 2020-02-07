@@ -75,6 +75,18 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
+            case "ktr_apple_cel":
+                $url = "https://www.ktronix.com/telefonos-celulares/ver/apple";
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
+                $_idStore = $store->getId();
+                $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Apple");
+                $_idBrand = $brand->getId();
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByName("Pesos");
+                $_idCurrency = $currency->getId();
+                $category = $doctrine->getRepository('AppBundle:Category')->findOneByName("Celulares");
+                $_idCategory = $category->getId();
+
+                break;
             default:
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
                 break;
