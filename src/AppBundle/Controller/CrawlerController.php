@@ -87,25 +87,58 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
+            case "ktr_ps_vg":
+                $url = "https://www.ktronix.com/videojuegos/play-station-ps3-ps4-psvita-move";
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
+                $_idStore = $store->getId();
+                $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Playstation");
+                $_idBrand = $brand->getId();
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByName("Pesos");
+                $_idCurrency = $currency->getId();
+                $category = $doctrine->getRepository('AppBundle:Category')->findOneByName("Videojuegos");
+                $_idCategory = $category->getId();
+
+                break;
+            case "ktr_asus_com":
+                $url = "https://www.ktronix.com/computadores-y-tablets/ver/asus/";
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
+                $_idStore = $store->getId();
+                $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("ASUS");
+                $_idBrand = $brand->getId();
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByName("Pesos");
+                $_idCurrency = $currency->getId();
+                $category = $doctrine->getRepository('AppBundle:Category')->findOneByName("Computadores");
+                $_idCategory = $category->getId();
+
+                break;
             default:
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
                 break;
         endswitch;
 
-        $html = file_get_contents($url);
+        $html = file_get_contents($url, true);
 
-        $crawler = new Crawler($html);
+        if ($html === false) {
+            error_log("getDataAction error " . $e->getMessage() . " / code / " . $e->getCode());
+            $response = new Response(json_encode($e->getMessage()));
+            $response->headers->set('Content-Type', 'application/json');
 
-        $nodeValues = $crawler->filter('.col-main .products-grid .item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
+        } else {
+            $crawler = new Crawler($html);
 
-            $product = $this->parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory);
+            $nodeValues = $crawler->filter('.col-main .products-grid .item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
 
-            return $product->getName();
+                $product = $this->parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory);
 
-        });
+                return $product->getName();
 
-        $response = new Response(json_encode($nodeValues));
-        $response->headers->set('Content-Type', 'application/json');
+            });
+
+            $response = new Response(json_encode($nodeValues));
+            $response->headers->set('Content-Type', 'application/json');
+        }
+
+//         $html = file_get_contents($url);
 
         return $response;
 
@@ -127,6 +160,7 @@ class CrawlerController extends Controller
         if ($productName->count() > 0) {
             $name = $productName->attr("title");
             $url = $productName->attr("href");
+            $url = str_replace("http://", "https://", $url);
 
             $item = $doctrine->getRepository("AppBundle:Product")->findOneByUrl($url);
             if (!empty($item)) {
@@ -168,7 +202,7 @@ class CrawlerController extends Controller
         }
 
         $description = $this->getProductDescription($product);
-        if (isset($description)) {
+        if (isset($description) and !empty($description)) {
             if (is_array($description)) {
                 $longDesc = trim($description[0]);
                 $product->setLongDescription($longDesc);
@@ -176,7 +210,6 @@ class CrawlerController extends Controller
                 $product->setDescription($desc . "...");
             }
         }
-
 
         $currency = $doctrine
         ->getRepository('AppBundle:Currency')
@@ -210,13 +243,18 @@ class CrawlerController extends Controller
     private function getProductDescription(Product $product) {
         $url = $product->getUrl();
 
-        $html = file_get_contents($url);
+        $html = file_get_contents($url, true);
 
-        $crawler = new Crawler($html);
-
-        $nodeValues = $crawler->filter('.product-view .product-essential .short-description div.content')->each(function (Crawler $node, $i) {
-            return $node->text();
-        });
+        if ($html === false) {
+            error_log("getProductDescription error " . $e->getMessage() . " / code / " . $e->getCode());
+            $nodeValues = null;
+        } else {
+            $crawler = new Crawler($html);
+            $nodeValues = $crawler->filter('.product-view .product-essential .short-description div.content')->each(function (Crawler $node, $i) {
+                return $node->text();
+            });
+        }
+//         $html = file_get_contents($url);
 
         return $nodeValues;
     }

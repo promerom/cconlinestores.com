@@ -260,6 +260,7 @@ class Product
      */
     public function setUrl($url)
     {
+        $url = str_replace("http://", "https://", $url);
         $this->url = $url;
 
         return $this;
