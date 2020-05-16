@@ -15,10 +15,12 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request, EntityManagerInterface $em)
     {
+        $trm = file_get_contents("http://app.docm.co/prod/Dmservices/Utilities.svc/GetTRM", true);
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-            'products' => $this->getMainProducts($em)
+            'products' => $this->getMainProducts($em),
+            'trm' => str_replace('"', '', $trm)
         ]);
     }
 
