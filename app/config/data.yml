@@ -3,8 +3,8 @@ twig:
   globals:
     seo:
       name: "CC Online Stores"
-      title: "BLACK FRIDAY Colombia - CC Online Stores, las mejores tiendas virtuales, promociones, ofertas, descuentos y productos en un mismo lugar"
-      description: "BLACK FRIDAY Colombia - Centro Comercial Online Stores, encuentra todas las tiendas virtuales más importantes y con los mejores descuentos, ofertas y productos, outlets, cupones de descuento y tiendas en línea, todo en un solo lugar."
+      title: "#QuédateEnCasa Colombia - CC Online Stores, las mejores tiendas virtuales, promociones, ofertas, descuentos y productos en un mismo lugar. BLACK FRIDAY"
+      description: "#QuédateEnCasa Colombia - Centro Comercial Online Stores, encuentra todas las tiendas virtuales más importantes y con los mejores descuentos, ofertas y productos, outlets, cupones de descuento y tiendas en línea, todo en un solo lugar. BLACK FRIDAY"
       img: "img/logo.jpg"
       site: "cconlinestores.com"
       url: "https://cconlinestores.com"
@@ -12,32 +12,32 @@ twig:
     seo_sections:
       stores:
         name: "Tiendas en línea, online stores y black friday en Noviembre"
-        title: "Tiendas en línea y BLACK FRIDAY Colombia. Las mejores online stores en un mismo lugar."
-        description: "Centro Comercial Virtual de las Tiendas en línea, acá encuentrarás todas las tiendas virtuales más importantes, outlets y online stores, todo en un solo lugar. BLACK FRIDAY Colombia."
+        title: "#QuédateEnCasa Tiendas en línea y BLACK FRIDAY Colombia. Las mejores online stores en un mismo lugar."
+        description: "#QuédateEnCasa Centro Comercial Virtual de las Tiendas en línea, acá encuentrarás todas las tiendas virtuales más importantes, outlets y online stores, todo en un solo lugar. BLACK FRIDAY Colombia."
         img:
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/stores"
         author: "kbitssd"
       deals:
         name: "Ofertas en línea, promociones, descuentos y black friday en Colombia"
-        title: "BLACK FRIDAY Colombia con las mejores ofertas y descuentos del momento, todo en un sólo lugar."
-        description: "Encuentra todas las Ofertas y promociones más destacadas del momento en internet. En Online Stores tenemos las promociones y descuentos de las tiendas en línea más importantes del mundo, outlets y online stores. BLACK FRIDAY Colombia en Mayo y Noviembre."
+        title: "#QuédateEnCasa BLACK FRIDAY Colombia con las mejores ofertas y descuentos del momento, todo en un sólo lugar."
+        description: "#QuédateEnCasa Encuentra todas las Ofertas y promociones más destacadas del momento en internet. En Online Stores tenemos las promociones y descuentos de las tiendas en línea más importantes del mundo, outlets y online stores. BLACK FRIDAY Colombia en Mayo y Noviembre."
         img:
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/ofertas"
         author: "kbitssd"
       blackfriday:
         name: "Ofertas Black Friday 2019"
-        title: "BLACK FRIDAY Colombia 2019 con las mejores ofertas y descuentos del momento."
-        description: "Encuentra las mejores ofertas, descuentos y productos en BLACK FRIDAY Colombia 2019. Todos los descuentos y ofertas del próximo black friday el 17 de mayo de 2019."
+        title: "#QuédateEnCasa BLACK FRIDAY Colombia 2019 con las mejores ofertas y descuentos del momento."
+        description: "#QuédateEnCasa Encuentra las mejores ofertas, descuentos y productos en BLACK FRIDAY Colombia 2019. Todos los descuentos y ofertas del próximo black friday el 17 de mayo de 2019."
         img: "img/deals/black-friday.png"
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/blackfriday"
         author: "kbitssd"
       cyberlunes:
         name: "Ofertas Cyberlunes 2019"
-        title: "CYBERLUNES Colombia 2019 con las mejores ofertas y descuentos del momento."
-        description: "Encuentra las mejores ofertas, descuentos y productos en CYBERLUNES Colombia 2019 en Noviembre. Todos los descuentos y ofertas del próximo cyberlunes de 2019."
+        title: "#QuédateEnCasa CYBERLUNES Colombia 2019 con las mejores ofertas y descuentos del momento."
+        description: "#QuédateEnCasa Encuentra las mejores ofertas, descuentos y productos en CYBERLUNES Colombia 2019 en Noviembre. Todos los descuentos y ofertas del próximo cyberlunes de 2019."
         img: "img/stores/logo-cyberlunes.png"
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/cyberlunes"
