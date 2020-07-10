@@ -32,6 +32,18 @@ class CategoryData extends Fixture implements OrderedFixtureInterface
                 'description' => '',
                 'url' => '',
                 'image' => ''
+            ],
+            [
+                'name' => 'Videojuegos',
+                'description' => '',
+                'url' => '',
+                'image' => ''
+            ],
+            [
+                'name' => 'Lavadora Secadora',
+                'description' => '',
+                'url' => '',
+                'image' => ''
             ]
         );
 

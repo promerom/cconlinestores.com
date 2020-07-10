@@ -14,7 +14,7 @@ class CategoryController extends Controller
      *      "/{_category}",
      *      name="category",
      *      requirements={
-     *          "_category"="celulares|televisores|computadores|videojuegos"
+     *          "_category"="celulares|televisores|computadores|videojuegos|lavadora-secadora"
      *      }
      * )
      */
