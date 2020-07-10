@@ -25,28 +25,28 @@ class SitemapsController extends Controller
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('stores_page'),
-            'lastmod' => "2019-12-03",
+            'lastmod' => "2020-06-03",
             'changefreq' => 'daily',
             'priority' => '0.8'
         );
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('deals_page'),
-            'lastmod' => "2019-12-03",
+            'lastmod' => "2020-04-03",
             'changefreq' => 'daily',
             'priority' => '0.8'
         );
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('blackfriday_page'),
-            'lastmod' => "2019-12-03",
+            'lastmod' => "2020-01-03",
             'changefreq' => 'daily',
             'priority' => '0.8'
         );
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('cyberlunes_page'),
-            'lastmod' => "2019-12-03",
+            'lastmod' => "2020-03-03",
             'changefreq' => 'daily',
             'priority' => '0.8'
         );
@@ -90,7 +90,7 @@ class SitemapsController extends Controller
 
         $urls[] = array(
             'loc' => $this->get('router')->generate('sitemap'),
-            'lastmod' => "2019-12-03",
+            'lastmod' => "2020-07-10",
             'changefreq' => 'daily',
             'priority' => '1.0'
         );

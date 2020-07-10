@@ -15,6 +15,12 @@
                 <a class="nav-link" href="{{ path('category', {'_category': 'computadores'}) }}">Computadores</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ path('category', {'_category': 'computadores'}) }}">Videojuegos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('category', {'_category': 'computadores'}) }}">Lavadoras / Secadoras</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ path('stores_page') }}">Tiendas</a>
             </li>
             <li class="nav-item">
@@ -52,15 +58,31 @@
 {#                   </div>#}
 {#                 </li>#}
             <li class="nav-item">
-                <a class="list-group-item list-group-item-action list-group-item-info" href="{{ path('cyberlunes_page') }}">Cyber Lunes 2019</a>
+                <a class="list-group-item list-group-item-action list-group-item-info" href="{{ path('cyberlunes_page') }}">Cyber Lunes 2020</a>
             </li>
             <li class="nav-item">
-                <a class="list-group-item list-group-item-action list-group-item-success" href="{{ path('blackfriday_page') }}" title="black friday">Black Friday 2019</a>
+                <a class="list-group-item list-group-item-action list-group-item-success" href="{{ path('blackfriday_page') }}" title="black friday">Black Friday 2020</a>
             </li>
         </ul>
-        <div class="btn-group-vertical btn-group-sm" role="group">
-            {{ include('default/fb-like.html.twig') }}
-            {{ include('default/tw-follow.html.twig') }}
-        </div>
     </div>
 </nav>
+<nav class="navbar-vertical navbar-glass navbar navbar-expand-xl navbar-light fixed-top justify-content-end">
+{#     <div class="btn-group-vertical btn-group-sm justify-content-end" role="group">#}
+        {{ include('default/fb-like.html.twig') }}
+        {{ include('default/tw-follow.html.twig') }}
+{#     </div>#}
+</nav>
+
+<div class="row">
+<div class="m12 s12 col center" style="text-align:center">
+{# <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="ecb46c3624969bdb71b11d70-text/javascript"></script>  #}
+    <ins class="adsbygoogle" 
+        style="display:inline-block;
+        width:970px;height:90px" 
+        data-ad-client="ca-pub-1806990656415176" 
+        data-ad-slot="8825906382"></ins> 
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+
+

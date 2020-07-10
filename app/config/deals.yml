@@ -16,7 +16,7 @@ twig:
         store: "adidas"
         price: "$ 49.900 COP"
       d11:
-        title: "Prepárate para CYBERLUNES® este 19 y 20 de noviembre de 2019."
+        title: "Prepárate para CYBERLUNES® este 19 y 20 de noviembre de 2020."
         description: "¡Aprovecha Cyberlunes® Colombia este 19 y 20 de noviembre! Disfruta súper descuentos y precios bajos para que compres por internet tus marcas favoritas."
         img: "img/deals/cyberlunes.png"
         link: "https://www.cyberlunes.com.co/"
@@ -42,13 +42,13 @@ twig:
         store: "reebok"
 #      d7:
 #        title: "Madrugón Falabella"
-#        description: "Mañana 3 de noviembre de 2019 gran Madrugón Falabella, descuentos exclusivos pagando con tus tarjetas Banco Falabella."
+#        description: "Mañana 3 de noviembre de 2020 gran Madrugón Falabella, descuentos exclusivos pagando con tus tarjetas Banco Falabella."
 #        img: "img/deals/madrugon-falabella.jpg"
 #        link: "http://ma.sv/MipvGT"
 #        store: "falabella"
       d9:
         title: "¡Ya empezó! Vive los Black Days con Homecenter"
-        description: "Balck Days Homecenter. Precios bajos para que ahorres más. Válido del 8 al 28 de noviembre de 2019."
+        description: "Balck Days Homecenter. Precios bajos para que ahorres más. Válido del 8 al 28 de noviembre de 2020."
         img: "img/deals/blackdays-homecenter.jpg"
         link: "https://www.homecenter.com.co/homecenter-co/category/cat4220001/"
         store: "homecenter"
@@ -70,7 +70,7 @@ twig:
         price: "$ 75.960 COP"
 #      d8:
 #        title: "Hoy Gran Trasnochon Falabella"
-#        description: "Hoy 8 de noviembre de 2019 Banco Falabella tiene para ti el gran Trasnochon Falabella de 6pm a 11pm, descuentos exclusivos pagando con tus tarjetas Banco Falabella."
+#        description: "Hoy 8 de noviembre de 2020 Banco Falabella tiene para ti el gran Trasnochon Falabella de 6pm a 11pm, descuentos exclusivos pagando con tus tarjetas Banco Falabella."
 #        img: "img/deals/trasnochon-falabella.jpg"
 #        link: "http://ma.sv/MEfsvL"
 #        store: "falabella"
