@@ -263,7 +263,15 @@ class CrawlerController extends Controller
         } else {
             $crawler = new Crawler($html);
             $nodeValues = $crawler->filter('.product-view .product-essential .short-description div.content')->each(function (Crawler $node, $i) {
-                return $node->text();
+                $desc = $node->html();
+                $needle = "</style>";
+                $ctrl = strpos($desc, $needle);
+
+                if ($ctrl) {
+                    $desc = stristr($desc, $needle);
+                }
+
+                return strip_tags($desc);
             });
         }
 //         $html = file_get_contents($url);
