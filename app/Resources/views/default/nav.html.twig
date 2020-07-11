@@ -73,12 +73,8 @@
 {#     </div>#}
 {# </nav>#}
 
-<div class="m12 s12 col center" style="text-align:center">
-{# <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="ecb46c3624969bdb71b11d70-text/javascript"></script>  #}
-    <ins class="adsbygoogle" 
-        style="display:inline-block;
-        width:970px;height:90px" 
-        data-ad-client="ca-pub-1806990656415176" 
-        data-ad-slot="8825906382"></ins> 
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+{% set vars = {
+    'class': 'm12 s12 col center',
+    'style': 'text-align:center; max-height:100px !important; z-index:1100;'
+} %}
+{% include 'ads/default.html.twig' with vars %}
