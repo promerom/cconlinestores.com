@@ -44,6 +44,12 @@ class CategoryData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Lavadoras secadoras de última tecnología a los mejores precios de las marcas Samsung, LG, Haceb, Challenger',
                 'url' => '',
                 'image' => ''
+            ],
+            [
+                'name' => 'SmartWatch',
+                'description' => 'Smartwatch - Encuentra los mejores y más recientes Relojes Inteligentes de todas las marcas más importantes del momento. Samsung, Xiaomi, Apple, Huawei, Fitbit, Polar',
+                'url' => '',
+                'image' => 'https://live.staticflickr.com/65535/48720028667_fcf2a2eb8e_b.jpg'
             ]
         );
 
