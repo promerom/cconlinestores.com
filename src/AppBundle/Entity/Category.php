@@ -53,6 +53,7 @@ class Category
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Product", mappedBy="category")
+     * @ORM\OrderBy({"modified" = "DESC"})
      */
     private $products;
 

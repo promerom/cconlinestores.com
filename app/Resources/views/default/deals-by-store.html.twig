@@ -16,6 +16,7 @@
                     <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}">{{ product.name|raw }}</a>
                 </h4>
                 <p itemprop="description" class="card-text">{{ product.description|raw }}</p>
+                <p class="card-text text-right"><small class="text-muted font-weight-light">Actualizado: {{ product.modified|date }}</small></p>
                 <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                     {% if product.specialPrice is not empty%}
                         {% set formatPrice = product.specialPrice %}
