@@ -25,7 +25,7 @@ class CrawlerController extends Controller
     {
         $doctrine = $this->getDoctrine();
         switch ($_idGetData):
-            case "ktr_sam_cel":
+            case "ktr_sam_cel": #OK job en cpanel -> 12AM
 //                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
 //                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung?p=2";
                 $url = "https://www.ktronix.com/telefonos-celulares/ver/samsung";
@@ -39,7 +39,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_sony_tv":
+            case "ktr_sony_tv": #OK job en cpanel -> 12:05AM
                 $url = "https://www.ktronix.com/tv/televisores/ver/sony/";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
@@ -51,7 +51,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_apple_comp":
+            case "ktr_apple_comp": #OK job en cpanel -> 12:30AM
                 $url = "https://www.ktronix.com/computadores-y-tablets/computadores-portatiles/ver/apple/";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
@@ -63,7 +63,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_lg_tv":
+            case "ktr_lg_tv": #OK job en cpanel -> 12:50AM
                 $url = "https://www.ktronix.com/tv/televisores/ver/lg/";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
@@ -75,7 +75,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_apple_cel":
+            case "ktr_apple_cel": #OK job en cpanel -> 6AM
                 $url = "https://www.ktronix.com/telefonos-celulares/ver/apple";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
@@ -87,7 +87,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_ps_vg":
+            case "ktr_ps_vg": #OK job en cpanel -> 9AM y 5PM
                 $url = "https://www.ktronix.com/videojuegos/play-station-ps3-ps4-psvita-move";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
@@ -99,7 +99,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_asus_com":
+            case "ktr_asus_com": #OK job en cpanel -> 10AM y 5PM
                 $url = "https://www.ktronix.com/computadores-y-tablets/ver/asus/";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
@@ -111,7 +111,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_lg_lavsec":
+            case "ktr_lg_lavsec": #OK job en cpanel -> 4AM
                 $url = "https://www.ktronix.com/electro/lavadoras/lavadoras-secadoras/ver/lg/#lineal";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
@@ -123,7 +123,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_sam_swa":
+            case "ktr_sam_swa": #OK job en cpanel -> 5:30PM
                 $url = "https://www.ktronix.com/relojes-inteligentes/ver/samsung";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
