@@ -38,6 +38,24 @@ class BrandData extends Fixture implements OrderedFixtureInterface
                 'description' => 'LG electronics Colombia y su completa gama de electrodomésticos de última tecnología. Televisores OLED, One Body, Smartphone, Barras de sonido, Neveras, Nevecones, Lavadoras, Proyectores, Monitores',
                 'url' => 'https://www.lg.com/co',
                 'image' => 'https://www.lg.com/lg4-common-gp/img/global/header-large-logo.png'
+            ],
+            [
+                'name' => 'PlayStation',
+                'description' => 'PlayStation Console, Games, Accessories, for Playstation console from the official PlayStation website. Explore PlayStation® Official Site',
+                'url' => 'https://www.playstation.com/es-co/',
+                'image' => 'https://media.playstation.com/is/image/SCEA/footerpslogo-nhasset?$Footer_Links_Row_Logo$'
+            ],
+            [
+                'name' => 'ASUS',
+                'description' => 'ASUS es una empresa líder impulsada por la innovación y el compromiso con la calidad para productos que incluyen computadores portátiles y de escritorio, celulares, tarjetas madre y periféricos.',
+                'url' => 'https://www.asus.com/co/',
+                'image' => 'https://www.asus.com/media/img/2017/images/n-logo-asus.svg'
+            ],
+            [
+                'name' => 'Oster',
+                'description' => 'Oster, productos de calidad a precios económicos para tu cocina',
+                'url' => 'https://www.ostercolombia.com/',
+                'image' => 'https://osterco.vteximg.com.br/arquivos/logo.png?v=636023055540070000'
             ]
         );
 

@@ -43,13 +43,19 @@ class CategoryData extends Fixture implements OrderedFixtureInterface
                 'name' => 'Lavadora Secadora',
                 'description' => 'Lavadoras secadoras de última tecnología a los mejores precios de las marcas Samsung, LG, Haceb, Challenger',
                 'url' => '',
-                'image' => ''
+                'image' => 'https://media.aws.alkosto.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/8/8/8801643739706--8.jpg'
             ],
             [
                 'name' => 'SmartWatch',
                 'description' => 'Smartwatch - Encuentra los mejores y más recientes Relojes Inteligentes de todas las marcas más importantes del momento. Samsung, Xiaomi, Apple, Huawei, Fitbit, Polar',
                 'url' => '',
                 'image' => 'https://live.staticflickr.com/65535/48720028667_fcf2a2eb8e_b.jpg'
+            ],
+            [
+                'name' => 'Electrodomésticos',
+                'description' => 'Encuentra los mejores electrodomésticos con la última tecnología como freidoras, neveras, lavadoras, secadoras, licuadoras, estufas, hornos y mucho más de las mejores marcas LG, Samsung, Mabe, Oster',
+                'url' => '',
+                'image' => 'https://www.homecenter.com.co/static/landing/guiasdecompra/Guias_de_compra_2/img/por-que-cambiar-los-electrodomesticos/consejos-practicos.jpg'
             ]
         );
 
