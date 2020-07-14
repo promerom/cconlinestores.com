@@ -135,7 +135,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_ost_ele":
+            case "ktr_ost_ele": #OK job en cpanel -> 5AM
                 $url = "https://www.ktronix.com/electro/electrodomesticos/ver/oster/#lineal";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
