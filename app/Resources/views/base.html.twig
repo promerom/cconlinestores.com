@@ -71,6 +71,9 @@
         {% endblock %}
   
         {% block body %}{% endblock %}
+        {% block sticky %}
+        {{ include('default/sticky-social-icons.html.twig') }}
+        {% endblock %}
         
         {% block footer %}
         {{ include('default/footer.html.twig') }}

@@ -90,6 +90,15 @@
             </div>
           </div>
         </div>
+        {% if loop.index is divisible by(10) %}
+            <div class="col-md-4">
+                {% set vars = {
+                    'class': '',
+                    'style': ''
+                } %}
+                {% include 'ads/default.html.twig' with vars %}
+            </div>
+        {% endif %}
       {% endfor %}
       
       </div>
