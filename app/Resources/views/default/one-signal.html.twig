@@ -5,9 +5,59 @@
     OneSignal.init({
       appId: "ccdb9008-e317-43d5-93f2-4fa2452e08ae",
       autoRegister: true,
+      autoResubscribe: true,
       notifyButton: {
         enable: true,
+        size: 'medium', /* One of 'small', 'medium', or 'large' */
+        theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
+        position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
+        offset: {
+            bottom: '0px',
+            left: '0px', /* Only applied if bottom-left */
+            right: '0px' /* Only applied if bottom-right */
+        },
+        prenotify: true, /* Show an icon with 1 unread message for first-time site visitors */
+        showCredit: false, /* Hide the OneSignal logo */
+        text: {
+            'tip.state.unsubscribed': 'Suscríbete a nuestras notificaciones',
+            'tip.state.subscribed': "Estás suscrito para recibir nuestras notificaciones",
+            'tip.state.blocked': "Tienes bloqueadas las notificaciones, actívalas",
+            'message.prenotify': 'Click para suscribirte',
+            'message.action.subscribed': "Gracias por suscribirte a nuestras alertas y notificaciones!",
+            'message.action.resubscribed': "Estás suscrito a las notificaciones de cconlinestores.com",
+            'message.action.unsubscribed': "No recibirás notificaciones, suscríbete nuevamente",
+            'dialog.main.title': 'Administra las notificaciones de CC OnlineStores',
+            'dialog.main.button.subscribe': 'SUBSCRÍBETE',
+            'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
+            'dialog.blocked.title': 'Desbloquea las notificaciones',
+            'dialog.blocked.message': "Sigue estas notificaciones para habilitar las notificaciones:"
+        },
+        colors: { // Customize the colors of the main button and dialog popup button
+            'circle.background': 'rgb(84,110,123)',
+            'circle.foreground': 'white',
+            'badge.background': 'rgb(84,110,123)',
+            'badge.foreground': 'white',
+            'badge.bordercolor': 'white',
+            'pulse.color': 'white',
+            'dialog.button.background.hovering': 'rgb(77, 101, 113)',
+            'dialog.button.background.active': 'rgb(70, 92, 103)',
+            'dialog.button.background': 'rgb(84,110,123)',
+            'dialog.button.foreground': 'white'
+        },
+        /* HIDE SUBSCRIPTION BELL WHEN USER SUBSCRIBED */
+        displayPredicate: function() {
+            return OneSignal.isPushNotificationsEnabled()
+                .then(function(isPushEnabled) {
+                    return !isPushEnabled;
+                });
+        }
       },
+      welcomeNotification: {
+        "title": "CC Online Stores",
+        "message": "Gracias por suscribirte a nuestras alertas y notificaciones!",
+      // "url": "" /* Leave commented for the notification to not open a window on Chrome and Firefox (on Safari, it opens to your webpage) */
+      }
     });
+    OneSignal.showNativePrompt();
   });
 </script>
