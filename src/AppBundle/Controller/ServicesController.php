@@ -9,10 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ServicesController extends Controller
 {
-
     /**
      * @Route("osiv",
-     *  methods={"GET", "POST"},
+     *  methods={"POST"},
      *  name="identity_verify"
      * )
      */
@@ -20,11 +19,11 @@ class ServicesController extends Controller
     {
 //         return $this->render('AppBundle:Services:os_identity_verification.html.twig', array(
 
-        $ONESIGNAL_REST_API_KEY = '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';
+        $os_r_a_k = $this->container->getParameter("ONESIGNAL_REST_API_KEY");
 
         $_email = $request->get("email");
 
-        $identityVerifitacion = hash_hmac('sha256', $_email, $ONESIGNAL_REST_API_KEY);
+        $identityVerifitacion = hash_hmac('sha256', $_email, $os_r_a_k);
 
         $response = new Response(json_encode(array("email" => $_email, "osiv" => $identityVerifitacion)));
         $response->headers->set('Content-Type', 'application/json');
