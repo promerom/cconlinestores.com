@@ -48,7 +48,6 @@ $( document ).ready(function() {
 
 function sendEmail (data) {
 	var emailAuthHash = data.osiv; // Email auth hash generated from your server
-    alert(emailAuthHash);
 	OneSignal.setEmail(data.email, {
         emailAuthHash: emailAuthHash
     });
