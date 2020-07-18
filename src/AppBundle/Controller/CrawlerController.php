@@ -147,7 +147,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_son_aud":
+            case "ktr_son_aud": #OK job en cpanel -> 7AM
                 $url = "https://www.ktronix.com/audio/ver/sony/#lineal";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
@@ -159,7 +159,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_bos_aud":
+            case "ktr_bos_aud": #OK job en cpanel -> 2PM
                 $url = "https://www.ktronix.com/audio/ver/bose/#lineal";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
