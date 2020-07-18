@@ -147,6 +147,30 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
+            case "ktr_son_aud":
+                $url = "https://www.ktronix.com/audio/ver/sony/#lineal";
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
+                $_idStore = $store->getId();
+                $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Sony");
+                $_idBrand = $brand->getId();
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByName("Pesos");
+                $_idCurrency = $currency->getId();
+                $category = $doctrine->getRepository('AppBundle:Category')->findOneByName("Audio");
+                $_idCategory = $category->getId();
+
+                break;
+            case "ktr_bos_aud":
+                $url = "https://www.ktronix.com/audio/ver/bose/#lineal";
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
+                $_idStore = $store->getId();
+                $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Bose");
+                $_idBrand = $brand->getId();
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByName("Pesos");
+                $_idCurrency = $currency->getId();
+                $category = $doctrine->getRepository('AppBundle:Category')->findOneByName("Audio");
+                $_idCategory = $category->getId();
+
+                break;
             default:
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
                 break;

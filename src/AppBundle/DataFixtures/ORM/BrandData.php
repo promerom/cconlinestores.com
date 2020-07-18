@@ -56,6 +56,12 @@ class BrandData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Oster, productos de calidad a precios económicos para tu cocina',
                 'url' => 'https://www.ostercolombia.com/',
                 'image' => 'https://osterco.vteximg.com.br/arquivos/logo.png?v=636023055540070000'
+            ],
+            [
+                'name' => 'Bose',
+                'description' => 'Bose. Soluciones innovadoras que te ayudarán a sentir, hacer y ser más. Audífonos, altavoces, dispositivos portátiles y productos de bienestar.',
+                'url' => 'https://www.bose.co/es_co/index.html',
+                'image' => 'https://assets.bose.com/content/dam/Bose_DAM/Web/consumer_electronics/global/homepage/images_5to2/HP_SB500_5x2_header.psd/jcr:content/renditions/cq5dam.web.320.320.jpeg'
             ]
         );
 

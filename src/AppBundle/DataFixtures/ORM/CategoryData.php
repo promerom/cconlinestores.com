@@ -56,6 +56,12 @@ class CategoryData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Encuentra los mejores electrodomésticos con la última tecnología como freidoras, neveras, lavadoras, secadoras, licuadoras, estufas, hornos y mucho más de las mejores marcas LG, Samsung, Mabe, Oster',
                 'url' => '',
                 'image' => 'https://www.homecenter.com.co/static/landing/guiasdecompra/Guias_de_compra_2/img/por-que-cambiar-los-electrodomesticos/consejos-practicos.jpg'
+            ],
+            [
+                'name' => 'Audio',
+                'description' => 'Última tecnología en Audio y Entretenimiento. Parlantes, Audífonos, Teatros en casa, equipos de sonido de las mejores marcas Apple, Bose, Sony, Panasonic, Samsung, LG, Kalley, Zipy, Digiblue',
+                'url' => '',
+                'image' => 'https://mercaldas.vteximg.com.br/arquivos/ids/158802-400-400/112552.jpg?v=636959554716930000'
             ]
         );
 
