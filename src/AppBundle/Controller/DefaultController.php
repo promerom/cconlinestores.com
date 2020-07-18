@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use AppBundle\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
+use AppBundle\Entity\Category;
 
 class DefaultController extends Controller
 {
@@ -20,6 +21,7 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
             'products' => $this->getMainProducts($em),
+            'categories' => $em->getRepository(Category::class)->findAll(),
             'trm' => str_replace('"', '', $trm)
         ]);
     }
@@ -122,7 +124,7 @@ class DefaultController extends Controller
 //         $products = $productRepository->findByStore(2)->orderBy("created DESC");
         $products = $productRepository->findBy(
             array(),
-            array('created' => 'DESC')
+            array('modified' => 'DESC')
             );
 
         return $products;

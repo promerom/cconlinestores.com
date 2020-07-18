@@ -1,0 +1,51 @@
+<!-- Portfolio Section -->
+</br>
+<h2 class="pb-3 mb-4 font-italic border-bottom">{{ category.name|raw }} - última tecnología y ofertas</h2>
+
+<div class="row">
+
+    {% for product in products|filter(product => product.category == category)[:6] %}
+    <div class="col-lg-4 col-sm-6 portfolio-item" itemscope itemtype="https://schema.org/Product">
+        <div class="card h-100">
+            <p class="text-right font-weight-bold p-2 mb-2 bg-light text-dark text-uppercase">
+                <a href="{{ product.store.url }}" target="_blank">{{ product.store.name }}</a>
+            </p>
+            <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}"><img itemprop="image" class="card-img-top" src="{{ asset(product.image) }}" alt="{{ product.name|raw }}" /></a>
+            <div class="card-body">
+                <h4 itemprop="name" class="card-title">
+                    <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}">{{ product.name|raw }}</a>
+                </h4>
+                <p itemprop="description" class="card-text">{{ product.description|raw }}</p>
+                <p class="card-text text-right"><small class="text-muted font-weight-light">Actualizado: {{ product.modified|date }}</small></p>
+                <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    {% if product.specialPrice is not empty%}
+                        {% set formatPrice = product.specialPrice %}
+                    {% else %}
+                        {% set formatPrice = product.price %}
+                    {% endif %}
+                    <h3 class="p-3 mb-2 bg-success text-white text-center" itemprop="price" content="{{ formatPrice }}">
+                        <span class="input-group-addon" itemprop="priceCurrency" content="{{ product.currency.description }}">{{ product.currency.symbol }}</span>
+                        {{ formatPrice|localizedcurrency('COP') }}
+                    </h3>
+                </a>
+                <div class="row justify-content-center">
+                    {{ include('default/fb-share.html.twig', {url: path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id}) } ) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% set vars = {
+'title': 'Las mejores ofertas de '~category.name~' y los últimos productos',
+'description': 'Ver la lista completa de <strong>las mejores ofertas, promociones y descuentos</strong> de <strong>'~category.name~'</strong> en línea.',
+'destiny': category.name,
+'routename': 'category',
+'route_params': '_category',
+'route_params_value': category.urlName
+} %}
+{% include 'default/cta.html.twig' with { 'cta_data': vars } %}
+<!-- /.row -->
+
+

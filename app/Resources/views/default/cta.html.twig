@@ -4,7 +4,11 @@
         <p>{{ cta_data.description|raw }}</p>
     </div>
     <div class="col-md-4">
-        <a class="btn btn-lg btn-outline-secondary btn-block" href="{{ path(cta_data.routename) }}" alt="{{ cta_data.title }}" role="button">Ir a {{ cta_data.destiny }}</a>
+        {% if cta_data.route_params is defined %}
+            <a class="btn btn-lg btn-outline-secondary btn-block" href="{{ path(cta_data.routename, { (cta_data.route_params): (cta_data.route_params_value) } ) }}" alt="{{ cta_data.title }}" role="button">Ir a {{ cta_data.destiny }}</a>
+        {% else %}
+            <a class="btn btn-lg btn-outline-secondary btn-block" href="{{ path(cta_data.routename) }}" alt="{{ cta_data.title }}" role="button">Ver más {{ cta_data.destiny }}</a>
+        {% endif %}
     </div>
 </div>
 <hr>
