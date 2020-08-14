@@ -16,13 +16,14 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request, EntityManagerInterface $em)
     {
-        $trm = file_get_contents("http://app.docm.co/prod/Dmservices/Utilities.svc/GetTRM", true);
+//         $trm = file_get_contents("http://app.docm.co/prod/Dmservices/Utilities.svc/GetTRM", true);
+
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
             'products' => $this->getMainProducts($em),
-            'categories' => $em->getRepository(Category::class)->findAll(),
-            'trm' => str_replace('"', '', $trm)
+            'categories' => $em->getRepository(Category::class)->findAll()
+//             'trm' => str_replace('"', '', $trm)
         ]);
     }
 
