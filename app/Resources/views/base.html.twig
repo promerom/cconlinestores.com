@@ -3,8 +3,8 @@
 
     <head>
 
-        {{ app.environment == 'prod' ? include('default/gtm-head.html.twig') }}
-        {{ app.environment == 'prod' ? include('ads/auto-ads.html.twig') }}
+{#         {{ app.environment == 'prod' ? include('default/gtm-head.html.twig') }}#}
+{#         {{ app.environment == 'prod' ? include('ads/auto-ads.html.twig') }}#}
 
         <meta charset="utf-8">
         <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}" />
@@ -60,14 +60,14 @@
         <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
         {% endblock %}
         
-{#         {{ include('default/one-signal.html.twig') }}#}
+        {{ include('default/one-signal.html.twig') }}
         
-        <script src="https://cse.google.com/cse.js?cx=d83920774f8bce206"></script>
+        <script async src="https://cse.google.com/cse.js?cx=d83920774f8bce206"></script>
 
     </head>
 
     <body>
-        {{ app.environment == 'prod' ? include('default/gtm-body.html.twig') }}
+{#         {{ app.environment == 'prod' ? include('default/gtm-body.html.twig') }}#}
         
         {{ include('default/facebook-sdk.html.twig') }}
 
@@ -79,7 +79,7 @@
 
         {% block sticky %}
         {{ include('default/sticky-social-icons.html.twig') }}
-{#         {{ include('default/hello-bar.html.twig') }}#}
+        {{ include('default/hello-bar.html.twig') }}
         {% endblock %}
         
         {% block footer %}
