@@ -7,7 +7,7 @@
 
 {#         {{ include('default/information.html.twig') }}#}
 
-{#         {{ include('ads/search.html.twig') }}#}
+        {{ include('ads/search.html.twig') }}
 
         {% for category in categories %}
             {% include 'default/deals-by-category.html.twig' with {products: products, category: category} %}
