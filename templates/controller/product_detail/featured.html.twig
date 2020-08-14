@@ -18,5 +18,9 @@
         </div>
     </div>
     {% endfor %}
+    
+    <!-- Call to Action Well -->
+{#                 <a href="{{ product.brand.url }}" target="_blank" type="button" class="text-warning stretched-link">{{ product.brand.name }}</a>#}
+    <a href="{{ path('category', {'_category': product.category.urlName }) }}" type="button" class="mb-4 btn btn-info btn-lg btn-block">Ver más {{ product.category.name }}</a>
 </div>
 <!-- /.row -->

@@ -92,7 +92,9 @@
     <!-- Call to Action Well -->
     <div class="card text-white bg-secondary my-4 text-center">
         <div class="card-body">
-            <p class="text-white m-0">Ver más {{ product.category.name }} en <a href="{{ product.brand.url }}" target="_blank" class="badge badge-pill badge-light">{{ product.brand.name }}</a></p>
+            <p class="text-white m-0">Ver más {{ product.category.name }} en 
+                <a href="{{ product.brand.url }}" target="_blank" type="button" class="text-warning stretched-link">{{ product.brand.name }}</a>
+            </p>
         </div>
     </div>
 
