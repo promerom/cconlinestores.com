@@ -35,7 +35,7 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -131,6 +131,11 @@ class Product
      * @ORM\Column(name="post_on_twitter", type="boolean", nullable=true)
      */
     private $postOnTwitter;
+
+    /**
+     * @ORM\Column(name="original_url", type="string", length=255, nullable=true)
+     */
+    private $originalUrl;
 
     public function __construct() {
         $this->setCreated(new \DateTime());
@@ -508,6 +513,18 @@ class Product
     public function setPostOnTwitter(?bool $postOnTwitter): self
     {
         $this->postOnTwitter = $postOnTwitter;
+
+        return $this;
+    }
+
+    public function getOriginalUrl(): ?string
+    {
+        return $this->originalUrl;
+    }
+
+    public function setOriginalUrl(?string $originalUrl): self
+    {
+        $this->originalUrl = $originalUrl;
 
         return $this;
     }
