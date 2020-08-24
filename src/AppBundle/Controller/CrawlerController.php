@@ -407,6 +407,7 @@ class CrawlerController extends Controller
 //             $url = str_replace("http://", "https://", $url);
             $url = $domain . $originalUrl;
 
+            $update = false;
             $item = $doctrine->getRepository("AppBundle:Product")->findOneByUrl($originalUrl);
             if (!empty($item)) {
                 $update = true;
@@ -452,15 +453,17 @@ class CrawlerController extends Controller
 
         $product->setDescription($description);
 
-        $longDescription = $this->getProductNewDescription($product);
-//         var_dump($longDescription);
-        if (isset($longDescription) and !empty($longDescription)) {
-            if (is_array($longDescription)) {
-                $longDesc = trim($longDescription[0]);
-//                 var_dump($longDesc);exit;
-                $product->setLongDescription($longDesc);
-//                 $desc = mb_substr($longDesc, 0, 250);
-//                 $product->setDescription($desc . "...");
+        if ($update) {
+            $longDescription = $this->getProductNewDescription($product);
+    //         var_dump($longDescription);
+            if (isset($longDescription) and !empty($longDescription)) {
+                if (is_array($longDescription)) {
+                    $longDesc = trim($longDescription[0]);
+    //                 var_dump($longDesc);exit;
+                    $product->setLongDescription($longDesc);
+    //                 $desc = mb_substr($longDesc, 0, 250);
+    //                 $product->setDescription($desc . "...");
+                }
             }
         }
 
