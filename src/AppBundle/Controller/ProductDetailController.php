@@ -20,6 +20,12 @@ class ProductDetailController extends Controller
         $doctrine = $this->getDoctrine();
 
         $product = $doctrine->getRepository("AppBundle:Product")->find($id);
+
+        if ( empty($product) ) {
+            header("Location: /", TRUE, 301);
+            exit;
+        }
+
         $category = $product->getCategory()->getId();
 
         $featured = $doctrine->getRepository("AppBundle:Product")->findAllExcludeId($id, $category, 9);
