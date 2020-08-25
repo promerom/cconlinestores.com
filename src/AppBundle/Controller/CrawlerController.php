@@ -408,7 +408,7 @@ class CrawlerController extends Controller
             $url = $domain . $originalUrl;
 
             $update = false;
-            $item = $doctrine->getRepository("AppBundle:Product")->findOneByUrl($originalUrl);
+            $item = $doctrine->getRepository("AppBundle:Product")->findOneByOriginalUrl($originalUrl);
             if (!empty($item)) {
                 $update = true;
                 $product = $item;
