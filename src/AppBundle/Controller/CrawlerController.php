@@ -453,7 +453,7 @@ class CrawlerController extends Controller
 
         $product->setDescription($description);
 
-        if ($update) {
+//         if ($update) {
             $longDescription = $this->getProductNewDescription($product);
     //         var_dump($longDescription);
             if (isset($longDescription) and !empty($longDescription)) {
@@ -465,7 +465,7 @@ class CrawlerController extends Controller
     //                 $product->setDescription($desc . "...");
                 }
             }
-        }
+//         }
 
         $currency = $doctrine
         ->getRepository('AppBundle:Currency')
