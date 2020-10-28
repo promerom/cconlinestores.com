@@ -3,8 +3,8 @@ twig:
   globals:
     seo:
       name: "CC Online Stores"
-      title: "#HotSale Colombia - CC Online Stores, las mejores tiendas virtuales, promociones, ofertas, descuentos y productos en un mismo lugar. BLACK FRIDAY"
-      description: "#HotSale Colombia - Centro Comercial Online Stores, encuentra todas las tiendas virtuales más importantes y con los mejores descuentos, ofertas y productos, outlets, cupones de descuento y tiendas en línea, todo en un solo lugar. BLACK FRIDAY"
+      title: "#BlackFriday2020 Colombia - CC Online Stores, las mejores tiendas virtuales, promociones, ofertas, descuentos y productos en un mismo lugar. BLACK FRIDAY - HOTSALE"
+      description: "#BlackFriday2020 Colombia - Centro Comercial Online Stores, encuentra todas las tiendas virtuales más importantes y con los mejores descuentos, ofertas y productos, outlets, cupones de descuento y tiendas en línea, todo en un solo lugar. BLACK FRIDAY - HOTSALE"
       img: "img/logo.jpg"
       site: "cconlinestores.com"
       url: "https://cconlinestores.com"
@@ -12,32 +12,32 @@ twig:
     seo_sections:
       stores:
         name: "Tiendas en línea, online stores y black friday en Noviembre"
-        title: "#HotSale Tiendas en línea y BLACK FRIDAY Colombia. Las mejores online stores en un mismo lugar."
-        description: "#HotSale Centro Comercial Virtual de las Tiendas en línea, acá encuentrarás todas las tiendas virtuales más importantes, outlets y online stores, todo en un solo lugar. BLACK FRIDAY Colombia."
+        title: "#BlackFriday2020 Tiendas en línea y BLACK FRIDAY Colombia. Las mejores online stores en un mismo lugar."
+        description: "#BlackFriday2020 Centro Comercial Virtual de las Tiendas en línea, acá encuentrarás todas las tiendas virtuales más importantes, outlets y online stores, todo en un solo lugar. BLACK FRIDAY Colombia."
         img:
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/stores"
         author: "kbitssd"
       deals:
         name: "Ofertas en línea, promociones, descuentos y black friday en Colombia"
-        title: "#HotSale BLACK FRIDAY Colombia con las mejores ofertas y descuentos del momento, todo en un sólo lugar."
-        description: "#HotSale Encuentra todas las Ofertas y promociones más destacadas del momento en internet. En Online Stores tenemos las promociones y descuentos de las tiendas en línea más importantes del mundo, outlets y online stores. BLACK FRIDAY Colombia en Mayo y Noviembre."
+        title: "#BlackFriday2020 BLACK FRIDAY Colombia con las mejores ofertas y descuentos del momento, todo en un sólo lugar. HOTSALE"
+        description: "#BlackFriday2020 Encuentra todas las Ofertas y promociones más destacadas del momento en internet. En Online Stores tenemos las promociones y descuentos de las tiendas en línea más importantes del mundo, outlets y online stores. BLACK FRIDAY Colombia en Mayo y Noviembre. HOTSALE"
         img:
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/ofertas"
         author: "kbitssd"
       blackfriday:
         name: "Ofertas Black Friday 2020"
-        title: "#HotSale BLACK FRIDAY Colombia 2020 con las mejores ofertas y descuentos del momento."
-        description: "#HotSale Encuentra las mejores ofertas, descuentos y productos en BLACK FRIDAY Colombia 2020. Todos los descuentos y ofertas del próximo black friday el 17 de mayo de 2020."
+        title: "#BlackFriday2020 BLACK FRIDAY Colombia 2020 con las mejores ofertas y descuentos del momento."
+        description: "#BlackFriday2020 Encuentra las mejores ofertas, descuentos y productos en BLACK FRIDAY Colombia 2020. Todos los descuentos y ofertas del próximo black friday el 27 de Noviembre de 2020."
         img: "img/deals/black-friday.png"
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/blackfriday"
         author: "kbitssd"
       cyberlunes:
         name: "Ofertas Cyberlunes 2020"
-        title: "#HotSale CYBERLUNES Colombia 2020 con las mejores ofertas y descuentos del momento."
-        description: "#HotSale Encuentra las mejores ofertas, descuentos y productos en CYBERLUNES Colombia 2020 en Noviembre. Todos los descuentos y ofertas del próximo cyberlunes de 2020."
+        title: "#CyberLunes CYBERLUNES Colombia 2020 con las mejores ofertas y descuentos del momento."
+        description: "#CyberLunes Encuentra las mejores ofertas, descuentos y productos en CYBERLUNES Colombia 2020 en Noviembre. Todos los descuentos y ofertas del próximo cyberlunes de 2020."
         img: "img/stores/logo-cyberlunes.png"
         site: "cconlinestores.com"
         url: "https://cconlinestores.com/cyberlunes"
