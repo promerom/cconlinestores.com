@@ -25,7 +25,7 @@ class CrawlerController extends Controller
     {
         $doctrine = $this->getDoctrine();
         switch ($_idGetData):
-            case "ktr_sam_cel": #OK job en cpanel -> 12AM
+            case "ktr_sam_cel": #OK job en cpanel -> 12AM CHECK
 //                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
 //                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung?p=2";
 //                 $url = "https://www.ktronix.com/telefonos-celulares/ver/samsung";
@@ -40,7 +40,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_sony_tv": #OK job en cpanel -> 12:05AM
+            case "ktr_sony_tv": #OK job en cpanel -> 12:05AM @todo review error 500
 //                 $url = "https://www.ktronix.com/tv/televisores/ver/sony/";
                 $url = "https://www.ktronix.com/tv-video/televisores/c/BI_120_KTRON?q=%3Arelevance%3Abrand%3ASONY#";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
@@ -183,7 +183,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_len_com": #OK job en cpanel -> 10AM y 5PM
+            case "ktr_len_com": #OK job en cpanel -> 3AM
                 $url = "https://www.ktronix.com/computadores-tablets/computadores-portatiles/c/BI_104_KTRON?q=%3Arelevance%3Abrand%3ALENOVO";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
@@ -450,7 +450,7 @@ class CrawlerController extends Controller
             $product->setPrice($price);
         }
 
-        $description = $specs->html() . "<br>" . $features->html();
+        $description = (!empty($specs->nodes)?$specs->html():"") . "<br>" . (!empty($features->nodes)?$features->html():"");
 
         $product->setDescription($description);
 
