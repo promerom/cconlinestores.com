@@ -15,7 +15,7 @@
                 <h4 itemprop="name" class="card-title">
                     <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}">{{ product.name|raw }}</a>
                 </h4>
-                <p itemprop="description" class="card-text">{{ product.description|raw }}</p>
+                <div itemprop="description" class="card-text" style="height: 200px; overflow: hidden;">{{ product.description|raw }}</div>
                 <p class="card-text text-right"><small class="text-muted font-weight-light">Actualizado: {{ product.modified|date }}</small></p>
                 <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                     {% if product.specialPrice is not empty%}
