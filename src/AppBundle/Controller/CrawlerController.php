@@ -184,7 +184,7 @@ class CrawlerController extends Controller
 
                 break;
             case "ktr_len_com": #OK job en cpanel -> 10AM y 5PM
-                $url = "https://www.ktronix.com/computadores-tablets/computadores-escritorio/c/BI_105_KTRON?q=%3Arelevance%3Abrand%3ALENOVO";
+                $url = "https://www.ktronix.com/computadores-tablets/computadores-portatiles/c/BI_104_KTRON?q=%3Arelevance%3Abrand%3ALENOVO";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
                 $_idStore = $store->getId();
                 $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Lenovo");
@@ -233,7 +233,8 @@ class CrawlerController extends Controller
             /**
              * Crawler new Ktronix
              */
-            $nodeValues = $crawler->filter('.category-page .category-page--list .product__list--wrapper .product__listing.product__list .product__list--item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
+//             $nodeValues = $crawler->filter('.category-page .category-page--list .product__list--wrapper .product__listing.product__list .product__list--item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
+            $nodeValues = $crawler->filter('.category-page .product__list--wrapper .product__listing.product__list .product__list--item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
 
                 $product = $this->parseDataFromNewKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory);
 

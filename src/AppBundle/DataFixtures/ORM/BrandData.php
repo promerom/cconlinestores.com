@@ -62,6 +62,12 @@ class BrandData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Bose. Soluciones innovadoras que te ayudarán a sentir, hacer y ser más. Audífonos, altavoces, dispositivos portátiles y productos de bienestar.',
                 'url' => 'https://www.bose.co/es_co/index.html',
                 'image' => 'https://assets.bose.com/content/dam/Bose_DAM/Web/consumer_electronics/global/homepage/images_5to2/HP_SB500_5x2_header.psd/jcr:content/renditions/cq5dam.web.320.320.jpeg'
+            ],
+            [
+                'name' => 'Lenovo',
+                'description' => 'Lenovo PCs | Portátiles para el trabajo, para jugar y el hogar | Lenovo Colombia',
+                'url' => 'https://www.lenovo.com/co/es/pc',
+                'image' => 'https://static.lenovo.com/fea/images/lenovo-logo-pcs.png'
             ]
         );
 
