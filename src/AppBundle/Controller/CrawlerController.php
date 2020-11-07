@@ -40,7 +40,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_sony_tv": #OK job en cpanel -> 12:05AM @todo review error 500
+            case "ktr_sony_tv": #OK job en cpanel -> 12:05AM CHECK
 //                 $url = "https://www.ktronix.com/tv/televisores/ver/sony/";
                 $url = "https://www.ktronix.com/tv-video/televisores/c/BI_120_KTRON?q=%3Arelevance%3Abrand%3ASONY#";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
@@ -53,7 +53,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_apple_comp": #OK job en cpanel -> 12:30AM
+            case "ktr_apple_comp": #OK job en cpanel -> 12:30AM CHECK
 //                 $url = "https://www.ktronix.com/computadores-y-tablets/computadores-portatiles/ver/apple/";
                 $url = "https://www.ktronix.com/computadores-tablets/computadores-portatiles/c/BI_104_KTRON?q=%3Arelevance%3Abrand%3AAPPLE#";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
@@ -66,7 +66,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_lg_tv": #OK job en cpanel -> 12:50AM
+            case "ktr_lg_tv": #OK job en cpanel -> 12:50AM CHECK
 //                 $url = "https://www.ktronix.com/tv/televisores/ver/lg/";
                 $url = "https://www.ktronix.com/tv-video/televisores/c/BI_120_KTRON?q=%3Arelevance%3Abrand%3ALG#";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
@@ -92,7 +92,7 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
-            case "ktr_ps_vg": #OK job en cpanel -> 9AM y 5PM
+            case "ktr_ps_vg": #OK job en cpanel -> 9AM y 5PM CHECK
 //                 $url = "https://www.ktronix.com/videojuegos/play-station-ps3-ps4-psvita-move";
                 $url = "https://www.ktronix.com/marcas/playstation/c/playstation";
                 $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
