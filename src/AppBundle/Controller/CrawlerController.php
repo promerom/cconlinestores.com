@@ -384,12 +384,14 @@ class CrawlerController extends Controller
 //         var_dump($productName->attr("href"));
         $productImg = $node->filter(".product__image img");
 //         var_dump($productImg->attr("data-src"));
-        $oldPrice = $node->filter(".product__price .product__price--flex .product__price--discounts .product__price--discounts__old");
+        $oldPrice = $node->filter(".product__price.product__price--flex .product__price--discounts .product__price--discounts__old");
 //         var_dump($oldPrice->text());
         $specialPrice = $node->filter(".price-box .special-price .price .price");
 //         var_dump($specialPrice->count());
-        $regularPrice = $node->filter(".product__price .product__price--flex .product__price--discounts .product__price--discounts__price .price");
+        $regularPrice = $node->filter(".product__price.product__price--flex .product__price--discounts .product__price--discounts__price .price");
 //         var_dump($regularPrice->text());
+
+//         $info = $node->filter(".product__information .product__information--flex");
 
         $specs = $node->filter(".product__information .product__information--flex .product__information--specifications .product__information--specifications__block");
 //         var_dump($specs->text());
@@ -450,7 +452,23 @@ class CrawlerController extends Controller
             $product->setPrice($price);
         }
 
-        $description = (!empty($specs->nodes)?$specs->html():"") . "<br>" . (!empty($features->nodes)?$features->html():"");
+        $description = "";
+
+        try {
+            $info1 = $specs->html();
+            $description .= $info1 . "<br>";
+        } catch (\Exception $e) {
+            error_log("error - The current node list is empty." . $e);
+        }
+
+        try {
+            $info2 = $features->html();
+            $description .= $info2;
+        } catch (\Exception $e) {
+            error_log("error - The current node list is empty." . $e);
+        }
+
+//         $description = $specs->html() . "<br>" . $features->html();
 
         $product->setDescription($description);
 
