@@ -68,6 +68,12 @@ class BrandData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Lenovo PCs | Portátiles para el trabajo, para jugar y el hogar | Lenovo Colombia',
                 'url' => 'https://www.lenovo.com/co/es/pc',
                 'image' => 'https://static.lenovo.com/fea/images/lenovo-logo-pcs.png'
+            ],
+            [
+                'name' => 'Evolution Fitness',
+                'description' => 'EvolutionFitness® es un concepto que resulta de la evolución de nuestra compañía. Trotadora, Elíptica, Spinning, Bicicleta Estática, Fit & Fury, Multigimnasios. Fitness',
+                'url' => 'https://www.evolutionfitness.co/',
+                'image' => 'https://ventaspop-images.staticgnt.com/7a-pxfRBFxqhbMknP5ou6-2cZrw=/filters:quality(100)/files/shops/252/252/Logo-202023.jpg'
             ]
         );
 

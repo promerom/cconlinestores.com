@@ -62,6 +62,12 @@ class CategoryData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Última tecnología en Audio y Entretenimiento. Parlantes, Audífonos, Teatros en casa, equipos de sonido de las mejores marcas Apple, Bose, Sony, Panasonic, Samsung, LG, Kalley, Zipy, Digiblue',
                 'url' => '',
                 'image' => 'https://mercaldas.vteximg.com.br/arquivos/ids/158802-400-400/112552.jpg?v=636959554716930000'
+            ],
+            [
+                'name' => 'Ejercicio y Fitness',
+                'description' => 'Actividad física y bienestar personal. Cómo tener un gimnasio en casa con la última tecnología a los mejores precios?. Entrenamiento personal en casa, gimnasio, Fitness',
+                'url' => '',
+                'image' => 'https://ventaspop-02-static.staticgnt.com/231c7b6e/themes/gymedge/img/about-fitness-img.png'
             ]
         );
 

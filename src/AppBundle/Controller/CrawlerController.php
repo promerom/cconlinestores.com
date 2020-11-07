@@ -207,6 +207,18 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
+            case "ktr_evo_ejefit": #OK job en cpanel -> 10AM y 5PM
+                $url = "https://www.ktronix.com/deportes/ejercicio-fitness/c/BI_182_KTRON?q=%3Arelevance%3Abrand%3AEVOLUTION";
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("Ktronix");
+                $_idStore = $store->getId();
+                $brand = $doctrine->getRepository('AppBundle:Brand')->findOneByName("Evolution Fitness");
+                $_idBrand = $brand->getId();
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByName("Pesos");
+                $_idCurrency = $currency->getId();
+                $category = $doctrine->getRepository('AppBundle:Category')->findOneByName("Ejercicio y Fitness");
+                $_idCategory = $category->getId();
+
+                break;
             default:
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
                 break;
