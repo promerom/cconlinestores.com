@@ -56,6 +56,7 @@ class AutoPostController extends Controller
             $hashtags .= $item->getCategory()->getName();
             $hashtags .= " #" . $item->getBrand()->getName();
             $hashtags .= " #" . $item->getStore()->getName();
+            $hashtags .= " #Blackfriday #Blackfriday2020 #blackdays";
 
             $contentMessage = $item->getName() . " " . $formatPrice . " " . $hashtags;
 
@@ -132,6 +133,7 @@ class AutoPostController extends Controller
             $hashtags .= $item->getCategory()->getName();
             $hashtags .= " #" . $item->getBrand()->getName();
             $hashtags .= " #" . $item->getStore()->getName();
+            $hashtags .= " #Blackfriday #Blackfriday2020 #blackdays";
 
             $contentMessage = $item->getName() . " " . $formatPrice . " " . $hashtags;
 
