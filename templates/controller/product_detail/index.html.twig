@@ -47,14 +47,7 @@
         })
         </script>
         {{ product.specialPrice|localizedcurrency('COP') }}
-    {% elseif product.oldPrice %}
-        <script>
-        $(document).ready(function() {
-            $("#price").addClass("border-dark");
-        })
-        </script>
-        {{ product.oldPrice|localizedcurrency('COP') }}
-    {% else %}
+    {% elseif product.price %}
         <script>
         $(document).ready(function() {
             $("#price").addClass("border-primary");
@@ -63,11 +56,15 @@
         {{ product.price|localizedcurrency('COP') }}
     {% endif %}
     </p>
+    {% if product.oldPrice %}
+        <p><s>{{ product.currency.symbol}} {{ product.oldPrice|localizedcurrency('COP') }}</s></p>
+    {% endif %}
     <div class="row justify-content-center">
         {{ include('default/fb-share.html.twig', {url: path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id}), btnclass: 'btn btn-primary' } ) }}
         {{ include('default/tw-share.html.twig', {url: path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id}), btnclass: 'btn btn-primary' } ) }}
     </div>
 {#     <a class="btn btn-outline-secondary" href="#">Coming soon</a>#}
+    <small class="text-muted">Actualizado <cite title="Source Title">{{ product.modified|date("d/m/Y") }}</cite></small>
   </div>
   <div class="product-device shadow-sm d-none d-md-block"></div>
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
