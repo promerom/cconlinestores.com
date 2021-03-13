@@ -50,6 +50,12 @@ class StoreData extends Fixture implements OrderedFixtureInterface
                 'description' => 'Compra en línea con facilidad y seguridad en la tienda oficial Sony Colombia lo último en tecnologías 4K, 4K HDR, Android™ TV y audio de alta resolución Hi-Res. Televisores, audio, parlantes, soundbar, cámaras, Playstation, Smartphone Xperia y accesorios.',
                 'url' => 'https://store.sony.com.co/',
                 'image' => ''
+            ],
+            [
+                'name' => 'Amazon',
+                'description' => 'Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more. <br> Free delivery on millions of items with Prime. Low prices across earth´s biggest selection of books, music, DVDs, electronics, computers, software, apparel',
+                'url' => 'https://www.amazon.com/',
+                'image' => 'http://g-ec2.images-amazon.com/images/G/01/social/api-share/amazon_logo_500500._V323939215_.png'
             ]
         );
 

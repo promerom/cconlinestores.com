@@ -74,6 +74,18 @@ class BrandData extends Fixture implements OrderedFixtureInterface
                 'description' => 'EvolutionFitness® es un concepto que resulta de la evolución de nuestra compañía. Trotadora, Elíptica, Spinning, Bicicleta Estática, Fit & Fury, Multigimnasios. Fitness',
                 'url' => 'https://www.evolutionfitness.co/',
                 'image' => 'https://ventaspop-images.staticgnt.com/7a-pxfRBFxqhbMknP5ou6-2cZrw=/filters:quality(100)/files/shops/252/252/Logo-202023.jpg'
+            ],
+            [
+                'name' => 'HP',
+                'description' => 'Tienda Oficial HP Colombia – Portátiles, Desktops, Impresoras, Monitores, Tinta, Tóner y Accesorios  | Tienda HP Colombia',
+                'url' => 'https://store.hp.com/co-es/default/',
+                'image' => 'https://d34vmoxq6ylzee.cloudfront.net/logo/stores/1/HP_Logo_Halo.png'
+            ],
+            [
+                'name' => 'Fit Simplify',
+                'description' => 'Fit Simplify - Home of the #1 Best Selling Resistance Band on Amazon',
+                'url' => 'https://www.fitsimplify.com/',
+                'image' => 'https://www.fitsimplify.com/wp-content/uploads/2016/04/FitSimplify-Washington.png'
             ]
         );
 
