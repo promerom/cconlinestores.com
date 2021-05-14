@@ -38,6 +38,10 @@ framework:
         log: true
     templating:
         engines: ['twig']
+    cache:
+        directory: '%kernel.cache_dir%/pools'
+        app: cache.adapter.filesystem
+        system: cache.adapter.system
 
 # Twig Configuration
 twig:
