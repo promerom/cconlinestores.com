@@ -45,7 +45,7 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
       providers_facebook_app_id: '%providers_facebook_app_id%'
-      twitter_account: %providers_twitter_account%
+      twitter_account: '%providers_twitter_account%'
 
 # Doctrine Configuration
 doctrine:
@@ -66,7 +66,7 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
-        naming_strategy: doctrine.orm.naming_strategy.underscore
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
 
 # Swiftmailer Configuration
@@ -96,7 +96,7 @@ social_post:
     publish_on: "%publish_on%" # List which Social networks you will be publishing to and configure your access to them as shown below
     providers:
         facebook:
-            app_id: %providers_facebook_app_id%
+            app_id: '%providers_facebook_app_id%'
             app_secret: "%providers_facebook_app_secret%"
             default_access_token: "%providers_facebook_defaul_access_token%"
             page_id: "%providers_facebook_page_id%"
@@ -111,7 +111,7 @@ social_post:
             access_token: "YOUR-LINKEDIN-60-DAYS-LONG-USER-ACCESS-TOKEN"
             company_page_id: "YOUR-LINKEDIN-COMPANY-PAGE-ID"
         twitter:
-            consumer_key: %providers_twitter_consumer_key%
-            consumer_secret: %providers_twitter_consumer_secret%
-            access_token: %providers_twitter_access_token%
-            access_token_secret: %providers_twitter_access_token_secret%
+            consumer_key: '%providers_twitter_consumer_key%'
+            consumer_secret: '%providers_twitter_consumer_secret%'
+            access_token: '%providers_twitter_access_token%'
+            access_token_secret: '%providers_twitter_access_token_secret%'
