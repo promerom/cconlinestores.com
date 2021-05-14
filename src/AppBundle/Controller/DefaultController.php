@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use AppBundle\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\Category;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -19,12 +20,45 @@ class DefaultController extends Controller
 //         $trm = file_get_contents("http://app.docm.co/prod/Dmservices/Utilities.svc/GetTRM", true);
 
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-            'products' => $this->getMainProducts($em),
-            'categories' => $em->getRepository(Category::class)->findAll()
-//             'trm' => str_replace('"', '', $trm)
-        ]);
+//         return $this->render('default/index.html.twig', [
+//             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+//             'products' => $this->getMainProducts($em),
+//             'categories' => $em->getRepository(Category::class)->findAll()
+// //             'trm' => str_replace('"', '', $trm)
+//         ]);
+
+        $response = new Response(
+
+            $this->renderView('default/index.html.twig', array(
+                'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+                'products' => $this->getMainProducts($em),
+                'categories' => $em->getRepository(Category::class)->findAll()
+                //             'trm' => str_replace('"', '', $trm)
+            ))
+        );
+
+        $headers = [
+            'X-XSS-Protection' => '1; mode=block',
+            'X-Content-Type-Options' => 'nosniff',
+            'Strict-Transport-Security' => 'max-age=1; includeSubDomains; preload',
+//             'Content-Security-Policy' => "default-src 'self'"
+        ];
+
+        $response->headers->add($headers);
+
+        $etag = md5($response->getContent());
+
+        $options = ['etag'          => $etag,
+//             'last_modified' => new \DateTime(),
+            'max_age'       => 3600,
+            's_maxage'      => 3600];
+
+        $response->setCache($options);
+
+        $response->setPublic();
+        $response->isNotModified($request);
+
+        return $response;
     }
 
     /**
