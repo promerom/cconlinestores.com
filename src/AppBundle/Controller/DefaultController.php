@@ -38,9 +38,9 @@ class DefaultController extends Controller
         );
 
         $headers = [
-            'X-XSS-Protection' => '3600; mode=block',
+//             'X-XSS-Protection' => '3600; mode=block',
             'X-Content-Type-Options' => 'nosniff',
-            'Strict-Transport-Security' => 'max-age=1; includeSubDomains; preload',
+//             'Strict-Transport-Security' => 'max-age=1; includeSubDomains; preload',
 //             'Content-Security-Policy' => "default-src 'self'"
         ];
 
