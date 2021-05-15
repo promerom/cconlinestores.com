@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+
+    {% for amazon_product in amazon_products %}
+
+        {% if loop.index is odd %}    
+            <div class="col-md-3">
+        {% endif %}
+
+        <article class="card mb-4">
+            <header class="card-header">
+                <div class="card-meta">
+                    <strong>Finaliza: </strong><time class="timeago" datetime="{{ amazon_product.ends_date[1] }}" timeago-id="1">{{ amazon_product.ends_date[1] }}</time> en <a target="_blank" href="{{ amazon_product.link }}">Amazon</a>
+                </div>
+                <a target="_blank" href="{{ amazon_product.link }}"><h4 class="card-title">{{ amazon_product.title }}</h4></a>
+            </header>
+            <a href="{{ amazon_product.link }}" target="_blank"><img class="card-img" src="{{ amazon_product.img[0] }}" alt="{{ amazon_product.img[1] }}" /></a>
+            <div class="card-body">
+                <h6>{{ amazon_product.desc_title }}</h6>
+                <p class="card-text">{{ amazon_product.desc }}</p>
+            </div>
+        </article>
+
+        {% if loop.index is even %} 
+            </div>
+        {% endif %}
+
+    {% endfor %}
+    </div>
+</div>

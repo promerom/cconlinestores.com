@@ -1,0 +1,59 @@
+twig:
+  globals:
+    amazon_products:
+      amz1:
+        title: "Save up to $70 on select Sony headphones with Alexa Built-in"
+        img: [ "https://m.media-amazon.com/images/G/01/US-hq/2021/img/Alexa_Voice_Service_AVS_/XCM_CUTTLE_1327852_1683715_US_3828605_300x300_en_US.jpg", "Sony headphones" ]
+        desc_title: "Ofertas y promociones, Electrónicos"
+        desc: "Encourage your readers to save up to $70 on Sony headphones with Alexa Built-in. Ask Alexa to increase volume, play music and more."
+        ends_date: [ "2021-05-16 02:00", "16/05/2021" ]
+        link: "https://amzn.to/3boBap2"
+      amz2:
+        title: "Save 15% on GYMBee Long Resistance Bands"
+        img: [ "https://m.media-amazon.com/images/G/01/sports/Hidrate/GYMBee-longband-300x300px.jpg", "GYMBee Long Resistance Bands" ]
+        desc_title: "Ofertas y promociones, Deportes y Actividades al Aire Libre"
+        desc: "From 5/10 to 5/16, your readers will enjoy 15% off GYMBee long resistance bands. GYMBee long resistance bands are durable, versatile, and come with lifetime access to an exclusive video program. With three resistance levels included, they are the perfect addition to full body sculpting workouts."
+        ends_date: [ "2021-05-16 02:00", "16/05/2021" ]
+        link: "https://amzn.to/3fomY0F"
+      amz3:
+        title: "Save up to $1,000 on select LG TVs with Alexa Built-in"
+        img: [ "https://m.media-amazon.com/images/G/01/avs-lifestyle-images/14685_mobile-card_Q80T-S17_1050x1050._CB406685546_._SY200_.jpg", "LG TVs" ]
+        desc_title: "Ofertas y promociones, Electrónicos"
+        desc: "Share with your readers they can now save on LG TVs with Alexa Built-in. Ask to play music and games, check the weather, control your smart home, and more with Alexa."
+        ends_date: [ "2021-05-24 02:00", "24/05/2021" ]
+        link: "https://amzn.to/3y6OgkF"
+      amz4:
+        title: "Father's Day Gift Shop"
+        img: [ "https://m.media-amazon.com/images/G/01/US-hq/2021/img/Events/XCM_CUTTLE_1329595_1693968_US_3841592_300x300_en_US.jpg", "Father's Day" ]
+        desc_title: "Eventos, Misceláneo"
+        desc: "Amazon’s Father’s Day Gift Shop is now open! Encourage your readers to visit Amazon’s one-stop shop for gifts, cards, and excellent ideas to celebrate Dad. Whether he’s a techie, a fashion plate or a pro gamer, Amazon has tons of great gifts at great prices for every kind of dad. For hard to shop for Dads, your readers can never go wrong with an Amazon Gift Card."
+        ends_date: [ "2021-06-20 02:00", "20/06/2021" ]
+        link: "https://amzn.to/3uT3XK0"
+      amz5:
+        title: "Explore the world with precise 4K HDR picture"
+        img: [ "https://m.media-amazon.com/images/G/01/US-hq/2021/img/Consumer_Electronics/XCM_CUTTLE_1323381_1661990_US_3795088_300x300_en_US.jpg", "4K HDR picture" ]
+        desc_title: "Eventos, Entretenimiento en el hogar"
+        desc: "Everything you watch becomes more detailed and immersive with true-to-life 4K HDR, powered by the all-new Cognitive Processor XR™. Feel the intensity of the sun and experience all the stars of the night sky with Full Array LED and XR Contrast Booster 5. With outstanding picture quality, a flush bezel design, and HDMI 2.1 for next-gen gaming, the X90J 4K HDR LED TV is ready for everything."
+        ends_date: [ "2021-05-29 02:00", "29/05/2021" ]
+        link: "https://amzn.to/3hn2Azw"
+      amz6:
+        title: "Spring Cleaning Event"
+        img: [ "https://m.media-amazon.com/images/G/01/BISS/Springclean_300x300.png", "Spring Cleaning Event" ]
+        desc_title: "Ofertas y promociones, Productos industriales y científicos"
+        desc: "Through May 30, your readers can get a fresh start at Amazon's Spring Cleaning Event with bulk savings on janitorial supplies and top-rated equipment to make every space shine."
+        ends_date: [ "2021-05-30 02:00", "30/05/2021" ]
+        link: "https://amzn.to/3ydvLLh"
+      amz7:
+        title: "3 Months Free of Amazon Music Unlimited"
+        img: [ "https://m.media-amazon.com/images/G/01/AmazonMusic/2021/Marketing/SWSpringDeal_DMUX-4280/Associates/DV1/Global_030821_SpringSitewide_ACQ_ASC_300x300.jpg", "Amazon Music Unlimited" ]
+        desc_title: "Recompensas, Amazon Music Unlimited"
+        desc: "Beginning April 12, your readers can enjoy three months of an Amazon Music Unlimited subscription for free while you earn a bounty for each Amazon Music signup you drive. Starts at $7.99/month after three months."
+        ends_date: [ "2021-05-24 02:00", "24/05/2021" ]
+        link: "https://amzn.to/2RbcBFn"
+      amz8:
+        title: "Envío GRATIS a Colombia"
+        img: [ "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Projects/JumpIn/379x304._SY304_CB449506705_.jpg", "Envío GRATIS a Colombia" ]
+        desc_title: "Cómo obtener envío gratis a Colombia?"
+        desc: "Recibe envío gratis a Colombia cuando compras uno o más productos elegibles en un pedido superior o igual a USD 35."
+        ends_date: [ "2022-05-16 02:00", "16/05/2022" ]
+        link: "https://www.amazon.com/gp/search?ie=UTF8&tag=cconlinestore-20&linkCode=ur2&linkId=bdf535efcb53fa048ad9b74d2f04e830&camp=1789&creative=9325&index=aps&keywords=envio gratis a colombia"
