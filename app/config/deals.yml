@@ -16,8 +16,8 @@ twig:
         store: "adidas"
         price: "$ 49.900 COP"
       d11:
-        title: "Prepárate para CYBERLUNES® este 19 y 20 de noviembre de 2020."
-        description: "¡Aprovecha Cyberlunes® Colombia este 19 y 20 de noviembre! Disfruta súper descuentos y precios bajos para que compres por internet tus marcas favoritas."
+        title: "Prepárate para CYBERLUNES® en Noviembre del 2022."
+        description: "¡Aprovecha Cyberlunes® Colombia en noviembre! Disfruta súper descuentos y precios bajos para que compres por internet tus marcas favoritas."
         img: "img/deals/cyberlunes.png"
         link: "https://www.cyberlunes.com.co/"
         store: "cyberlunes"
@@ -48,7 +48,7 @@ twig:
 #        store: "falabella"
       d9:
         title: "¡Ya empezó! Vive los Black Days con Homecenter"
-        description: "Balck Days Homecenter. Precios bajos para que ahorres más. Válido del 8 al 28 de noviembre de 2020."
+        description: "Balck Days Homecenter. Precios bajos para que ahorres más. Válido en noviembre de 2022."
         img: "img/deals/blackdays-homecenter.jpg"
         link: "https://www.homecenter.com.co/homecenter-co/category/cat4220001/"
         store: "homecenter"
