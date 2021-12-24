@@ -1,8 +1,8 @@
 <!-- Portfolio Section -->
 </br>
-<h2 class="pb-3 mb-4 font-italic border-bottom text-center">{{ category.name|raw }} - última tecnología y ofertas</h2>
+<h2 class="pb-3 mb-4 font-italic border-bottom text-center">{{ category.name|raw }} - ofertas de última tecnología</h2>
 
-<div class="row">
+<div class="row" id="by_category_{{ loop.index }}">
 
     {% for product in products|filter(product => product.category == category)[:6] %}
     <div class="col-lg-4 col-sm-6 portfolio-item" itemscope itemtype="https://schema.org/Product">
@@ -10,7 +10,9 @@
             <p class="text-right font-weight-bold p-2 mb-2 bg-light text-dark text-uppercase">
                 <a href="{{ product.store.url }}" target="_blank">{{ product.store.name }}</a>
             </p>
-            <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}"><img itemprop="image" class="card-img-top" src="{{ asset(product.image) }}" alt="{{ product.name|raw }}" /></a>
+            <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}">
+                <img itemprop="image" class="card-img-top lazyload" data-src="{{ asset(product.image) }}" alt="{{ product.name|raw }}" src=""/>
+            </a>
             <div class="card-body">
                 <h4 itemprop="name" class="card-title">
                     <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}">{{ product.name|raw }}</a>
@@ -35,6 +37,64 @@
         </div>
     </div>
     {% endfor %}
+    
+    
+    <script>
+
+//     $('#myCarousel').on('slid', function() {
+//         var $nextImage = $('.active.item', this).next('.item').find('img');
+//         $nextImage.attr('src', $nextImage.data('lazy-load-src'));
+//     });
+//     $(document).ready(function(event){
+
+//         $( "#by_category_1 img.lazyload").each(function( index ) {
+//               console.log( index + ": " + $( this ).attr("data-src") );
+//             });
+        
+//     	//FUNCION
+//     	console.log('Contenido cargado');
+//     	lazyload();
+
+//         $image.attr('src', $nextImage.data('lazy-load-src'));
+// 	});
+
+
+    // Passing a named function instead of an anonymous function.
+    
+//     function readyFn( jQuery ) {
+        // Code to run when the document is ready.
+//     }
+     
+//     $( document ).ready( readyFn );
+    // or:
+//     $( window ).on( "load", readyFn );
+
+
+//     $( document ).ready(function() {
+//         console.log( "document loaded" );
+//     });
+ 
+//     $( window ).on( "load", function() {
+//         console.log( "window loaded" );
+//     });
+
+
+//     $(document).on("scroll", function(){
+        //sacamos el desplazamiento actual de la página
+//         var desplazamientoActual = $(document).scrollTop();
+        //accedemos al control de "ir arriba"
+//         var controlArriba = $("#irarriba");
+        //compruebo si debo mostrar el botón
+//         if(desplazamientoActual > 100 && controlArriba.css("display") == "none"){
+//             controlArriba.fadeIn(500);
+//         }
+        //controlo si debo ocultar el botón
+//         if(desplazamientoActual < 100 && controlArriba.css("display") == "block"){
+//             controlArriba.fadeOut(500);
+//         }
+//     });
+    
+    </script>
 
 </div>
 {% set vars = {

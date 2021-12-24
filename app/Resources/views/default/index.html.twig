@@ -44,3 +44,80 @@
 
 {% endblock %}
 
+{% block javascripts %}
+{{ parent() }}
+<script>
+$(document).ready(function(event){
+
+    $("#by_category_1 img.lazyload").each(function( index ) {
+        console.log( index + ": " + $( this ).attr("data-src") );
+        var data_src = $( this ).attr("data-src");
+        $(this).attr("src", data_src);
+    });
+    
+    //FUNCION
+//  console.log('Contenido cargado');
+//  lazyload();
+
+    setTimeout(
+  function() 
+  {
+    //do something special
+//     var cont = 0;
+        $("img.lazyload").each(function( index ) {
+            var data_src = $( this ).attr("data-src");
+            $(this).attr("src", data_src);
+//             cont = cont + 1;
+//             console.log(cont);
+        });
+  }, 10000);
+
+
+//     $image.attr('src', $nextImage.data('lazy-load-src'));
+});
+
+// $.fn.isInViewport = function () {
+//     let elementTop = $(this).offset().top;
+//     let elementBottom = elementTop + $(this).outerHeight();
+
+//     let viewportTop = $(window).scrollTop();
+//     let viewportBottom = viewportTop + $(window).height();
+
+//     return elementBottom > viewportTop && elementTop < viewportBottom;
+// };
+
+// $(window).scroll(function () {
+//     if ($('#by_category_2').isInViewport()) {
+//                 console.log('success.')
+//     } else {
+//         console.log('No success.')
+//     }
+// });
+
+
+// $(document).on("scroll", function(){
+
+//     if ($('#by_category_2').isInViewport()) {
+//         console.log('success.')
+//     } else {
+//         console.log('No success.')
+//     }
+    
+    //sacamos el desplazamiento actual de la página
+//     var desplazamientoActual = $(document).scrollTop();
+    //accedemos al control de "ir arriba"
+//     var controlArriba = $("#irarriba");
+    //compruebo si debo mostrar el botón
+//     if(desplazamientoActual > 100 && controlArriba.css("display") == "none"){
+//         controlArriba.fadeIn(500);
+//     }
+    //controlo si debo ocultar el botón
+//     if(desplazamientoActual < 100 && controlArriba.css("display") == "block"){
+//         controlArriba.fadeOut(500);
+//     }
+// });
+
+
+</script>
+{% endblock %}
+
