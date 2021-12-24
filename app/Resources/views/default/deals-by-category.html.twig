@@ -11,7 +11,7 @@
                 <a href="{{ product.store.url }}" target="_blank">{{ product.store.name }}</a>
             </p>
             <a href="{{ path('product_detail', { '_category': product.category.urlName, '_url_name': product.urlName, '_id': product.id }) }}">
-                <img itemprop="image" class="card-img-top lazyload" data-src="{{ asset(product.image) }}" alt="{{ product.name|raw }}" src=""/>
+                <img itemprop="image" class="card-img-top lazyload" data-src="{{ asset(product.image) }}" alt="{{ product.name|raw }}" src="" width="199px" height="199px"/>
             </a>
             <div class="card-body">
                 <h4 itemprop="name" class="card-title">
