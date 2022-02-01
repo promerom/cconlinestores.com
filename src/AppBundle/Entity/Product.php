@@ -163,7 +163,7 @@ class Product
     {
         $this->name = $name;
 
-        $search = array(" ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!", "/", "\n", "®", chr(0xC2).chr(0xA0));
+        $search = array(",", ".", " ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!", "/", "\n", "®", chr(0xC2).chr(0xA0));
         $replace = array("-", "");
         $urlName = str_replace($search, $replace, $name);
         $urlName = $this->removeAccents($urlName);
