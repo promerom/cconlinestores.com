@@ -163,9 +163,15 @@ class Product
     {
         $this->name = $name;
 
-        $search = array(",", ".", ":", " ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!", "/", "\n", "®", chr(0xC2).chr(0xA0));
+        $search = array(" ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!", "/", "\n", "®", chr(0xC2).chr(0xA0));
         $replace = array("-", "");
         $urlName = str_replace($search, $replace, $name);
+
+        $search1 = array("|", ",", ".", ":");
+        $replace1 = "_";
+        $urlName = str_replace($search1, $replace1, $urlName);
+
+
         $urlName = $this->removeAccents($urlName);
         $urlName = strtolower($urlName);
 

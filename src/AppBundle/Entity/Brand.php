@@ -88,9 +88,14 @@ class Brand
     {
         $this->name = $name;
 
-        $search = array(",", ".", ":", " ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!", "/");
+        $search = array(" ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!", "/");
         $replace = array("-", "");
         $urlName = str_replace($search, $replace, $name);
+
+        $search1 = array("|", ",", ".", ":");
+        $replace1 = "_";
+        $urlName = str_replace($search1, $replace1, $urlName);
+
         $urlName = $this->removeAccents($urlName);
         $urlName = strtolower($urlName);
 
