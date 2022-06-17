@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DomCrawler\Crawler;
 use AppBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\Response;
+use AppBundle\Entity\CategoryMapping;
 
 class CrawlerController extends Controller
 {
@@ -219,45 +220,145 @@ class CrawlerController extends Controller
                 $_idCategory = $category->getId();
 
                 break;
+            case "meli_mco_search":
+
+                $items = $this->meliSearchBySite("MCO", urlencode("dia sin iva"));
+                $store = $doctrine->getRepository('AppBundle:Store')->findOneByName("MercadoLibre Colombia");
+
+                break;
+            case "meli_get_cat":
+                $importCategories = $this->importCategoriesMappingByMeli("MCO");
+                break;
             default:
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
                 break;
         endswitch;
 
-        $html = file_get_contents($url, true);
 
-        if ($html === false) {
-            error_log("getDataAction error " . $e->getMessage() . " / code / " . $e->getCode());
-            $response = new Response(json_encode($e->getMessage()));
+        if ($_idGetData == "meli_get_cat") {
+            $response = new Response(json_encode($importCategories));
             $response->headers->set('Content-Type', 'application/json');
+        } elseif ($_idGetData == "meli_mco_search") {
 
+            foreach ($items as $item) {
+                $id = $item->id;
+                $title = $item->title;
+                $price = $item->price;
+                $salePrice = $item->sale_price;
+                $currencyId = $item->currency_id;
+                $url = $item->permalink;
+                $img = $item->thumbnail;
+                $externalCatergoryId = $item->category_id;
+
+                $attributes = $item->attributes;
+
+                $brand = null;
+                foreach ($attributes as $key => $attribute) {
+                    if ($attribute->id == "BRAND") {
+                        $externalBrand = $attribute->value_name;
+
+                        if ($externalBrand) {
+                            $brand = $doctrine->getRepository('AppBundle:Brand')->findBrandThatContainsString($externalBrand);
+                        }
+                        break;
+                    }
+                }
+
+                $urlGetDescription = "https://api.mercadolibre.com/items/" . $id . "/description";
+                $itemDescription = @file_get_contents($urlGetDescription, true);
+
+                if (!empty($itemDescription)) {
+                    $itemDescriptionFromMeli = json_decode($itemDescription);
+                    $description = $itemDescriptionFromMeli->plain_text;
+                }
+
+                if (empty($description)) {
+                    $description = $title;
+                }
+
+                $product = new Product();
+                $doctrine = $this->getDoctrine();
+//var_dump($brand);
+
+                $item = $doctrine->getRepository("AppBundle:Product")->findOneByUrl($url);
+                if (!empty($item)) {
+                    $update = true;
+                    $product = $item;
+                    $product->setModified(new \DateTime());
+                }
+
+                $product->setName($title);
+                $product->setBrand($brand);
+                $shortDescription = mb_substr($description, 0, 250);
+                $product->setDescription($shortDescription . "...");
+                $product->setLongDescription($description);
+                $product->setPrice($price);
+                $product->setImage($img);
+                $product->setUrl($url);
+                $product->setOriginalUrl($url);
+                $product->setSpecialPrice($salePrice);
+
+                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByDescription($currencyId);
+                $product->setCurrency($currency);
+
+                $product->setStore($store);
+
+                $categoryMapping = $this->getCategoryFromMeli($externalCatergoryId);
+//MCO118449
+                if ($categoryMapping) {
+                    $category = $categoryMapping->getCategory();
+                }
+
+                $product->setCategory($category);
+
+                $em = $doctrine->getManager();
+                $em->persist($product);
+                $em->flush();
+//$catname = " ";
+//if ($product->getCategory()) $catname = " -- " . $product->getCategory()->getName() . "--";
+
+                $productsSended[] = $product->getName();
+            }
+
+            $response = new Response(json_encode($productsSended));
+            $response->headers->set('Content-Type', 'application/json');
         } else {
-            $crawler = new Crawler($html);
 
-//             $nodeValues = $crawler->filter('.col-main .products-grid .item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
 
-//                 $product = $this->parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory);
+            $html = file_get_contents($url, true);
 
-//                 return $product->getName();
+            if ($html === false) {
+                error_log("getDataAction error " . $e->getMessage() . " / code / " . $e->getCode());
+                $response = new Response(json_encode($e->getMessage()));
+                $response->headers->set('Content-Type', 'application/json');
 
-//             });
+            } else {
+                $crawler = new Crawler($html);
 
-            /**
-             * Crawler new Ktronix
-             */
-//             $nodeValues = $crawler->filter('.category-page .category-page--list .product__list--wrapper .product__listing.product__list .product__list--item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
-            $nodeValues = $crawler->filter('.category-page .product__list--wrapper .product__listing.product__list .product__list--item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
+    //             $nodeValues = $crawler->filter('.col-main .products-grid .item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
 
-                $product = $this->parseDataFromNewKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory);
+    //                 $product = $this->parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory);
 
-                return $product->getName();
+    //                 return $product->getName();
 
-            });
+    //             });
 
-            $response = new Response(json_encode($nodeValues));
-            $response->headers->set('Content-Type', 'application/json');
+                /**
+                 * Crawler new Ktronix
+                 */
+    //             $nodeValues = $crawler->filter('.category-page .category-page--list .product__list--wrapper .product__listing.product__list .product__list--item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
+                $nodeValues = $crawler->filter('.category-page .product__list--wrapper .product__listing.product__list .product__list--item')->each(function (Crawler $node, $i) use ($_idStore, $_idBrand, $_idCurrency, $_idCategory) {
+
+                    $product = $this->parseDataFromNewKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory);
+
+                    return $product->getName();
+
+                });
+
+                $response = new Response(json_encode($nodeValues));
+                $response->headers->set('Content-Type', 'application/json');
+            }
         }
-
 //         $html = file_get_contents($url);
 
         return $response;
@@ -555,4 +656,103 @@ class CrawlerController extends Controller
         return $nodeValues;
     }
 
+    private function meliSearchBySite($site, $searchTerm) {
+        $url = "https://api.mercadolibre.com/sites/" . $site . "/search?q=" . $searchTerm . "&limit=20";
+
+        $items = file_get_contents($url, true);
+        $itemsFromMeli = json_decode($items);
+
+        $products = $itemsFromMeli->results;
+        
+        return $products;
+    }
+
+    private function importCategoriesMappingByMeli($site) {
+        ///sites/$SITE_ID/search?category=$CATEGORY_ID
+        ///categories/$CATEGORY_ID
+
+        $url = "https://api.mercadolibre.com/sites/" . $site . "/categories";
+
+        $meliCategories = file_get_contents($url, true);
+
+        $categoriesFromMeli = json_decode($meliCategories);
+
+        foreach ($categoriesFromMeli as $category) {
+            
+            $externalId = $category->id;
+            $externalName = $category->name;
+
+            $categoryMapping = new CategoryMapping();
+            $doctrine = $this->getDoctrine();
+
+            $categoryMapping->setExternalId($externalId);
+            $categoryMapping->setDescription($externalName);
+
+            $item = $doctrine->getRepository("AppBundle:CategoryMapping")->findOneByExternalId($externalId);
+            if (!empty($item)) {
+                $update = true;
+                $categoryMapping = $item;
+                $date = new \DateTime();
+                $categoryMapping->setDescription($externalName . " " . $date->format('Y-m-d H:i:s'));
+            }
+
+            $em = $doctrine->getManager();
+            $em->persist($categoryMapping);
+            $em->flush();
+        }
+
+        return json_encode("Categorias externas incluidas en DB");
+    }
+
+    public function getCategoryFromMeli($externalCatergoryId, $flag = false)
+    {
+        $categoryMapping = $this->existsCategoryMapping($externalCatergoryId);
+
+        //echo "<br><div> $externalCatergoryId </div>";
+
+        if (empty($categoryMapping)) {
+
+            if ($flag == false) {
+                $categoryDataFromMeli = $this->getDataFromCategoryMeli($externalCatergoryId);
+
+                //var_dump($categoryDataFromMeli);
+                //echo "<br>";
+            }
+//var_dump($categoryDataFromMeli->path_from_root);
+            foreach ($categoryDataFromMeli->path_from_root as $key => $data) {
+                //$externalCatergoryId = $data->id;
+//echo $externalCatergoryId . "-" .$key . "<br>";
+                $categoryMapping = $this->existsCategoryMapping($data->id);
+
+                if (!empty($categoryMapping)) {
+                    //echo $categoryMapping->getCategory()->getId();
+                    $flag = true;
+                    return $categoryMapping;
+                }
+            }
+        } else {
+            return $categoryMapping;
+        }
+    }
+
+    public function existsCategoryMapping($externalCatergoryId)
+    {
+        $doctrine = $this->getDoctrine();
+        $categoryMapping = $doctrine->getRepository('AppBundle:CategoryMapping')->findOneByExternalId($externalCatergoryId);
+
+        if (!empty($categoryMapping) && empty($categoryMapping->getCategory())) {
+            $categoryMapping = null;
+        }
+
+        return $categoryMapping;
+    }
+
+    public function getDataFromCategoryMeli($externalCatergoryId)
+    {
+        $getDataFromExternalCategory = "https://api.mercadolibre.com/categories/" . $externalCatergoryId;
+        $categoryData = @file_get_contents($getDataFromExternalCategory, true);
+        $categoryDataFromMeli = json_decode($categoryData);
+
+        return $categoryDataFromMeli;
+    }
 }

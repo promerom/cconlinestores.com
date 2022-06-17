@@ -268,5 +268,5 @@ class SitemapsController extends Controller
             'urls'     => $urls,
             'hostname' => $hostname
         ));
-}
+    }
 }

@@ -74,7 +74,7 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\Brand", inversedBy="products")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $brand;
 
@@ -163,7 +163,7 @@ class Product
     {
         $this->name = $name;
 
-        $search = array(" ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!", "/", "\n", "®", chr(0xC2).chr(0xA0));
+        $search = array(" ", "'", '"', "+", "*", "´", "(", ")", "?", "¿", "¡", "!", "/", "\n", "®", "%", chr(0xC2).chr(0xA0));
         $replace = array("-", "");
         $urlName = str_replace($search, $replace, $name);
 

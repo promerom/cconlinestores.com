@@ -62,6 +62,11 @@ class Category
      */
     private $urlName;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CategoryMapping", mappedBy="category")
+     */
+    private $externalCategories;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
