@@ -657,7 +657,7 @@ class CrawlerController extends Controller
     }
 
     private function meliSearchBySite($site, $searchTerm) {
-        $url = "https://api.mercadolibre.com/sites/" . $site . "/search?q=" . $searchTerm . "&limit=20";
+        $url = "https://api.mercadolibre.com/sites/" . $site . "/search?q=" . $searchTerm . "&limit=50";
 
         $items = file_get_contents($url, true);
         $itemsFromMeli = json_decode($items);
