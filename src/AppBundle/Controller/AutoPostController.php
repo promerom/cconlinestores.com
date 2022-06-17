@@ -54,9 +54,12 @@ class AutoPostController extends Controller
 
             $hashtags = "#";
             $hashtags .= $item->getCategory()->getName();
-            $hashtags .= " #" . $item->getBrand()->getName();
+            if ($item->getBrand()) {
+                $hashtags .= " #" . $item->getBrand()->getName();
+            }
+            
             $hashtags .= " #" . $item->getStore()->getName();
-            $hashtags .= " #Blackfriday #Blackfriday2020 #blackdays";
+            $hashtags .= " #Blackfriday #Blackfriday2022 #blackdays #diasiniva";
 
             $contentMessage = $item->getName() . " " . $formatPrice . " " . $hashtags;
 
@@ -131,9 +134,12 @@ class AutoPostController extends Controller
 
             $hashtags = "#cconlinestore #";
             $hashtags .= $item->getCategory()->getName();
-            $hashtags .= " #" . $item->getBrand()->getName();
+            if ($item->getBrand()) {
+                $hashtags .= " #" . $item->getBrand()->getName();
+            }
+            
             $hashtags .= " #" . $item->getStore()->getName();
-            $hashtags .= " #Blackfriday #Blackfriday2020 #blackdays";
+            $hashtags .= " #Blackfriday #Blackfriday2022 #blackdays #diasiniva";
 
             $contentMessage = $item->getName() . " " . $formatPrice . " " . $hashtags;
 
