@@ -305,6 +305,7 @@ class CrawlerController extends Controller
 
                 $categoryMapping = $this->getCategoryFromMeli($externalCatergoryId);
 //MCO118449
+                $category = null;
                 if ($categoryMapping) {
                     $category = $categoryMapping->getCategory();
                 }
