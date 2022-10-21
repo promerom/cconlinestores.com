@@ -19,5 +19,6 @@
 composer.lock
 /web/error_log
 .htaccess
-composer.lock
 .pre-commit-config.yaml
+composer.lock
+*.lock
