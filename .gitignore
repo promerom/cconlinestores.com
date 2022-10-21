@@ -1,5 +1,6 @@
 /.web-server-pid
 /app/config/parameters.yml
+/app/config/parameters_dev.yml
 /build/
 /phpunit.xml
 /var/*
@@ -19,3 +20,4 @@ composer.lock
 /web/error_log
 .htaccess
 composer.lock
+.pre-commit-config.yaml

@@ -2,8 +2,8 @@ twig:
   globals:
     highlight:
       d1:
-        title: "BLACK FRIDAY"
-        description: "¡Black friday! Ofertas y descuentos online. Encuentra las mejores ofertas, descuentos y promociones en el Black Friday Colombia hoy."
+        title: "BLACK FRIDAY 2022"
+        description: "¡Black friday! Ofertas y descuentos online. Encuentra las mejores ofertas, descuentos y promociones en el Black Friday Colombia viernes 25 de Noviembre 2022."
         img: "img/deals/black-friday.png"
         link: "/blackfriday"
         store: ""

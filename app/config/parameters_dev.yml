@@ -1,12 +1,26 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: 127.0.0.1
-    database_port: null
-    database_name: cconlinestores
-    database_user: root
-    database_password: null
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
-    secret: ThisTokenIsNotSoSecretChangeIt
+  database_host: 127.0.0.1
+  database_port: null
+  database_name: cconlinestores
+  database_user: root
+  database_password: rootroot
+  mailer_transport: smtp
+  mailer_host: 127.0.0.1
+  mailer_user: null
+  mailer_password: null
+  secret: ThisTokenIsNotSoSecretChangeIt
+  publish_on:
+    - facebook
+    - linkedin
+    - twitter
+  providers_facebook_app_id: "525024014892347"
+  providers_facebook_app_secret: f165bafb5ce32af5e690ddcde6259971
+  providers_facebook_defaul_access_token: EAAHdga3nZCTsBAHzzZCjwypBrO2pBUUhlRut1xzdFMoMv36Bc0JmnMbcaVaOTVFOlu1Ibi3BZBCP5aJnOZAH7YgzrBHG7wLKumN909VuXadhV7QcTTUlZAHtXlZAhB25OQ7Rkdk6L6X6aj4ZAGF29e0IjNMlVMqpgFMcUtZCoa0tC2Wg2YlIlMV5
+  providers_facebook_page_id: "182679275999767"
+  providers_twitter_account: cconlinestores
+  providers_twitter_consumer_key: YOUR-TWITTER-APP-CONSUMER-KEY
+  providers_twitter_consumer_secret: YOUR-TWITTER-APP-CONSUMER-SECRET
+  providers_twitter_access_token: YOUR-TWITTER-ACCESS-TOKEN
+  providers_twitter_access_token_secret: YOUR-TWITTER-ACCESS-TOKEN-SECRET
+  ONESIGNAL_REST_API_KEY: ONESIGNAL_REST_API_KEY
