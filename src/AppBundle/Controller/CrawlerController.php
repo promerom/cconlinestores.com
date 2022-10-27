@@ -229,102 +229,25 @@ class CrawlerController extends Controller
             case "meli_get_cat":
                 $importCategories = $this->importCategoriesMappingByMeli("MCO");
                 break;
+			case "ebay_finding_api":
+				$response = new Response(json_encode("ebay"));
+				return $response;
+				break;
             default:
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
                 break;
         endswitch;
-
 
         if ($_idGetData == "meli_get_cat") {
             $response = new Response(json_encode($importCategories));
             $response->headers->set('Content-Type', 'application/json');
         } elseif ($_idGetData == "meli_mco_search") {
 
-            foreach ($items as $item) {
-                $id = $item->id;
-                $title = $item->title;
-                $price = $item->price;
-                $salePrice = $item->sale_price;
-                $currencyId = $item->currency_id;
-                $url = $item->permalink;
-                $img = $item->thumbnail;
-                $externalCatergoryId = $item->category_id;
+			$productsSended = $this->parseDataFromMeliMCO($items, $store);
 
-                $attributes = $item->attributes;
-
-                $brand = null;
-                foreach ($attributes as $key => $attribute) {
-                    if ($attribute->id == "BRAND") {
-                        $externalBrand = $attribute->value_name;
-
-                        if ($externalBrand) {
-                            $brand = $doctrine->getRepository('AppBundle:Brand')->findBrandThatContainsString($externalBrand);
-                        }
-                        break;
-                    }
-                }
-
-                $urlGetDescription = "https://api.mercadolibre.com/items/" . $id . "/description";
-                $itemDescription = @file_get_contents($urlGetDescription, true);
-
-                if (!empty($itemDescription)) {
-                    $itemDescriptionFromMeli = json_decode($itemDescription);
-                    $description = $itemDescriptionFromMeli->plain_text;
-                }
-
-                if (empty($description)) {
-                    $description = $title;
-                }
-
-                $product = new Product();
-                $doctrine = $this->getDoctrine();
-//var_dump($brand);
-
-                $item = $doctrine->getRepository("AppBundle:Product")->findOneByUrl($url);
-                if (!empty($item)) {
-                    $update = true;
-                    $product = $item;
-                    $product->setModified(new \DateTime());
-                }
-
-                $product->setName($title);
-                $product->setBrand($brand);
-                $shortDescription = mb_substr($description, 0, 250);
-                $product->setDescription($shortDescription . "...");
-                $product->setLongDescription($description);
-                $product->setPrice($price);
-                $product->setImage($img);
-                $product->setUrl($url);
-                $product->setOriginalUrl($url);
-                $product->setSpecialPrice($salePrice);
-
-                $currency = $doctrine->getRepository('AppBundle:Currency')->findOneByDescription($currencyId);
-                $product->setCurrency($currency);
-
-                $product->setStore($store);
-
-                $categoryMapping = $this->getCategoryFromMeli($externalCatergoryId);
-//MCO118449
-                $category = null;
-                if ($categoryMapping) {
-                    $category = $categoryMapping->getCategory();
-                }
-
-                $product->setCategory($category);
-
-                $em = $doctrine->getManager();
-                $em->persist($product);
-                $em->flush();
-//$catname = " ";
-//if ($product->getCategory()) $catname = " -- " . $product->getCategory()->getName() . "--";
-
-                $productsSended[] = $product->getName();
-            }
-
-            $response = new Response(json_encode($productsSended));
+			$response = new Response(json_encode($productsSended));
             $response->headers->set('Content-Type', 'application/json');
         } else {
-
 
             $html = file_get_contents($url, true);
 
@@ -369,7 +292,109 @@ class CrawlerController extends Controller
 //         ));
     }
 
-    private function parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory) {
+	/**
+	 * @param $data
+	 * @return void
+	 */
+	public function persistData($data): void
+	{
+		$doctrine = $this->getDoctrine();
+		$em = $doctrine->getManager();
+		$em->persist($data);
+		$em->flush();
+	}
+
+	/**
+	 * @param $items
+	 * @param $store
+	 * @return array
+	 */
+	public function parseDataFromMeliMCO($items, $store): array
+	{
+		$doctrine = $this->getDoctrine();
+		foreach ($items as $item) {
+			$id = $item->id;
+			$title = $item->title;
+			$price = $item->price;
+			$salePrice = $item->sale_price;
+			$currencyId = $item->currency_id;
+			$url = $item->permalink;
+			$img = $item->thumbnail;
+			$externalCatergoryId = $item->category_id;
+
+			$attributes = $item->attributes;
+
+			$brand = null;
+			foreach ($attributes as $key => $attribute) {
+				if ($attribute->id == "BRAND") {
+					$externalBrand = $attribute->value_name;
+
+					if ($externalBrand) {
+						$brand = $doctrine->getRepository('AppBundle:Brand')->findBrandThatContainsString($externalBrand);
+					}
+					break;
+				}
+			}
+
+			$urlGetDescription = "https://api.mercadolibre.com/items/" . $id . "/description";
+			$itemDescription = @file_get_contents($urlGetDescription, true);
+
+			if (!empty($itemDescription)) {
+				$itemDescriptionFromMeli = json_decode($itemDescription);
+				$description = $itemDescriptionFromMeli->plain_text;
+			}
+
+			if (empty($description)) {
+				$description = $title;
+			}
+
+			$product = new Product();
+			//$doctrine = $this->getDoctrine();
+//var_dump($brand);
+
+			$item = $doctrine->getRepository("AppBundle:Product")->findOneByUrl($url);
+			if (!empty($item)) {
+				$update = true;
+				$product = $item;
+				$product->setModified(new \DateTime());
+			}
+
+			$product->setName($title);
+			$product->setBrand($brand);
+			$shortDescription = mb_substr($description, 0, 250);
+			$product->setDescription($shortDescription . "...");
+			$product->setLongDescription($description);
+			$product->setPrice($price);
+			$product->setImage($img);
+			$product->setUrl($url);
+			$product->setOriginalUrl($url);
+			$product->setSpecialPrice($salePrice);
+
+			$currency = $doctrine->getRepository('AppBundle:Currency')->findOneByDescription($currencyId);
+			$product->setCurrency($currency);
+
+			$product->setStore($store);
+
+			$categoryMapping = $this->getCategoryFromMeli($externalCatergoryId);
+//MCO118449
+			$category = null;
+			if ($categoryMapping) {
+				$category = $categoryMapping->getCategory();
+			}
+
+			$product->setCategory($category);
+
+			$this->persistData($product);
+
+//$catname = " ";
+//if ($product->getCategory()) $catname = " -- " . $product->getCategory()->getName() . "--";
+
+			$productsSended[] = $product->getName();
+		}
+		return $productsSended;
+	}
+
+	private function parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory) {
         $productName = $node->filter(".product-name a");
         $productImg = $node->filter(".product-image img");
         $oldPrice = $node->filter(".price-box .old-price .price-old");
@@ -454,9 +479,7 @@ class CrawlerController extends Controller
         $product->setCategory($category);
 
 //         if (!isset($update)) {
-            $em = $doctrine->getManager();
-            $em->persist($product);
-            $em->flush();
+		$this->persistData($product);
 //         }
 
         return $product;
@@ -621,10 +644,8 @@ class CrawlerController extends Controller
         $product->setCategory($category);
 
         //         if (!isset($update)) {
-        $em = $doctrine->getManager();
-        $em->persist($product);
-        $em->flush();
-        //         }
+		$this->persistData($product);
+		//         }
 
         return $product;
     }
@@ -664,7 +685,7 @@ class CrawlerController extends Controller
         $itemsFromMeli = json_decode($items);
 
         $products = $itemsFromMeli->results;
-        
+
         return $products;
     }
 
@@ -679,7 +700,7 @@ class CrawlerController extends Controller
         $categoriesFromMeli = json_decode($meliCategories);
 
         foreach ($categoriesFromMeli as $category) {
-            
+
             $externalId = $category->id;
             $externalName = $category->name;
 
@@ -697,10 +718,8 @@ class CrawlerController extends Controller
                 $categoryMapping->setDescription($externalName . " " . $date->format('Y-m-d H:i:s'));
             }
 
-            $em = $doctrine->getManager();
-            $em->persist($categoryMapping);
-            $em->flush();
-        }
+			$this->persistData($categoryMapping);
+		}
 
         return json_encode("Categorias externas incluidas en DB");
     }
