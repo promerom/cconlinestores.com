@@ -57,7 +57,7 @@ class AutoPostController extends Controller
             if ($item->getBrand()) {
                 $hashtags .= " #" . $item->getBrand()->getName();
             }
-            
+
             $hashtags .= " #" . $item->getStore()->getName();
             $hashtags .= " #Blackfriday #Blackfriday2022 #blackdays #diasiniva";
 
@@ -106,6 +106,8 @@ class AutoPostController extends Controller
          */
         $item = $doctrine->getRepository("AppBundle:Product")->findOneBy(array("postOnTwitter" => null), array("modified" => "DESC"));
 
+		var_dump($item->getName());
+
         if (!is_null($item)){
             $url = $this->get('router')->generate('product_detail',
                 array(
@@ -137,7 +139,7 @@ class AutoPostController extends Controller
             if ($item->getBrand()) {
                 $hashtags .= " #" . $item->getBrand()->getName();
             }
-            
+
             $hashtags .= " #" . $item->getStore()->getName();
             $hashtags .= " #Blackfriday #Blackfriday2022 #blackdays #diasiniva";
 
@@ -158,7 +160,7 @@ class AutoPostController extends Controller
 
                 $item->setPostOnTwitter(true);
                 $em = $doctrine->getManager();
-                $em->persist($item);
+                //$em->persist($item);
                 $em->flush();
 
                 $response = new Response(json_encode($contentMessage . " RESPONSE: " . $responseMsg));
