@@ -686,7 +686,7 @@ class CrawlerController extends Controller
 	 */
 	public function getEbayAppName(): string
 	{
-		return "PlinioRo-cconline-SBX-bd28d4866-e50e3ae1";
+		return $this->container->getParameter("EBAY_APP_NAME");
 
 	}
 
