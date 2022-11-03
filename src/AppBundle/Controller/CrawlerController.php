@@ -295,7 +295,7 @@ class CrawlerController extends Controller
 
 				$getParams = [
 					"OPERATION-NAME" => "findItemsByKeywords",
-					"SECURITY-APPNAME" => "PlinioRo-cconline-SBX-bd28d4866-e50e3ae1",
+					"SECURITY-APPNAME" => $this->getEbayAppName(),
 					"RESPONSE-DATA-FORMAT" => "JSON",
 					"REST-PAYLOAD" => "",
 					"keywords" => $_GET['keywords'] ?? "smartphone",
@@ -679,6 +679,15 @@ class CrawlerController extends Controller
 	{
 		$url = $this->container->getParameter("EBAY_DOMAIN_2");
 		return $url;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEbayAppName(): string
+	{
+		return "PlinioRo-cconline-SBX-bd28d4866-e50e3ae1";
+
 	}
 
 	private function parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory) {
