@@ -25,6 +25,7 @@ $kernel = new AppKernel('dev', true);
 if (PHP_VERSION_ID < 70000) {
     $kernel->loadClassCache();
 }
+set_time_limit(300);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();

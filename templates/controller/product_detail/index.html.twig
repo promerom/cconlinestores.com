@@ -94,8 +94,17 @@
     <!-- Call to Action Well -->
     <div class="card text-white bg-secondary my-4 text-center">
         <div class="card-body">
-            <p class="text-white m-0">Ver más {{ product.category.name }} en 
-                <a href="{{ product.brand.url }}" target="_blank" type="button" class="text-warning stretched-link">{{ product.brand.name }}</a>
+            <p class="text-white m-0">Ver más {{ product.category.name }} en
+                {% if product.brand is empty %}
+                    {% set url = "/" ~ product.category.urlName %}
+                    {% set name = 'cconlinestores.com' %}
+                    {% set target = '' %}
+                {% else %}
+                    {% set url = product.brand.url %}
+                    {% set name = product.brand.name %}
+                    {% set target = 'target="_blank"' %}
+                {% endif %}
+                <a href="{{ url }}" {{ target }} type="button" class="text-warning stretched-link">{{ name }}</a>
             </p>
         </div>
     </div>
@@ -103,7 +112,7 @@
     {{ include("ads/in-article.html.twig") }}
 
     {{ include("controller/product_detail/featured.html.twig") }}
-    
+
 </div>
 <!-- /.container -->
 {% endblock %}

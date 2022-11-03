@@ -17,6 +17,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request, EntityManagerInterface $em)
     {
+		//echo phpinfo(); return false;
 //         $trm = file_get_contents("http://app.docm.co/prod/Dmservices/Utilities.svc/GetTRM", true);
 
         // replace this example code with whatever you need

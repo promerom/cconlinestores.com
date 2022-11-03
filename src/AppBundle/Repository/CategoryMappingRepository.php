@@ -10,4 +10,61 @@ namespace AppBundle\Repository;
  */
 class CategoryMappingRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function findEbayCategoriesByExternalId()
+	{
+		$em = $this->getEntityManager();
+
+		$dql = "SELECT b.externalId, b.description
+				FROM AppBundle:CategoryMapping b
+				WHERE b.externalId LIKE 'EBAY_%'
+				ORDER BY b.description";
+
+		$query = $em->createQuery($dql);
+
+		$result = $query->getResult();
+
+		return $result;
+	}
+
+	public function findEbayCategoriesByExternalIdPaginado($start = 0, $total = 2)
+	{
+		$em = $this->getEntityManager();
+
+		$dql = "SELECT b.externalId, b.description
+				FROM AppBundle:CategoryMapping b
+				WHERE b.externalId LIKE 'EBAY_CAT%'
+				ORDER BY b.description";
+
+		$query = $em->createQuery($dql);
+		$query->setFirstResult($start);
+		$query->setMaxResults($total);
+		//$query->setParameter('start', '%' . $start . '%');
+		//$query->setParameter('total', '%' . $total . '%');
+
+		$result = $query->getResult();
+
+		return $result;
+	}
+
+	public function findCategoryMappingFromEbayExternalId($externalId) {
+		$em = $this->getEntityManager();
+
+		$dql = "SELECT b.id, IDENTITY(b.category), b.externalId, b.description
+				FROM AppBundle:CategoryMapping b
+				WHERE b.externalId LIKE :externalId";
+
+		$query = $em->createQuery($dql);
+		$query->setParameter("externalId", "EBAY_%_" . $externalId . "_%");
+
+		$result = $query->getResult();
+
+		if (empty($result)) {
+			$result = null;
+		} else {
+			$categoryId = $result[0]["id"];
+			$result = $this->findOneById($categoryId);
+		}
+
+		return $result;
+	}
 }

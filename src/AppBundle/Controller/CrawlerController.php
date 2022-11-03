@@ -2,10 +2,15 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Store;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\RequestException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DomCrawler\Crawler;
 use AppBundle\Entity\Product;
+use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\CategoryMapping;
 
@@ -229,9 +234,76 @@ class CrawlerController extends Controller
             case "meli_get_cat":
                 $importCategories = $this->importCategoriesMappingByMeli("MCO");
                 break;
+			case "ebay_get_categories":
+				$category_tree_id = 0;
+				$ebayDomain = $this->getEbayDomain();
+
+				$url = "$ebayDomain/commerce/taxonomy/v1/category_tree/$category_tree_id";
+
+				$oauthEbayApplicationToken = $this->getEbayOauthApplicationToken();
+				$getHeaders = [
+					'Authorization' => 'Bearer ' . $oauthEbayApplicationToken
+				];
+				$importedCategories = $this->importCategoriesMappingByEbay($url, $getHeaders);
+				return $this->setResponse($importedCategories);
+				break;
+			case "ebay_get_subcategories":
+				$ebayDomain = $this->getEbayDomain();
+				$page = $_GET["page"];
+				$category_tree_id = 0;
+				//$category_id = 220;
+
+				//$ebayCategories = $doctrine->getRepository("AppBundle:CategoryMapping")->findCategoriesByExternalId();
+				$total = 3;
+				$start = ($page * $total) - $total;
+				//echo "start: " . $start . " total: " . $total . "<br>";
+				$ebayCategories = $doctrine->getRepository("AppBundle:CategoryMapping")->findEbayCategoriesByExternalIdPaginado($start, $total);
+				$importedSubcategories = array();
+				if (count($ebayCategories) == 0) {
+					$importedSubcategories = array("Se procesaron todas las categorias de Ebay, $total por pagina");
+				}
+
+				foreach ($ebayCategories as $ebayCategory) {
+				   $externalCategoryId = $ebayCategory["externalId"];
+
+				   $externalCategoryIdSeparado = explode("_", $externalCategoryId);
+
+				   $categoryExternalId = $externalCategoryIdSeparado[2];
+
+					$url = "$ebayDomain/commerce/taxonomy/v1/category_tree/$category_tree_id/get_category_subtree?category_id=$categoryExternalId";
+					$oauthEbayApplicationToken = $this->getEbayOauthApplicationToken();
+					$getHeaders = [
+						'Authorization' => 'Bearer ' . $oauthEbayApplicationToken
+					];
+					array_push($importedSubcategories, $this->importCategoriesMappingByEbay($url, $getHeaders));
+					//$importedSubcategories = $this->importCategoriesMappingByEbay($url, $getHeaders);
+					//echo $ebayCategory["description"] . " ID " . $ebayCategory["externalId"] . "<br>";
+					//echo count($importedSubcategories);
+					//var_dump($importedSubcategories);
+					//echo "<br>";
+				}
+
+				//echo count($importedSubcategories);
+				//return false;
+				//var_dump($importedSubcategories);return false;
+				return $this->setResponse($importedSubcategories);
+				break;
 			case "ebay_finding_api":
-				$response = new Response(json_encode("ebay"));
-				return $response;
+				$url = "https://svcs.sandbox.ebay.com/services/search/FindingService/v1";
+
+				$store = $doctrine->getRepository('AppBundle:Store')->findOneByName("eBay");
+
+				$getParams = [
+					"OPERATION-NAME" => "findItemsByKeywords",
+					"SECURITY-APPNAME" => "PlinioRo-cconline-SBX-bd28d4866-e50e3ae1",
+					"RESPONSE-DATA-FORMAT" => "JSON",
+					"REST-PAYLOAD" => "",
+					"keywords" => $_GET['keywords'] ?? "smartphone",
+					"paginationInput.entriesPerPage" => $_GET['results'] ?? 50
+				];
+
+				$response = $this->getDataFromEbayAndSaveInDB($url, $getParams, $store);
+				return $this->setResponse($response);
 				break;
             default:
                 $url = "https://www.ktronix.com/telefonos-celulares/celulares-libres/samsung";
@@ -239,22 +311,19 @@ class CrawlerController extends Controller
         endswitch;
 
         if ($_idGetData == "meli_get_cat") {
-            $response = new Response(json_encode($importCategories));
-            $response->headers->set('Content-Type', 'application/json');
-        } elseif ($_idGetData == "meli_mco_search") {
+			$response = $this->setResponse($importCategories);
+		} elseif ($_idGetData == "meli_mco_search") {
 
 			$productsSended = $this->parseDataFromMeliMCO($items, $store);
 
-			$response = new Response(json_encode($productsSended));
-            $response->headers->set('Content-Type', 'application/json');
+			$response = $this->setResponse($productsSended);
         } else {
 
             $html = file_get_contents($url, true);
 
             if ($html === false) {
                 error_log("getDataAction error " . $e->getMessage() . " / code / " . $e->getCode());
-                $response = new Response(json_encode($e->getMessage()));
-                $response->headers->set('Content-Type', 'application/json');
+				$response = $this->setResponse(array($e->getMessage()));
 
             } else {
                 $crawler = new Crawler($html);
@@ -279,9 +348,8 @@ class CrawlerController extends Controller
 
                 });
 
-                $response = new Response(json_encode($nodeValues));
-                $response->headers->set('Content-Type', 'application/json');
-            }
+				$response = $this->setResponse($nodeValues);
+			}
         }
 //         $html = file_get_contents($url);
 
@@ -392,6 +460,216 @@ class CrawlerController extends Controller
 			$productsSended[] = $product->getName();
 		}
 		return $productsSended;
+	}
+
+	/**
+	 * @param string $url
+	 * @param array $getParams
+	 * @param Store $store
+	 * @return array
+	 * @throws GuzzleException
+	 */
+	public function getDataFromEbayAndSaveInDB(string $url, array $getParams,Store $store)
+	{
+		//$client = new Client(['base_uri' => 'https://svcs.sandbox.ebay.com']);
+		$client = new Client();
+		try{
+			$res = $client->request('GET', $url, [
+				'query' => $getParams
+			]);
+		} catch (RequestException $e) {
+			$error = $e->getResponse()->getBody()->getContents();
+			error_log($error);
+			return array($e->getCode(), $e->getMessage());
+		}
+
+		$ebayResponse = json_decode($res->getBody()->getContents(), true);
+
+		//var_dump($ebayResponse["findItemsByKeywordsResponse"]);
+
+		$items = ($ebayResponse["findItemsByKeywordsResponse"][0]["searchResult"][0]["item"] ?? array());
+
+		$doctrine = $this->getDoctrine();
+
+		foreach ($items as $item) {
+			$itemId = $item["itemId"][0];
+			$title = $item["title"][0];
+			$externalCategoryName = $item["primaryCategory"][0]["categoryName"][0];
+			$externalCategoryId = $item["primaryCategory"][0]["categoryId"][0];
+			$url = $item["viewItemURL"][0];
+			$currencyId = $item["sellingStatus"][0]["currentPrice"][0]["@currencyId"];
+			$price = $item["sellingStatus"][0]["currentPrice"][0]["__value__"];
+			$img = $item["galleryURL"][0];
+
+			$brand = null;
+//var_dump($externalCategoryName);
+			$description = null;
+			if (empty($description)) {
+				$description = $title . " " . $externalCategoryName;
+			}
+
+			$product = new Product();
+
+			$itemExists = $doctrine->getRepository("AppBundle:Product")->findOneByOriginalUrl($url);
+			if (!empty($itemExists)) {
+				$update = true;
+				$product = $itemExists;
+				$product->setModified(new \DateTime());
+			}
+
+			$product->setName($title);
+			$product->setBrand($brand);
+			$shortDescription = mb_substr($description, 0, 250);
+			$product->setDescription($shortDescription . "...");
+			$product->setLongDescription($description);
+			$product->setPrice($price);
+			$product->setImage($img);
+			$product->setUrl($url);
+			$product->setOriginalUrl($url);
+			$product->setSpecialPrice($price);
+
+			if ($currencyId != "USD" && $currencyId != "COP") {
+				$currencyId = $item["sellingStatus"][0]["convertedCurrentPrice"][0]["@currencyId"];
+			}
+
+			$currency = $doctrine->getRepository('AppBundle:Currency')->findOneByDescription($currencyId);
+			$product->setCurrency($currency);
+
+			$product->setStore($store);
+
+			//$categoryMapping = $this->getCategoryFromMeli($externalCategoryId);
+
+			$categoryMapping = $doctrine->getRepository("AppBundle:CategoryMapping")->findCategoryMappingFromEbayExternalId($externalCategoryId);
+//MCO118449
+			if ($categoryMapping) {
+				$category = $categoryMapping->getCategory();
+			}
+
+			$product->setCategory($category);
+
+			$this->persistData($product);
+		}
+
+		return $items;
+	}
+
+	/**
+	 * @param array $data
+	 * @return Response
+	 */
+	public function setResponse(array $data): Response
+	{
+		$response = new Response(json_encode($data));
+		$response->headers->set('Content-Type', 'application/json');
+		return $response;
+	}
+
+	/**
+	 * @param $url
+	 * @param array $getHeaders
+	 * @return array
+	 * @throws GuzzleException
+	 */
+	public function importCategoriesMappingByEbay($url, array $getHeaders): array
+	{
+
+		try{
+			$client = new Client();
+			//var_dump($postHeaders);
+			$response = $client->request("GET", $url, [
+				'headers' => $getHeaders
+			]);
+
+			$ebayCategories = json_decode($response->getBody()->getContents(), true);
+
+			if (isset($ebayCategories["rootCategoryNode"])) {
+				$externalCategories = $ebayCategories["rootCategoryNode"]["childCategoryTreeNodes"];
+			} elseif (isset($ebayCategories["categorySubtreeNode"])) {
+				$externalCategories = $ebayCategories["categorySubtreeNode"]["childCategoryTreeNodes"];
+			}
+
+			$tmp = array();
+			$externalCategoriesFromEbay = $this->getCategoriesFromEbay($externalCategories, $tmp);
+			//echo count($externalCategoriesFromEbay);
+			foreach ($externalCategoriesFromEbay as $externalCategory) {
+				$externalCategoryId = $externalCategory["id"];
+				$externalCategoryName = $externalCategory["name"];
+
+				$categoryMapping = new CategoryMapping();
+				$doctrine = $this->getDoctrine();
+
+				$categoryMapping->setExternalId($externalCategoryId);
+				$categoryMapping->setDescription($externalCategoryName);
+				$otrasCategoriasCategory = $doctrine->getRepository("AppBundle:Category")->findOneByUrlName("otras-categorias");
+				$categoryMapping->setCategory($otrasCategoriasCategory);
+
+				$categoryInCategoryMapping = $doctrine->getRepository("AppBundle:CategoryMapping")->findOneByExternalId($externalCategoryId);
+				if (!empty($categoryInCategoryMapping)) {
+					$categoryMapping = $categoryInCategoryMapping;
+					$date = new \DateTime();
+					$categoryMapping->setDescription($externalCategoryName . " " . $date->format('Y-m-d H:i:s'));
+				}
+
+				$this->persistData($categoryMapping);
+			}
+			//var_dump($externalCategoriesFromEbay);
+			return $externalCategoriesFromEbay;
+		}catch (RequestException $e) {
+			$error = $e->getResponse()->getBody()->getContents();
+			error_log($error);
+			return array($error, $e->getCode(), $e->getMessage());
+		}
+
+		return json_encode("Categorias externas by eBay incluidas en DB");
+	}
+
+	/**
+	 * @param $externalCategories
+	 * @param $ebayCategories
+	 * @return array
+	 */
+	public function getCategoriesFromEbay($externalCategories, &$ebayCategories): array
+	{
+		foreach ($externalCategories as $key => $externalCategory) {
+			$externalCategoryName = $externalCategory["category"]["categoryName"];
+			$externalCategoryId = $externalCategory["category"]["categoryId"];
+			$isSubcategory = 'CAT_' . $externalCategoryId;
+
+			if (isset($externalCategory["categoryTreeNodeLevel"]) && $externalCategory["categoryTreeNodeLevel"] != 1){
+				$isSubcategory = 'SUBCAT_' . $externalCategoryId . '_' .  $externalCategory["categoryTreeNodeLevel"];
+			}
+
+			$ebayCategories[] = [
+				"id" => "EBAY_$isSubcategory",
+				"name" => $externalCategoryName
+			];
+			//echo $keyForExternalCategories . " -- ";
+			//$keyForExternalCategories++;
+			//echo count($ebayCategories); echo "<br>";
+			//echo $externalCategoryName . "<br>";
+
+			if (isset($externalCategory["categoryTreeNodeLevel"]) && $externalCategory["categoryTreeNodeLevel"] != 1 && !isset($externalCategory["leafCategoryTreeNode"]) && $externalSubcategories = $externalCategory["childCategoryTreeNodes"]) {
+				$this->getCategoriesFromEbay($externalSubcategories, $ebayCategories);
+			}
+		}
+
+		return $ebayCategories;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEbayOauthApplicationToken(): string
+	{
+		return "v^1.1#i^1#f^0#I^3#r^0#p^1#t^H4sIAAAAAAAAAOVYe2wURRjv9dqSChVFgzyqnEuJwbp7++q1t3IXrpTaQh9Hrx5QFdjHXLvc3e6yM0t7RUm5kCZqiI8IiaIGE4PRhCAaSSBpMCGiEkIEiREkGFB81AQE46OaEGf3SrlWAi09YxP7z3Vmvu+b7/eb7zGzdE9R8YO9db2/l7gm5e/ooXvyXS5mMl1cVFh+uzt/VmEenSXg2tFT1lOQdv+wAIrJhCG0AGjoGgSermRCg4IzGSAsUxN0EapQ0MQkgAKShUiosUFgKVowTB3psp4gPPU1AYIXK4GP4yoUVvFXKLKEZ7WrNlv1ABHjeNqH1yRFlOVKwOJ1CC1Qr0EkaihAsDTLkgxD0mwrwwsVnMD4KR9T2UZ4osCEqq5hEYomgo67gqNrZvl6Y1dFCIGJsBEiWB+qjTSH6msWN7Uu8GbZCg7yEEEisuDw0SJdAZ6omLDAjbeBjrQQsWQZQEh4g5kdhhsVQleduQX3HapZwFUqksgoil9mFB+dEyprdTMpohv7Yc+oChlzRAWgIRWlbsYoZkNaC2Q0OGrCJuprPPbPMktMqDEVmAFicXVoZSgcJoLhhKqpeotOyrKu4f8BGaleQUoKW6XwVT4fCSpowImAGdwoY22Q5hE7LdI1RbVJg54mHVUD7DUYyQ2fxQ0WataazVAM2R5ly/mGOGTa7EPNnKKFOjT7XEESE+Fxhjc/gSFthExVshAYsjBywaEoQIiGoSrEyEUnFgfDpwsGiA6EDMHr7ezspDo5SjfbvSxNM94VjQ0RuQMkRQLL2rmekVdvrkCqDhQZYE2oCihlYF+6cKxiB7R2Isj5eT/jG+R9uFvBkbP/mMjC7B2eEbnKEE6hJZ7lcZbwMV6K5SJBgoMx6rXdAJKYIpOiGQfISIgyIHG0QisJTFURuIoYy1XFAKn4/DGS98dipFSh+EgmBgANgCTJ/qr/U56MNtIjQDYBykmo5yzMy9e21K5b3rZEg93dreV8ebwlWbc27I81NnJROlkTb5LarEZ9PXpkWXtgtMlwXfCLEipmphXvP/FyvU6HCCjjgheRdQOE9YQqpybWAXOmEhZNlKq2UngcAQmcS+3jghoyjPrcFOycgRxjsbg13LlrVP9Rk7ouKmgH7sRCZetDbEA0VMruQ3auU7Ke9OoivoPY06sdrz0jBa8n5JWsFNVuAYiwJwq+Bo5aScXFnMItTRm9SqZhYhCjV8FvDMWS0S1t5HRmCrOptncgOKY9u8ZDimQl4uMKOhW/HSZUyGG4Gdyqkrn0Uw54Cq6XKRNA3TLxe4dqtu/ArXocaPhKgUw9kQBmdHxFxS6myaSFRCkBJlpVzUF1UcUx3ncK0q5P/21cjM9XydN0pd8/Lmyyc6NZPdF6Qq574RieNt7hH1qCec4fk3b10WnXvnyXi66kSaacnl/kfrTAPYWAuJpQUNQUSe+iVDFG4UKmicgyARUHKUNUzfwil3rqhPxH1ieeHU/QM4Y+8hS7mclZX3zo0msrhczUe0pYlmFoluErOMbfRs+9tlrATC+4+8Wo96QR3fzV3ndOfVGw5ae3ekse+4guGRJyuQrzcDzmcbNXSfdfeeVi++Odr5+/69XvLqYXfDLP7P9w5YHwVurnb8qXXjo/Z8NA8bIPjn97YcnGhVPeXbVESl85Pe+cxmw/ZtQdDM/pn3T4s/tO5V/uH3gvXiYdef/ssbNTLx69wzPr+ImDh7bpfet+eamxeJN7V2nZmnTrm9u2wIXR2840PK88NdX99rN/Pn10zvSNXXvv1P5atylv9q6T0uaC0/T+75/8Ub6Sng/jRE03TLXM3Z/XR9+7e+nxh7/ceeRS/ufLXSunvbZ66/pfg7Uz9s18YOChsmhf5+Xdh94onfEcmLTn3Inq3mlnpJni4c0NBzy/bXEf+7r2QtHLAx+37MnT+rv57e4XnmnbsHtndM3p0swx/g3d0s0KfBMAAA==";
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEbayDomain(): string
+	{
+		return $this->container->getParameter("EBAY_DOMAIN");
 	}
 
 	private function parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory) {
