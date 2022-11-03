@@ -30,3 +30,4 @@ parameters:
     providers_twitter_access_token_secret: "YOUR-TWITTER-ACCESS-TOKEN-SECRET"
     ONESIGNAL_REST_API_KEY: ONESIGNAL_REST_API_KEY
     EBAY_DOMAIN: "https://api.sandbox.ebay.com"
+    EBAY_DOMAIN_2: "https://svcs.sandbox.ebay.com/services/search/FindingService/v1"

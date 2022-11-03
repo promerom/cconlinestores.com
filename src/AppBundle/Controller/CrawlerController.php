@@ -289,7 +289,7 @@ class CrawlerController extends Controller
 				return $this->setResponse($importedSubcategories);
 				break;
 			case "ebay_finding_api":
-				$url = "https://svcs.sandbox.ebay.com/services/search/FindingService/v1";
+				$url = $this->getEbayDomain2();
 
 				$store = $doctrine->getRepository('AppBundle:Store')->findOneByName("eBay");
 
@@ -670,6 +670,15 @@ class CrawlerController extends Controller
 	public function getEbayDomain(): string
 	{
 		return $this->container->getParameter("EBAY_DOMAIN");
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEbayDomain2(): string
+	{
+		$url = $this->container->getParameter("EBAY_DOMAIN_2");
+		return $url;
 	}
 
 	private function parseDataFromKtronix($node, $_idStore, $_idBrand, $_idCurrency, $_idCategory) {
