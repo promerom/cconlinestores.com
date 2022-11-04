@@ -9,6 +9,8 @@
 
         {{ include('ads/search.html.twig') }}
 
+        {{ include('ads/ebay/banner-blackfriday2022.html.twig') }}
+
 {#         {{ include('ads/amazon/products.html.twig') }}#}
 
         {% for category in categories %}
@@ -54,13 +56,13 @@ $(document).ready(function(event){
         var data_src = $( this ).attr("data-src");
         $(this).attr("src", data_src);
     });
-    
+
     //FUNCION
 //  console.log('Contenido cargado');
 //  lazyload();
 
     setTimeout(
-  function() 
+  function()
   {
     //do something special
 //     var cont = 0;
@@ -102,7 +104,7 @@ $(document).ready(function(event){
 //     } else {
 //         console.log('No success.')
 //     }
-    
+
     //sacamos el desplazamiento actual de la página
 //     var desplazamientoActual = $(document).scrollTop();
     //accedemos al control de "ir arriba"
@@ -120,4 +122,3 @@ $(document).ready(function(event){
 
 </script>
 {% endblock %}
-
