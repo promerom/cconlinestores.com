@@ -85,7 +85,11 @@
         <div class="col-lg-12">
             <h2>Especificaciones y características</h2>
             <p>{{ product.description|raw }}</p>
-            <a class="btn btn-primary btn-lg btn-block" href="{{ product.url }}" target="_blank">Comprar en {{ product.store.name }}</a>
+            {% if product.store.urlName == "ebay" %}
+                <a class="btn btn-primary btn-lg btn-block" href="{{ product.url }}?mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5338962908&customid=cconlinestoresexitlink&toolid=10001&mkevt=1" target="_blank">Comprar en {{ product.store.name }}</a>
+            {% else %}
+                <a class="btn btn-primary btn-lg btn-block" href="{{ product.url }}" target="_blank">Comprar en {{ product.store.name }}</a>
+            {% endif %}
         </div>
     <!-- /.col-md-4 -->
     </div>
